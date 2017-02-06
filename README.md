@@ -3,15 +3,15 @@
 
 1- Gazebo
 
- - Follow all the step by step tutorial at: http://gazebosim.org/tutorials
+ - Follow all the step by step tutorials at: http://gazebosim.org/tutorials
 
- For a cold start, follow just http://gazebosim.org/tutorials?tut=ros_installing&cat=connect_ros
+ 	Cold start, just follow http://gazebosim.org/tutorials?tut=ros_installing&cat=connect_ros
 
  - Add 3D models to Gazebo 
 
-Add folders in the models directory to your: 
+	Add folders in the models directory to your: 
 	~/.gazebo/models/
-Gazebo will be able to see them 
+	Gazebo will be able to see them 
 
 2- RosJava:
  
