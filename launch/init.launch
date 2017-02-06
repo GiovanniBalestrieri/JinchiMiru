@@ -1,0 +1,15 @@
+<launch>
+
+	<!-- Coordinator replace your package name -->
+	<node name="coordinator_node" pkg="mybot_description" type="coordinator.py" output="screen">
+	</node>
+
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">                   <arg name="world_name" value="$(find mybot_gazebo)/worlds/bar_empty.sdf"/>
+        </include>
+
+	<!-- SemanticMapHandler -->
+	<node pkg="huric" type="execute" name="my_pub_sub_tutorial" output="screen" args="com.github.rosjava.huric.my_pub_sub_tutorial.SemanticMapInterface"/>
+
+
+</launch>
+
