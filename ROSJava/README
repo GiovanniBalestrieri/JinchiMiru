@@ -1,0 +1,45 @@
+
+
+Prerequisites:
+
+- Install RosJava 
+ 	link: http://wiki.ros.org/rosjava/Tutorials
+
+
+- Follow from points 1 to 6 of Section 1.2 Catkin RosJava Workspaces
+
+- Include Jena Libraries
+
+Add in the build.gradle of your subpackage i.e. my_sub_pub_tutorial
+
+
+	dependencies {
+	  /* An external maven artifact dependency */
+	  compile 'org.ros.rosjava_core:rosjava:[0.2,0.3)'
+	  /* Example of a local subproject dependency */ 
+	  compile group: 'xerces', name: 'xercesImpl', version: '2.11.0'
+	  compile files('jena-core-3.1.0.jar') 
+	  compile files('slf4j-api-1.7.21.jar') 
+	  compile files('slf4j-simple-1.7.21.jar') 
+	  /* For a quick start include all jars */
+	  compile fileTree(dir: 'lib', include: '*.jar')
+	}
+
+
+	/*
+	 * Create a deploy task to make an executable named "execute",
+	 * that can be used from the roslaunch .launch files.
+	 * To run this from this directory, do:
+	 */
+	task deployApp(dependsOn: 'installApp') << {
+	  File binDir = new File(project.projectDir, '/bin')
+	  if (! binDir.isDirectory()) {
+	    println "Creating $binDir directory"
+	    binDir.mkdirs()
+	  }
+	  File link = new File(binDir,"execute")
+	  File target = new File(project.projectDir, "build/install/$project.name/bin/$project.name")
+	  println "Creating symlink from $link.absolutePath to $target.absolutePath"
+	  ant.symlink(link: link.absolutePath, resource: target.absolutePath, overwrite: true)
+	}
+
