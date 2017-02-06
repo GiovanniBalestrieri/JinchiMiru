@@ -1,0 +1,224 @@
+\begin{abstract}
+This paper is an academic final report for the Artificial Intelligence course. The goal of the project is to implement a Ros module for building high-level representations of the environment that embody both metric and symbolic knowledge about it. A key issue in the interaction with robots is to establish a proper relationship between the symbols used in the representation and the corresponding elements of the operational environment.
+\end{abstract}	
+
+\section{Introduction}
+
+Robotics is in an exciting stage and human machine interaction is being intensively studied.
+Robots are expected to get closely involved into human life as they are being marketed for commercial applications such as telepresence, service or entertainment. However, although they are expected to become consumer products, there is still a gap in terms of user expectations and robot functionalities. A key limiting factor is the lack of awareness of the robot on the operational environment.
+This project investigates several strategies to integrate a knowledge base in the ROS framework. The implemented system provides knowledge processing capabilities that combine knowledge representation and reasoning methods to manipulate and interact with physical objects of the operational milieu through an \textit{API system} and a graphical interface.\\
+
+ADD ROADMAP
+%In order to react to a user command a number of implicit assumptions should be made. 
+
+%The correct interpretation of the spoken sentences depends on the physical, cognitive and linguistic aspects triggered by the operational environment.
+
+%``take the book on the table ''
+
+%First, at least two entities, a book and a table, must exist in the environment and the speaker must be aware
+%of such entities. Accordingly, the robot must have access to
+%an inner representation of the objects, e.g. an explicit map of
+%the environment.
+%The perception of the environment that explicitly affects linguistic reasoning.
+%In the ontology based approach, OWL is used to model a Reference Ontology, while RDFS  is used  to  model schemas  to  be mapped. 
+
+
+\subsection{Objectives}
+\begin{enumerate}
+\item Integrate a knowledge base in ROS,
+\item Create a node to Parse owl files in ROS environment,
+\item Consistency check of ontology,
+\item Reasoner invocation,
+\item Make the ROS environment aware of object's instances,
+\item Graphical representation of the objects in the scene,
+\item Insert new instance of object in the scene and check for consistency,
+\item Delete instance and check for consistency,
+\item List instances,
+\item Graphical Scene configuration from Gazebo and automatic Abox update
+\item Export current Abox in owl or different formats.
+\end{enumerate}
+
+\subsection{Project Schedule}
+A public git repository is available at the following \href{https://github.com/GiovanniBalestrieri/JinchiMiru}{github page}
+\small
+\noindent 
+\begin{center}
+\makesavenoteenv{tabular}
+    \begin{tabular}{ | l | p{4cm} | p{4cm} | p{5cm} |}
+    \hline
+    Week & General Task & Documentation & Implementation \\ \hline
+    1 &  \begin{itemize} 
+    \item Perform a literature review on the previous HuRIC
+     publications
+     \end{itemize} & 
+	\begin{itemize}
+     \item  Knowledge representation and Reasoning \cite{bib11}
+     \item  Huric papers
+      \cite{bib1},\cite{bib2},\cite{bib3},\cite{bib4}, \cite{bib5}
+	\end{itemize} & \\ \hline
+    2 & \begin{itemize}
+     \item Literature review of ROS compatible triple store
+     \item ROS compatible simulation environments
+	\end{itemize}     
+     & \begin{itemize}
+     \item ROS Documentation \cite{bib6}, \cite{bib7}
+     \item ROS compatible simulation environments \cite{bib8}, \cite{bib9}
+	\end{itemize}   & 
+	\begin{itemize} 
+	\item Set up ROS environment.
+	\item Brainstorm Software Architecture
+	\end{itemize}\\ \hline
+    3 & \begin{itemize}
+     \item Literature review of RDFlib based papers
+     \item Test of Gazebo Simulator
+     \end{itemize}  & 
+     \begin{itemize}
+     \item Full Training session on Gazebo Simulator \cite{bib10} 
+     \item Python library RDFLib test 
+     \end{itemize} & 
+     \begin{itemize}
+     \item Test Json Parser node
+     \item Populate a scene from json files. 
+     \end{itemize} \\ \hline
+    4 & \begin{itemize}
+     \item Kinect pointcloud literature review
+     \item Object recognition papers review
+     \end{itemize}  & 
+     \begin{itemize}
+     \item PointCloudLibrary documentation \cite{bib16}
+     \item Python SciPy library classifier documentation
+     \end{itemize}
+      & \begin{itemize}
+     \item Parse test KnowledgeBase owl file with RDFLib
+     \item Clear scene script in Gazebo.
+     \end{itemize}  \\
+    \hline
+    5 & \begin{itemize}
+     \item Integrate classification algorithms
+     \item Optimize python code and ROS environment.
+     \end{itemize} 
+     & \begin{itemize}
+     \item ROS + PCL integration
+     \item RDF library deep inspection
+     \end{itemize} 
+      & \begin{itemize}
+     \item Analyze pointcloud from kinect
+     \item Scene analysis, plane segmentation
+     \item Object recognition, vote classifier
+     \end{itemize}  \\
+    \hline
+    6 & \begin{itemize}
+     \item Owl Reasoner integration
+     \item Test RDFlib and Apache Jena
+     \end{itemize} 
+     & \begin{itemize}
+     \item RDF lib documentation
+     \item Apache Jena Fuseki Documentation \cite{bib15}
+     \end{itemize} 
+      & \begin{itemize}
+     \item Create init node
+     \item Spawn models script
+     \item Remove models script
+     \item Apache Jena basic setup
+    \end{itemize}  \\
+    \hline
+    \end{tabular}
+\end{center}
+
+
+\begin{center}
+\makesavenoteenv{tabular}
+    \begin{tabular}{ | l | p{4cm} | p{4cm} | p{5cm} |}
+    \hline
+    Week & General Task & Documentation & Implementation \\ \hline
+    7 & \begin{itemize}
+     \item Consistency check
+     \item RosJava integration
+     \item Jena Ontology Api
+     \end{itemize} 
+     & \begin{itemize}
+     \item RosJava guidelines \cite{bib12}
+     \item Apache Jena Ontology Api \cite{bib13}
+     \end{itemize} 
+      & \begin{itemize}
+     \item Integrate RosJava in Ros.
+     \item Follow Jena Ontology Api tutorial. Basic rdf manipulation
+    \end{itemize}  \\
+    \hline
+    8 & \begin{itemize}
+     \item Consistency check
+     \end{itemize} 
+     & \begin{itemize}
+     \item RosJava guidelines \cite{bib12}
+     \item Jena Reasoner Documentation \cite{bib14}
+     \end{itemize} 
+      & \begin{itemize}
+     \item Implement consistency check with Jena.
+     \item Integrate Jena libraries in ROS
+     \item Reasoner invocation in ROS.
+    \end{itemize}  \\
+    \hline
+    9 & \begin{itemize}
+     \item Owl A-box extraction
+     \item Specialize Reasoner on Tbox
+     \end{itemize} 
+     & \begin{itemize}
+     \item RDFlib export documentation     
+     \item Jena Reasoner documentation     
+     \end{itemize}
+      & \begin{itemize}
+     \item Implement A-box generator Jena
+     \item Retrieve information about instances     
+    \end{itemize}  \\
+    \hline
+    10 & \begin{itemize}
+     \item Get info about model in Gazebo 
+     \item Specialize Reasoner on Tbox
+     \end{itemize} 
+     & \begin{itemize}
+     \item Programming Robots with Ros \cite{bib9}      
+     \item Gazebo Documentation \cite{bib10}    
+     \end{itemize}
+      & \begin{itemize}
+     \item Subscribe to gazebo modelStates in ROSJava
+     \item Call spawn model service from ROSJava
+    \end{itemize}  \\
+    \hline
+    11 & \begin{itemize}
+     \item SPARQL queries Add, Delete, Update, GET Instance
+     \item Coordinator Node Definition
+     \item Interface between Semantic Map and Gazebo Node
+     \end{itemize} 
+     & \begin{itemize}
+     \item Jena Ontology Api Documentation \cite{bib13}      
+     \item Gazebo Documentation \cite{bib10}    
+     \end{itemize}
+      & \begin{itemize}
+     \item Jena RDF graph manipulation 
+     \item Jena SPARQL Delete and Add queries 
+     \item Jena SPARQL GetInstance queries 
+    \end{itemize}  \\
+    \hline
+    
+    \end{tabular}
+\end{center}
+
+\begin{center}
+\makesavenoteenv{tabular}
+    \begin{tabular}{ | l | p{4cm} | p{4cm} | p{5cm} |}
+    \hline
+    Week & General Task & Documentation & Implementation \\ \hline
+    12 & \begin{itemize}
+     \item Test Case validation
+     \item Use Case validation
+     \item Application Demo
+     \end{itemize} &
+      & \begin{itemize}
+     \item Testing of real world scenario
+     \item Bug fixing 
+     \item Extern Node definition
+    \end{itemize}  \\
+    \hline
+    \end{tabular}
+\end{center}
+ 

@@ -1,0 +1,214 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\setcounter{section}{0}
+\setcounter{figure}{0}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[centertags]{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{newlfont}
+
+\usepackage{footnote}
+
+\usepackage{fancyhdr}
+\usepackage{tesisty}
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep, leftmargin=10pt}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{hyperref} 
+\usepackage{lipsum}
+\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
+\lstset{language=Matlab, basicstyle=\scriptsize\ttfamily, frame=single}
+%\lstloadlanguages{Matlab}
+%\usepackage{rotating}
+
+%-------------------------------
+% DEFINIZIONE DEGLI ENVIRONMENT
+%-------------------------------
+
+\newtheorem{obs}{Osservazione}[section]
+\newenvironment{oss}
+    {\begin{obs}\begin{normalfont}}
+    {\hfill $\square \!\!\!\!\checkmark$ \end{normalfont}\end{obs}}
+
+\newtheorem{pro}{Problema}[section]
+\newenvironment{prob}
+    {\begin{pro}\begin{normalfont}}
+    {\hfill $\spadesuit$ \end{normalfont}\end{pro}}
+
+\newtheorem{teor}{Teorema}[section]
+\newenvironment{teorema}
+    {\begin{teor}\textit }
+    {\hfill  \end{teor}}
+
+\newtheorem{defn}{Definizione}[section]
+\newenvironment{de}
+    {\begin{defn}\begin{normalfont}}
+    {\hfill $\clubsuit$ \end{normalfont}\end{defn}}
+
+%-----------------------------
+% CONFIGURAZIONE DELLA PAGINA
+%-----------------------------
+
+\hfuzz2pt % Don't bother to report over-full boxes if over-edge is < 2pt
+
+\fancypagestyle{plain}{
+\fancyhead{}\renewcommand{\headrulewidth}{0pt} } \pagestyle{fancy}
+%\renewcommand{\chaptermark}[1]{\markboth{\small CAP. \thechapter \textit{ #1}} {} }
+\renewcommand{\sectionmark}[1]{\markright{\small  \thesection \textit{ #1}} {} }
+\voffset=-20pt    % distanza tra il limite superiore del foglio e l'intestazione
+\headsep=40pt     % distanza  l'intestazione ed il testo del corpo
+\hoffset=0 pt     % misura equivalente al margine sinistro
+\textheight=620pt % altezza del corpo del testo
+\textwidth=435pt  % larghezza del corpo del testo
+\footskip=40pt    % distanza tra il testo del corpo ed il pie' di pagina
+\fancyhead{}      % cancella qualsiasi impostazione per l'intestazione
+\fancyfoot{}      % cancella qualsiasi impostazione per il pie' di pagina
+\headwidth=435pt  % larghezza del'intestazione e del pie' di pagina
+\fancyhead[R]{}%{\rightmark} \fancyfoot[L]{\leftmark}
+\fancyfoot[R]{}%{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}   % spessore della linea dell'intestazione
+\renewcommand{\footrulewidth}{0.3pt}   % spessore della linea del pi�di pagina
+
+\numberwithin{equation}{section}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+%--------------------------
+% MODIFICARE DA QUI IN POI
+%--------------------------
+
+\begin{document}
+\corso{Artificial Intelligence} \titoloTesi{Todo} \anno{2015/2016}
+
+\baselineskip=25pt
+
+\intestazione
+
+%------------------------------------------------
+% INTRODUZIONE E RINGRAZIAMENTI (NON MODIFICARE)
+%------------------------------------------------
+
+\fancypagestyle{plain}{
+\fancyhead\renewcommand{\headrulewidth}{0pt} } \pagestyle{fancy}
+%\renewcommand{\chaptermark}[1]{\markboth{\small Cap. \thechapter \textit{ #1}} {} }
+\renewcommand{\sectionmark}[1]{\markright{\small  \S \thesection \textit{ #1}} {} }
+\voffset=-20pt                         % distanza tra il limite superiore del foglio e l'intestazione
+\headsep=40pt                          % distanza  l'intestazione ed il testo del corpo
+\hoffset=0pt                           % misura equivalente al margine sinistro
+\textheight=620pt                      % altezza del corpo del testo
+\textwidth=435pt                       % larghezza del corpo del testo
+\footskip=40pt                         % distanza tra il testo del corpo ed il pie' di pagina
+\fancyhead{}                           % cancella qualsiasi impostazione per l'intestazione
+\fancyfoot{}                           % cancella qualsiasi impostazione per il pie' di pagina
+\headwidth=435pt                       % larghezza del'intestazione e del pie' di pagina
+\fancyhead[R]{\rightmark} \fancyfoot[L]{\leftmark}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}   % spessore della linea dell'intestazione
+\renewcommand{\footrulewidth}{0.3pt}   % spessore della linea del pié di pagina
+
+\pagenumbering{Roman} \tableofcontents
+\newpage
+
+\pagenumbering{arabic}
+
+\fancyhead[R]{Introduzione} \fancyfoot[L]{Introduzione}
+\fancyfoot[R]{\thepage}
+
+
+\fancyhf{} %elimina header/footer vecchi
+
+
+\fancyhead[R]{\rightmark} \fancyhead[L]{\leftmark}
+\fancyfoot[R]{\thepage}
+
+
+%-----------------------
+% DEFINIZIONE VARIABILI
+%-----------------------
+
+\newcommand{\figura}{figura}
+
+%---------------------
+% INCLUSIONE CAPITOLI
+%---------------------
+
+\include{cover}
+\include{ontology}
+\include{technologies}
+\include{arch}
+\include{application}
+
+% ELENCO DELLE FIGURE (OPZIONALE)
+\addcontentsline{toc}{chapter}{Elenco delle figure}
+\listoffigures
+
+
+% BIBLIOGRAFIA
+\addcontentsline{toc}{chapter}{References}
+\begin{thebibliography}{11}
+	
+	\bibitem{bib1} E. Bastianelli, D. D. Bloisi, R. Capobianco, F. Cossu,
+G. Gemignani, L. Iocchi, and D. Nardi,
+            \emph{``On-line semantic mapping''} in 16th International Conference on Advanced
+Robotics, Nov 2013.
+
+	\bibitem{bib2} Emanuele Bastianelli, Danilo Croce, Roberto Basili, Daniele Nardi,
+            \emph{``Using Semantic Maps for Robust Natural Language Interaction with Robots''}, DICII, 2 DII - University of Rome Tor Vergata, DIAG - Sapienza University of Rome - Rome, Italy.
+
+	\bibitem{bib3} Emanuele Bastianelli, Giuseppe Castellucci, Danilo Croce, Luca Iocchi, Roberto Basili, Daniele Nardi,
+            \emph{``HuRIC: a Human Robot Interaction Corpus''} 
+
+	\bibitem{bib4} E. Bastianelli, Giuseppe Castellucci, Danilo Croce, Roberto Basili, Daniele Nardi,
+            \emph{``Effective and Robust Natural Language Understanding
+for Human -R obot Interaction''}, ECAI, 2014.
+	
+	\bibitem{bib5} E. Bastianelli, D. Bloisi, R. Capobianco, G. Gemignani, L. Iocchi, D. Nardi,
+            \emph{``Knowledge Representation for Robots through
+Human-Robot Interaction''}, Rome.
+
+	\bibitem{bib6} Aaron Martinez, Enrique Fern\'andez,
+            \emph{``Learning ROS for Robotics Programming''} A practical, instructive, and comprehensive guide to introduce yourself to ROS, the top-notch, leading robotics framework, 2013.
+            
+    \bibitem{bib7} Lentin Joseph,
+            \emph{``Learning Robotics Using Python''} Design, simulate, program, and prototype an interactive autonomous mobile robot from scratch with the help of Python, ROS, and Open-CV!, 2015.
+            
+    \bibitem{bib8} Lentin Joseph,
+            \emph{``Mastering ROS for Robotics Programming''}, 2015 Packt Publishing.
+                  
+    \bibitem{bib9} Morgan Quigley, Brian Gerkey and William D. Smart,\\
+            \emph{``Programming Robots with ROS''}, 2016 O Reilly Media.
+                     
+    \bibitem{bib10} Open Source Robotics Foundation,\\
+            \emph{``GazeboSim documentation''}, http://gazebosim.org/tutorials, 2016.
+                       
+    \bibitem{bib11} R. Brachman, H. Levesque,\\
+            \emph{``Knowledge Representation and Reasoning''}.
+            
+    \bibitem{bib12} Open Source Robotics Foundation, Ros Documentation,\\
+            \emph{``$http://wiki.ros.org/rosjava_build_tools/Tutorials/hydro$''}.
+            
+    \bibitem{bib13} Jena Ontology Api, \\
+            \emph{``https://jena.apache.org/documentation/ontology/''}.
+            
+    \bibitem{bib14} Jena Reasoner and Inference documentation,\\
+            \emph{``http://jena.apache.org/documentation/inference/index.html''}.
+            
+            
+    \bibitem{bib15} Apache Jena Fuseki standalone server documentation,\\
+            \emph{``$https://jena.apache.org/documentation/serving_data/$''}.
+            
+
+    \bibitem{bib16} Point Cloud Library Documentation, \\
+            \emph{``http://pointclouds.org/documentation/tutorials/index.php''}.            
+          
+            
+            
+            
+    
+
+        
+\end{thebibliography}
+\end{document}

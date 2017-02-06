@@ -1,0 +1,493 @@
+\chapter*{Appendice A\\ Identification.m}
+\addcontentsline{toc}{chapter}{Appendice A - Identification.m}
+
+
+\begin{lstlisting}
+
+%% CARICAMENTO DATI
+% 
+
+stringa = {'dati_motore1/prova_1/','dati_motore1/prova_2/',
+'dati_motore1/prova_3/','dati_motore1/prova_4/',
+'dati_motore1/prova_5/','dati_motore1/prova_6/',
+'dati_motore1/prova_7/','dati_motore1/prova_8/','dati_motore1/prova_9/'};
+
+%I files delle misure (misure.txt) contegono un primo numero intero, 
+%il tempo di campionamento in millisecondi, e poi due colonne di 
+%numeri float separati da tabulazione semplice
+
+Nfig = 1;
+figure(Nfig)
+Nfig = Nfig +1;
+for i=1:length(stringa)
+    
+    %caricamento dati
+    filep =fopen(strcat(char(stringa(i)),'measures.txt'),'r');
+    Ts = 0.001*fscanf(filep, '%d %',1);
+    measures = fscanf(filep, '%f %f',[2 inf]); 
+    measures = measures';
+    fclose(filep);
+    
+    %
+    time(:,i) = Ts*[0:1:length(measures(:,1))-1];
+    dati_input(:,i) = measures(:,1); 
+    dati_output(:,i) = measures(:,2);
+    subplot(length(stringa),1,i)
+    plot(time(:,i),dati_input(:,i),'-r',time(:,i),dati_output(:,i),
+    '-b','linewidth',1.5) 
+    ylabel('$rad$','Interpreter','Latex')
+end
+
+
+ figure(Nfig)
+ Nfig = Nfig +1;
+ 
+tsim = time;
+for i=1:length(stringa)
+     ysim(:,i) = interp1(time(:,i)-time(1,i),dati_output(:,i)',tsim(:,i));
+     usim(:,i) = interp1(time(:,i)-time(1,i),dati_input(:,i)',tsim(:,i));
+     yfiltrata(:,i)=ysim(:,i);
+     ufiltrata(:,i)=usim(:,i);
+     subplot(length(stringa),1,i)
+    plot(tsim(:,i),yfiltrata(:,i)/max(abs(yfiltrata(:,i))),'-r',tsim(:,i),
+    ufiltrata(:,i)/max(abs(ufiltrata(:,i))),'-b','linewidth',1.5) 
+    ylabel('$rad$','Interpreter','Latex')
+end
+xlabel('Time (sec)','Interpreter','Latex')
+legend('output','input');
+title('Filtered normalized data')
+
+for i=1:length(stringa)
+    for j=1:length(ufiltrata)*(2/3)-1
+        ufiltmeta(j,i)=ufiltrata(j,i);
+        yfiltmeta(j,i)=yfiltrata(j,i);
+    end
+end
+
+%prepara i dati unendo le diverse prove sperimentali  
+data = merge(iddata(yfiltrata(:,1),ufiltrata(:,1),Ts),...
+              iddata(yfiltrata(:,2),ufiltrata(:,2),Ts),...
+              iddata(yfiltrata(:,3),ufiltrata(:,3),Ts),...
+              iddata(yfiltrata(:,4),ufiltrata(:,4),Ts),...
+              iddata(yfiltrata(:,5),ufiltrata(:,5),Ts),...
+              iddata(yfiltrata(:,6),ufiltrata(:,6),Ts),...
+              iddata(yfiltrata(:,7),ufiltrata(:,7),Ts),...
+              iddata(yfiltrata(:,8),ufiltrata(:,8),Ts),...
+              iddata(yfiltrata(:,9),ufiltrata(:,9),Ts));
+
+%prepara i dati unendo le diverse prove sperimentali 
+datameta = merge(iddata(yfiltmeta(:,1),ufiltmeta(:,1),Ts),...
+             iddata(yfiltmeta(:,2),ufiltmeta(:,2),Ts),...
+             iddata(yfiltmeta(:,3),ufiltmeta(:,3),Ts),...
+             iddata(yfiltmeta(:,4),ufiltmeta(:,4),Ts),...
+             iddata(yfiltmeta(:,5),ufiltmeta(:,5),Ts),...
+             iddata(yfiltmeta(:,6),ufiltmeta(:,6),Ts),...
+             iddata(yfiltmeta(:,7),ufiltmeta(:,7),Ts),...
+             iddata(yfiltmeta(:,8),ufiltmeta(:,8),Ts),...
+             iddata(yfiltmeta(:,9),ufiltmeta(:,9),Ts));
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PARAMETRI DA MODIFICARE 
+           
+na = 4%grado denominatore
+nb = 1%grado numeratore
+nc = 0 %e' il grado del numeratore che si associa al disturbo
+nk = 0 %RITARDO in campioni 
+ 
+nf = 0 %grado denominatore ingresso   , per  il metodo PEM      
+nd = 0 %grado denominatore errore , per il metodo PEM
+
+
+focuses = {'simulation','prediction'};
+focus =  2; %seleziona
+
+%tolleranza
+idtol = 1e-8; %seleziona
+
+%numero massimo di iterazioni
+maxiter = 500; %seleziona
+
+metodo = {'arx','armax','pem'};
+scelta = 3; %seleziona
+
+%
+%FINE SCELTA PARAMETRI 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%LANCIO ALGORITMI DI IDENTIFICAZIONE 
+switch char(metodo(scelta))
+    
+    case 'arx'
+    %A(q) y(t) = B(q) u(t-nk) + e(t)
+    orders = [na nb nc]
+    modello_totale = arx(datameta,orders,'focus',char(focuses(focus)),
+    'tolerance',idtol,'maxiter',maxiter)
+        
+    case 'armax'
+    orders = [na nb nc nk]
+    modello_totale = armax(datameta,orders,'focus',char(focuses(focus)),
+    'tolerance',idtol,'maxiter',maxiter)
+        
+    case 'pem'
+    % A(q) y(t) = [B(q)/F(q)] u(t-nk) + [C(q)/D(q)] e(t)
+    orders =[na nb nc nd nf nk]
+    modello_totale = pem(datameta,orders,'focus',char(focuses(focus)),
+    'tolerance',idtol,'maxiter',maxiter)
+        
+end
+
+
+Fmodello = tf(modello_totale.b,modello_totale.a,Ts)
+Nfig = Nfig +1;
+figure(Nfig)
+bode(Fmodello)%,[0.1:0.1:2*pi*1/Ts*1.1])
+grid on
+title('Identified model bode diagram ')
+
+
+Nfig = Nfig +1;
+figure(Nfig)
+title('Exeperimental Vs Simulated ')
+for i=1:length(stringa) 
+    ymodello(:,i) = lsim(Fmodello,ufiltrata(:,i),tsim(:,i));
+    subplot(length(stringa),1,i)
+    plot(tsim(:,i),yfiltrata(:,i),'-b',tsim(:,i),ymodello(:,i),'-r',
+    'linewidth',1.5) 
+    ylabel('$rad$','Interpreter','Latex')
+end
+xlabel('Time (sec)','Interpreter','Latex')
+legend('Experimental data','Estimated data')
+%l2 = legend('Ref$_{new}$','Ref$_{old}$','Ref$_{experimental}$')
+%set(l2,'Interpreter','Latex')
+
+advice(modello_totale)
+
+Nfig = Nfig +1;
+figure(Nfig)
+compare(data,modello_totale) %utilizza tutti i valori con data
+title('Compare (it uses proper initial conditions for matchings)')
+% 
+% Nfig = Nfig +1;
+% figure(Nfig)
+% e = resid(data,modello_totale,'fr')
+% me = arx(e,[10 10 0]);
+% bode(me,[1:0.1:180],'sd',3,'fill')
+% title('')
+% grid on
+% 
+% e = resid(data,modello_totale,'corr')
+% resid(datameta,modello_totale)
+% title('Residui su metà dei dati sperimentali')
+% Nfig = Nfig +1;
+% figure(Nfig)
+% resid(data,modello_totale)
+% title('Residui su tutti i dati sperimentali')
+
+%Fcontinuous = d2c(Fmodello)
+Nfig = Nfig +1;
+figure(Nfig)
+rlocus(Fmodello)
+\end{lstlisting}
+
+\chapter*{Appendice B\\ Arduino: Controllo motore 1}
+\addcontentsline{toc}{chapter}{Appendice B - Arduino: Controllo motore 1}
+
+\begin{lstlisting}
+//H BRIDGE L 298
+int DeadZone=0;
+int DeadZone2=0;
+//First Motor
+#define PWM1 5 
+#define Enable1 4
+#define Enable2 6
+//Second Motor
+#define PWM2 11 
+#define Enable3 12
+#define Enable4 10
+
+//ENCODERS AMT
+#define CountsXround 2048
+//Encoder Motor 1
+#define encoder1PinA 2 
+#define encoder1PinB 7 
+
+volatile int EncoderCounter1 = 0;
+double alpha_past = 0;
+double vel_M1[5];
+
+//Encoder Motor 2
+#define encoder2PinA 3 
+#define encoder2PinB 8 
+
+volatile int EncoderCounter2 = 0;
+double beta_past = 0;
+double vel_M2[5];
+
+//volatile boolean PastA = 0;
+//volatile boolean PastB = 0;
+
+//CONTROL related parameters Motor 1
+#define Ts 1000
+#define Kp 10
+#define ControlDeadzone 3 
+// then let u=0.
+int u2 = 0;
+int u4 = 0; //per il secondo motore
+int i=0,j=0;
+
+//OTHERS
+unsigned long oldtime = 0;
+long time = 0;
+long time1=0;
+long time2=0;
+long time3=0;
+long t21=0;
+long t212=0;
+
+int encdes=0; //Used in loop
+int encdes2=0;
+
+int enc0=0;  //Used for dynamic DeadZone
+int enc1=0;  //Used for dynamic DeadZone
+
+int u2_1=0;
+int u2_2=0;
+int u2_3=0;
+int e_1=0;
+int e_2=0;
+int e_3=0;
+int e_4=0;
+int e=0;
+float u2_t=0;
+
+int in=0;
+int t=0;
+int pos=0;
+
+int u4_1=0;
+int u4_2=0;
+int e2_1=0;
+int e2_2=0;
+int e2=0;
+float u4_t=0;
+
+void setup()
+{
+  //Setting up the Signals on the Arduino Board
+  //Signals for Motor 1
+  pinMode(encoder1PinA, INPUT);
+  pinMode(encoder1PinB, INPUT);
+  pinMode(Enable1, OUTPUT);
+  pinMode(Enable2, OUTPUT);
+  //Signals for Motor 2
+  pinMode(encoder2PinA, INPUT);
+  pinMode(encoder2PinB, INPUT);
+  pinMode(Enable3, OUTPUT);
+  pinMode(Enable4, OUTPUT);
+  //Attaching the interrupts
+  //encoder1 pin on interrupt 0 (arduino's pin 2)
+  attachInterrupt(0, doEncoder1, CHANGE);
+  //encoder2 pin on interrupt 1 (arduino's pin 3)
+  attachInterrupt(1, doEncoder2, CHANGE);
+  /*
+  digitalWrite(Enable1, HIGH);
+  digitalWrite(Enable2, LOW);
+  analogWrite(PWM1,DeadZone);
+  delay(400); //powering the motor
+  analogWrite(PWM1,0); //breaking the motor
+  delay(500); //it should be quite now...
+  */
+  //Serial interface intializing
+  //Serial.begin(115200);
+  Serial.begin(9600);
+  Serial.println("Inizio!!!");
+  Serial.println(1,DEC);
+  Serial.println(EncoderCounter1,DEC);
+  //Serial.println(EncoderCounter2,DEC);
+  
+  
+  //Dynamic DeadZone
+  enc0=digitalRead(encoder1PinA);
+  u2=40;
+  digitalWrite(Enable1,LOW);
+  digitalWrite(Enable2,HIGH);
+  while(enc0==digitalRead(encoder1PinA))
+  {
+     u2++;
+     analogWrite(PWM1, constrain(u2,0,255)); 
+     delay(200);
+  }
+  DeadZone=u2;
+  u2=0;
+  
+  enc1=digitalRead(encoder2PinA);
+  u4=40;
+  digitalWrite(Enable3,LOW);
+  digitalWrite(Enable4,HIGH);
+  while(enc1==digitalRead(encoder2PinA))
+  {
+     u4++;
+     analogWrite(PWM2, constrain(u4,0,255)); 
+     delay(200);
+  }
+  DeadZone2=u4;
+  u4=0;
+  
+  Serial.println("DeadZone motore 1:");
+  Serial.print(DeadZone);
+  Serial.print("\n");
+  Serial.println("DeadZone motore 2:");
+  Serial.print(DeadZone2);
+  Serial.print("\n");
+  
+  delay(500);
+  oldtime=micros();
+  time1=oldtime;
+  //This Arduino is the Master and starts to send Data
+}
+
+void loop()
+{ 
+  if(micros()-oldtime>= Ts)
+  {
+    oldtime = micros();
+      
+    encdes=2900*3;
+    encdes2=0;      
+    
+    e=encdes-EncoderCounter1;
+    e2=encdes2-EncoderCounter2;
+    
+    if (e>20||e<-20)
+    {
+    //Identificazione 1
+    u2_t=Kp*(e-1.35*e_1+0.38*e_2)-0.11*u2_1+0.0726*u2_2; 
+    
+    //Identificazione 3
+    //u2_t=Kp*(e -1.801*e_1+0.8259*e_2)+1.144*u2_1 -0.5217*u2_2; 
+    //u2_t=Kp*(e -1.801*e_1+0.8259*e_2)-0.45*u2_1; 
+    //u2_t=Kp*(e-2.601*e_1+2.267*e_2-0.6607*e_3)-0.05*u2_1+0.18*u2_2;
+    
+    //Identificazione 4
+    //u2_t=Kp*(e-1.222*e_1+0.495*e_2-0.1506*e_3)-0.4*u2_1-0.21*u2_2; 
+    //u2_t=Kp*(e-1.548*e_1+0.5934*e_2)+0.3744*u2_1+0.1776*u2_2; 
+    }
+    else 
+    {
+    u2_t=0;
+    u2_3=0;
+    u2_2=0;
+    u2_1=0;
+    e_1=0;
+    e_2=0;
+    e_3=0;
+    e_4=0;
+    }
+    u2=(int)u2_t;
+    e_4=e_3;
+    e_3=e_2;
+    e_2=e_1;
+    e_1=e;
+    u2_3=u2_2;
+    u2_2=u2_1;
+    u2_1=u2;
+       
+       
+    /*   
+    if (e2>10||e2<-10)
+    {
+    //u4_t=Kp*(e2-0.809*e2_1)-0.3*u4_1+0.1*u4_2; //Kp=1.69
+    u4_t=Kp*(e2-1.35*e2_1+0.38*e2_2)-0.11*u4_1+0.0726*u4_2;
+    }
+    else u4_t=0;
+    if(u4_t>DeadZone2||u4_t<-DeadZone2)
+    u4=(int)u4_t;
+    else u4=0;
+    e2_2=e2_1;
+    e2_1=e2;
+    u4_2=u4_1;
+    u4_1=u4;
+    */
+    
+    u4=0;
+    
+    if(u2==0&&u4==0&&j==0)
+    {
+    Serial.println(EncoderCounter1,DEC);  
+    Serial.println(EncoderCounter2,DEC);  
+    j=1;
+    }
+    
+    
+    if(u2 < -ControlDeadzone)                                                                                                                                                                                                                                                 
+    {
+      digitalWrite(Enable1, LOW);
+      digitalWrite(Enable2, HIGH);
+      u2 = abs(u2) + DeadZone; 
+    }
+    else
+    if(u2 > ControlDeadzone)
+    {
+      digitalWrite(Enable1, HIGH);
+      digitalWrite(Enable2, LOW);
+      u2 = u2 + DeadZone;
+    }
+    else u2 = 0;
+    
+    if(u4 < -ControlDeadzone)
+    {
+      digitalWrite(Enable3, LOW);
+      digitalWrite(Enable4, HIGH);
+      u4 = abs(u4) + DeadZone; 
+    }
+    else
+    if(u4 > ControlDeadzone)
+    {
+      digitalWrite(Enable3, HIGH);
+      digitalWrite(Enable4, LOW);
+      u4 = u4 + DeadZone;
+    }
+    else u4 = 0;
+    delay(3); //you may try to add some delay here, e^(-j*delay()*s)
+    
+    analogWrite(PWM1,constrain(u2,0,255));
+    analogWrite(PWM2,constrain(u4,0,255));
+    time = micros();/
+  }
+}
+
+void doEncoder1()
+{ 
+  if(digitalRead(encoder1PinA) == digitalRead(encoder1PinB)){
+    EncoderCounter1++;
+  }
+  else{
+    EncoderCounter1--;
+  }
+}
+
+void doEncoder2()
+{
+  if(digitalRead(encoder2PinA) == digitalRead(encoder2PinB)){
+    EncoderCounter2++;
+  }
+  else{
+    EncoderCounter2--;
+  }
+}
+\end{lstlisting}
+
+
+
+\chapter*{Appendice C\\ Schema del circuito del ponte H}
+\addcontentsline{toc}{chapter}{Appendice C - Schema del circuito del ponte H}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=13cm]{imgs/circuito.jpg}
+\caption{Schema del circuito di controllo dei motori}
+\label{fig:circuito}
+\end{figure}
