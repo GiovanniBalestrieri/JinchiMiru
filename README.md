@@ -5,7 +5,7 @@
 
  - Follow all the step by step tutorials at: http://gazebosim.org/tutorials
 
- 	Cold start, just follow http://gazebosim.org/tutorials?tut=ros_installing&cat=connect_ros
+ 	Cold start? just follow http://gazebosim.org/tutorials?tut=ros_installing&cat=connect_ros
 
  - Add 3D models to Gazebo 
 
