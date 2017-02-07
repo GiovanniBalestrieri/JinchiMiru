@@ -61,7 +61,7 @@ def query_coordinator(mode,option):
 				
 				info = option.split(",")
 				
-				if info[0] == uriString.class_to_add::qa
+				if info[0] == uriString.class_to_add:
 					if (len(info)<3):
 						if info[1] == uriString.defaultConfig:
 							print("\nrequested default config")
@@ -144,7 +144,7 @@ if __name__=="__main__":
     if len(sys.argv) < 3:
         print("usage: my_node.py del URI \n list all \n export filenameWithoutExt \n add Chair,uri,poseChair,lexChair \n add Chair,default")
     else:
-    	print("Welcome\nv " + version)
+    	print("Welcome\nv " + str(version))
         my_node(sys.argv[1], sys.argv[2])
 
 	
