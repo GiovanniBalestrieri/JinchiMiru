@@ -1,6 +1,12 @@
 # JinchiMiru
 "La connaissance est la relation entre le concept et la réalité effective"
 
+Official Guide:
+
+http://www.userk.co.uk/handling-ontologies-with-ros/
+
+Temporary Guide:
+
 1- Gazebo
 
  - Follow all the step by step tutorials at: http://gazebosim.org/tutorials
