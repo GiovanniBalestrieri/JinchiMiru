@@ -6,7 +6,7 @@ The communication between nodes strongly relies on a publish/subscribe mechanism
 
 \subsection{Use cases}
 
-\textbf{Initialization}
+\subsubsection{Initialization}
 The application is launched by executing the init.launch file. The Roslaunch tool allows to launch multiple ROS nodes as well as set several parameters for the simulation environment. the initialization process brings up the master node, roscore, the coordinator, the semanticMapInterface and Gazebo.\\
 \\
 Once initialized, the SemanticMapInterface loads from a specified absolute path the Terminology Box and the Assertions Box as Ontology Models.
@@ -44,6 +44,29 @@ specialized on the ABox.
 infModel = ModelFactory.createOntologyModel( OntModelSpec.OWL_MEM_MICRO_RULE_INF, abox);
 \end{lstlisting}
 
+Typically the ontology languages used with the semantic web allow constraints to be expressed, the validation interface is used to detect when such constraints are violated by some data set. To test for inconsistencies with a data set using a reasoner the InfModel.validate() interface. This performs a global check across the schema and instance data looking for inconsistencies. 
+
+
+\begin{lstlisting}[language=Java]
+/** 
+ * Consistency Check. Returns true if passed
+ */
+ private static boolean performConsistencyCheckWith(InfModel inf) {
+ boolean res = false; 
+
+ ValidityReport validity = inf.validate();
+ if (validity.isValid()) {
+	System.out.println(""+ NODE_NAME + "\tConsistency Check:\n Passed\n");
+	res = true;
+ } else {
+	System.out.println(""+ NODE_NAME + "\tConsistency Check:\n Conflicts\n");
+	for (Iterator i = validity.getReports(); i.hasNext(); ) {
+	    System.out.println(" - " + i.next());
+	}
+ }
+ return res;
+}
+\end{lstlisting}
 
 When the Coordinator is initialized it sends on topic called Bridge an init request. The request is captured by the SemanticMap and the $getAllInstances(OntModel)$ method is called. 
 
@@ -96,7 +119,166 @@ String queryString = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
 \end{lstlisting}
 The resulting information are embedded in a message and sent on a topic called \textit{Huric\_jena}.
 
+The Coordinator Node receives and parses the message. It then calls a special service that allows to create or deleted models dynamically in the simulation environment of Gazebo.
 
+
+\subsubsection{Insertion of entities}
+Instances of a given class can be dynamically inserted in the Assertion Box by publishing a predefined command on a topic called \textit{extern\_commands}. One node can create an instance by specifying its super class, its spacial positions and preferred lexical reference. Another faster way include the possibility to add a Chair in fixed position. These insertion methods are issued by the ExternInterface node, captured by the Coordinator and forwarded to the SemanticMapInterface.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/topics2.jpg}
+\label{fig:actions}
+\caption{Data exchange between ExternInterface, Coordinator and SemanticMapInterface}
+\end{figure}
+
+
+The Java Node provides two methods to insert an instance of given type to the ontology model loaded in memory:
+\begin{itemize}
+\item Triple manipulation based
+\item SPARQL based
+\end{itemize}
+Jena Ontology API provides a full set of methods to manipulate statements. The handleAddEntityRequest(ontModel,ontClass, uri, pose,lexicalReference) method is given below:
+
+\begin{lstlisting}[language=Java]
+/**
+ * Handles AddEntityRequests from orchestrator using Jena API
+ *	Creates a new instance, adds properties to it and perform consistency check
+ * If test is passed, leaves the newly created instance, otherwise deletes it
+ */
+	private static boolean handleAddEntityRequest(OntModel abox, OntClass ontClass, String uriInstance, String posX,
+			String posY, String posZ, String lexicalReference){
+		boolean res = false;
+
+	    OntClass prefrefClass = abox.getOntClass(NS+PREF_REF_CLASS);
+	    OntClass coordinatesClass = abox.getOntClass(NS+COORDINATES_CLASS);
+
+		String uriBase = "http://www.semanticweb.org/ontologies/2016/1/semantic_mapping_1#";
+		// Create instance
+	    //OntClass class1 = abox.getOntClass(NS+ontClass);
+		
+		if (ontClass == null)
+			return false;
+		else {
+			// Create Individuals
+			Individual i1 = abox.createIndividual(uriInstance,ontClass);
+		    Individual prefRefInd = abox.createIndividual(uriBase+lexicalReference
+		    +"_pref_ref",prefrefClass);
+		    Individual coordinatesInd = abox.createIndividual(uriBase+lexicalReference
+		    +"_pref_ref",coordinatesClass);
+			
+			
+		    // Create Datatype Property
+		    DatatypeProperty lexicalRef = abox.getDatatypeProperty(NS + LEXICAL);
+			Literal ref = abox.createTypedLiteral(lexicalReference);
+			Statement refStatement = abox.createStatement(prefRefInd, lexicalRef, ref);
+			abox.add(refStatement);
+			
+			//  Bind pref reference individual to object individual
+			ObjectProperty hasPrefRef = abox.getObjectProperty(NS+PREF_REF);
+			Statement bindPrefRef = abox.createStatement(i1, hasPrefRef, prefRefInd);
+			abox.add(bindPrefRef);
+			
+
+		    // Create Datatype Property for coordinate X
+		    DatatypeProperty posx = abox.getDatatypeProperty(NS + COORD_X);
+			Literal posXFloat = abox.createTypedLiteral(posX);
+			Statement posXStatement = abox.createStatement(coordinatesInd, posx, posXFloat);
+			abox.add(posXStatement);
+		    // Create Datatype Property for coordinate X
+		    DatatypeProperty posy = abox.getDatatypeProperty(NS + COORD_Y);
+			Literal posYFloat = abox.createTypedLiteral(posY);
+			Statement posYStatement = abox.createStatement(coordinatesInd, posy, posYFloat);
+			abox.add(posYStatement);
+		    // Create Datatype Property for coordinate X
+		    DatatypeProperty posz = abox.getDatatypeProperty(NS + COORD_Z);
+			Literal posZFloat = abox.createTypedLiteral(posZ);
+			Statement posZStatement = abox.createStatement(coordinatesInd, posz, posZFloat);
+			abox.add(posZStatement);
+			
+
+			//  Bind position individual to object individual
+			ObjectProperty hasPosition = abox.getObjectProperty(NS+POSITION);
+			Statement bindPose = abox.createStatement(i1, hasPosition, coordinatesInd);
+			abox.add(bindPose);
+			
+			// Now perform consistency check
+
+		    InfModel infModel = ModelFactory.createOntologyModel( OntModelSpec.OWL_MEM_MICRO_RULE_INF, abox);
+			res = performConsistencyCheckWith(infModel);
+		}
+		
+		return res;
+}
+\end{lstlisting}
+
+The second method is called AddEntityRequest(abox,ontclass,uri,pose,lexicalReference) and it is based on a SPARQL query:
+
+\begin{lstlisting}[language=Java]
+/**
+ * Handles AddEntityRequests using SPARQL
+ *	Creates a new instance, adds properties to it and perform consistency check
+ * If test is passed, leaves the newly created instance, otherwise deletes it
+ */
+ private static boolean AddEntityRequest(OntModel abox, OntClass ontClass, String uriInstance, String posX,
+			String posY, String posZ, String lexicalReference){
+ boolean res = true;
+		
+ String uri_Instance[] = uriInstance.split("#");
+		
+ if (ontClass == null) {
+    res = false;
+	System.out.print("\n"+ NODE_NAME + "\t[ Add Entity ] Class problem\n");
+ } else {
+			String queryString = "" + 
+			"prefix rdfs: <"+ RDFS.getURI() +">\n" +
+			"prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n"+
+			"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> "
+			
+			+ "prefix semantic_mapping_domain_model: <" + DOMAIN_MODEL_NS + "#> \n"
+			+ "prefix semantic_mapping: <" + SEMANTIC_MAP_NS + "#> \n"
+			+ "PREFIX class: <"+ ontClass.getURI() +">\n"
+			
+			
+			+ "insert data { semantic_mapping:"+uri_Instance[1] +" rdf:type class: . "
+			
+			
+			// Add hasPosition Irreflexive ObjectProperty 
+			+ "semantic_mapping:" + uri_Instance[1] + " semantic_mapping_domain_model:hasPosition semantic_mapping:" + uri_Instance[1]
+			+ "_coordinates . " 
+			
+			// Add Instance Coordinates 
+			+ "semantic_mapping:" + uri_Instance[1]+ "_coordinates rdf:type semantic_mapping_domain_model:Coordinates . " 
+
+			// Add datatype Property
+			+ "semantic_mapping:" + uri_Instance[1] + "_coordinates semantic_mapping_domain_model:float_coordinates_x \""
+			+ posX + "\"^^xsd:float . "
+			+ "semantic_mapping:" + uri_Instance[1] + "_coordinates semantic_mapping_domain_model:float_coordinates_y \"" + posY
+			+ "\"^^xsd:float . "
+			+ "semantic_mapping:" + uri_Instance[1] + "_coordinates semantic_mapping_domain_model:float_coordinates_z \"" + posZ
+			+ "\"^^xsd:float . "
+
+			// Add hasPreferredReference ObjectProperty
+			+ "semantic_mapping:" + uri_Instance[1] + " semantic_mapping_domain_model:hasPreferredReference semantic_mapping:" + uri_Instance[1]
+			+ "_preferredReference . " 
+
+			// Create Instance Lexical Reference
+			+ "semantic_mapping:" + uri_Instance[1] + "_preferredReference rdf:type semantic_mapping_domain_model:PreferredReference . "
+
+			+ "semantic_mapping:" + uri_Instance[1] + "_preferredReference semantic_mapping_domain_model:lexicalReference \"" + lexicalReference
+			+ "\"^^xsd:string . " + "} \n ";
+			
+			UpdateAction.parseExecute(queryString, abox);
+			
+			// Check inconsistencies
+		    InfModel infModel = ModelFactory.createOntologyModel( OntModelSpec.OWL_MEM_MICRO_RULE_INF, abox);
+			res = performConsistencyCheckWith(infModel);
+		}
+	
+		return res;
+}
+\end{lstlisting}
 
 \subsection{Exporting Ontology}
 

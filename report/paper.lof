@@ -13,3 +13,4 @@
 \contentsline {figure}{\numberline {12}{\ignorespaces SemanticMapInterface Node}}{17}{figure.12}
 \contentsline {figure}{\numberline {13}{\ignorespaces Coordinator Node}}{18}{figure.13}
 \contentsline {figure}{\numberline {14}{\ignorespaces Data exchange between Coordinator and SemanticMapInterface}}{21}{figure.14}
+\contentsline {figure}{\numberline {15}{\ignorespaces Data exchange between ExternInterface, Coordinator and SemanticMapInterface}}{23}{figure.15}
