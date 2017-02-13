@@ -123,7 +123,9 @@ The Coordinator Node receives and parses the message. It then calls a special se
 
 
 \subsubsection{Insertion of entities}
-Instances of a given class can be dynamically inserted in the Assertion Box by publishing a predefined command on a topic called \textit{extern\_commands}. One node can create an instance by specifying its super class, its spacial positions and preferred lexical reference. Another faster way include the possibility to add a Chair in fixed position. These insertion methods are issued by the ExternInterface node, captured by the Coordinator and forwarded to the SemanticMapInterface.
+\label{subsec: insertion}
+Considering a real world scenario in which a perception node recognizes an object from a stream of a point cloud data, instances of a given class should be dynamically inserted in the Assertion Box by publishing a predefined command on a topic.\\
+One node can create an instance by specifying its super class, its spacial positions and preferred lexical reference. Another faster way include the possibility to add a Chair in fixed position. These insertion methods are issued by the ExternInterface node, captured by the Coordinator and forwarded to the SemanticMapInterface.
 
 
 \begin{figure}[H]
@@ -281,6 +283,102 @@ The second method is called AddEntityRequest(abox,ontclass,uri,pose,lexicalRefer
 \end{lstlisting}
 
 Once the instance has been inserted into the ontology model, the collection of new entities is once again sent on the \textit{huric\_jena} topic and captured by the coordinator which invokes the Gazebo service to render the 3D model of the newly created instances at the provided position in space.
+
+
+\subsubsection{Deletion of an entity}
+\label{subsubsec:delete}
+In a real world scenario, objects can move or be manipulated by humans. A delete function is needed in order to handle cases in which the object moves out of the field of perception of the robot. To delete a model a special routine is invoked.\\
+The request is published on the external\_commands topic and captured by the Coordinator. This node forwards the request to SemanticMapInterface node and waits for the response. If the abox has been correctly updated, it invokes the delete\_model service exposed by the Gazebo node. The resulting 3D environment is consistent with the instance data loaded in memory.
+
+The SemanticMapInterface provides a method the handle this request. In Section \ref{subsec:abox} we have seen that for each furniture object there is an linear position and lexical reference instance associated with it. In order to completely delete an furniture object these instances have to be cancelled as well. The query that handles this operation is in Code Listing below.
+\begin{lstlisting}[language=Java]
+/**
+  * Handles removeEntityRequests from orchestrator:
+  *	Looks for an instance with uri 'uriInstance', if the instance does not exist returns flase.
+  * If there is match, it deletes it and returns true. 
+  * 
+  * Attention : What happens if an instance of a master concept relating two entities is deleted?
+  * 			No one should be able to alter its knowledge directly.
+  *	
+  * 			Maybe, add a negative weight to the instance or a tag
+  */
+private static boolean handleRemoveEntityRelatedRequest(OntModel abox, String uriInstance) {
+	boolean res = false;
+
+	String uri_Instance[] = uriInstance.split("#");
+	//  Removing IS A statement
+	String queryStringDelete = "" + 
+			"prefix rdfs: <"+RDFS.getURI()+">\n" +
+			"prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n"+
+			"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> "				
+			+ "prefix semantic_mapping_domain_model: <" + DOMAIN_MODEL_NS + "#> \n"
+			+ "prefix semantic_mapping: <" + SEMANTIC_MAP_NS + "#> \n"
+			+ "delete { semantic_mapping:"+uri_Instance[1] +" ?pred ?obj }  "
+        + "where { semantic_mapping:"+uri_Instance[1] + " ?pred ?obj }";
+			
+			UpdateAction.parseExecute(queryStringDelete, abox);
+	
+
+	//  Removing coordinates statement
+	String queryStringPosDelete = "" + 
+			"prefix rdfs: <"+RDFS.getURI()+">\n" +
+			"prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n"+
+			"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> "				
+			+ "prefix semantic_mapping_domain_model: <" + DOMAIN_MODEL_NS + "#> \n"
+			+ "prefix semantic_mapping: <" + SEMANTIC_MAP_NS + "#> \n"
+			+ "delete { semantic_mapping:"+uri_Instance[1] + "_coordinates ?pred ?obj }  "
+        + "where { semantic_mapping:"+uri_Instance[1] + "_coordinates ?pred ?obj }";
+			
+			UpdateAction.parseExecute(queryStringPosDelete, abox);
+	
+	String queryStringRefDelete = "" + 
+			"prefix rdfs: <"+RDFS.getURI()+">\n" +
+			"prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n"+
+			"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> "				
+			+ "prefix semantic_mapping_domain_model: <" + DOMAIN_MODEL_NS + "#> \n"
+			+ "prefix semantic_mapping: <" + SEMANTIC_MAP_NS + "#> \n"
+			+ "delete { semantic_mapping:"+uri_Instance[1] + "_preferred_reference ?pred ?obj }  "
+        + "where { semantic_mapping:"+uri_Instance[1] + "_preferred_reference ?pred ?obj }";
+			
+			UpdateAction.parseExecute(queryStringRefDelete, abox);
+			
+	return res;
+}
+\end{lstlisting}
+\label{lst:delete}
+
+\subsubsection{Update entity's properties}
+The system provides an update function to modify properties of an existing entity in the ABox. By publishing a formatted command on the extern\_commands topic, the Coordinator node forwards the request to the SemanticMapInterface. The method responsible for the update is called handleUpdateEntityRequest(abox,ontClass, uriInstance, posX, posY, posZ,  lexicalReference).
+
+\begin{lstlisting}[language=Java]
+/**
+  * Handles updateEntityRequests using SPARQL
+  *	Looks for an instance with uri 'uriInstance', if the instance does not exist returns flase.
+  * If there is match, it looks for the properties Pose and LexicalReference and updates it. 
+  * A consistency if invoked. If the test is passed, true is returned. Otherwise False.
+  */
+private static boolean handleUpdateEntityRequest(OntModel abox,OntClass ontClass,
+ String uriInstance, String posX,
+		 String posY, String posZ, String lexicalReference) {
+	boolean res = false;
+
+	System.out.println(""+ NODE_NAME + "\tDeleting Instance " + uriInstance);
+	handleRemoveEntityRelatedRequest(abox,uriInstance);
+
+	System.out.print("\n"+ NODE_NAME + "\tNow inserting: "+ posX + ", " + posY + " , " + posZ);
+	if (AddEntityRequest(abox,ontClass,uriInstance,posX,posY,
+	posZ,lexicalReference)) {
+	System.out.println("\n"+ NODE_NAME + "\tInstance inserted successfully");
+	res = true;
+   	} else {
+    		System.out.print(""+ NODE_NAME + "\tError could not insert instance consistency problem");
+    	}
+	
+	return res;
+}
+\end{lstlisting}
+
+The update routine starts by looking for an instance with the provided uri. If the there is no match, false is returned. Then it deletes the instance itself and its related properties with the method presented in Section \ref{subsubsec:delete}. Finally the new instance is added by invoking the method discussed in Section \ref{subsec: insertion} and a consistency check is invoked. 
 
 \subsection{Exporting Ontology}
 

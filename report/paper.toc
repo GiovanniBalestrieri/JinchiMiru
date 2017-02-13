@@ -20,7 +20,9 @@
 \contentsline {subsection}{\numberline {5.1}Use cases}{20}{subsection.5.1}
 \contentsline {subsubsection}{\numberline {5.1.1}Initialization}{20}{subsubsection.5.1.1}
 \contentsline {subsubsection}{\numberline {5.1.2}Insertion of entities}{22}{subsubsection.5.1.2}
-\contentsline {subsection}{\numberline {5.2}Exporting Ontology}{26}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Future works}{26}{subsection.5.3}
-\contentsline {chapter}{Elenco delle figure}{27}{subsection.5.3}
-\contentsline {chapter}{References}{27}{section*.5}
+\contentsline {subsubsection}{\numberline {5.1.3}Deletion of an entity}{26}{subsubsection.5.1.3}
+\contentsline {subsubsection}{\numberline {5.1.4}Update entity's properties}{27}{subsubsection.5.1.4}
+\contentsline {subsection}{\numberline {5.2}Exporting Ontology}{28}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Future works}{28}{subsection.5.3}
+\contentsline {chapter}{Elenco delle figure}{29}{subsection.5.3}
+\contentsline {chapter}{References}{29}{section*.5}
