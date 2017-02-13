@@ -32,6 +32,7 @@ Temporary Guide:
 
 - Make a rosjava node launchable
 http://answers.ros.org/question/145461/can-i-roslaunch-a-rosjava-node/
+  Place the resulting execute executable in the ROS package (not in rosjava directory)
 
 3 - Launch the init.launch file
 
