@@ -280,6 +280,8 @@ The second method is called AddEntityRequest(abox,ontclass,uri,pose,lexicalRefer
 }
 \end{lstlisting}
 
+Once the instance has been inserted into the ontology model, the collection of new entities is once again sent on the \textit{huric\_jena} topic and captured by the coordinator which invokes the Gazebo service to render the 3D model of the newly created instances at the provided position in space.
+
 \subsection{Exporting Ontology}
 
 

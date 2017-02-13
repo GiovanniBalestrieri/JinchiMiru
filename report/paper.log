@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.2.9)  13 FEB 2017 03:58
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.2.9)  13 FEB 2017 04:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -488,6 +488,9 @@ LaTeX Warning: Label `fig:actions' multiply defined.
 LaTeX Warning: Label `fig:actions' multiply defined.
 
 ) (./application.aux
+
+LaTeX Warning: Label `fig:actions' multiply defined.
+
 
 LaTeX Warning: Label `fig:actions' multiply defined.
 
@@ -1048,10 +1051,10 @@ x1728.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi1
 0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on paper.pdf (31 pages, 1589207 bytes).
+Output written on paper.pdf (31 pages, 1589710 bytes).
 PDF statistics:
- 1309 PDF objects out of 1440 (max. 8388607)
- 739 compressed objects within 8 object streams
+ 1311 PDF objects out of 1440 (max. 8388607)
+ 741 compressed objects within 8 object streams
  371 named destinations out of 1000 (max. 500000)
  281 words of extra memory for PDF output out of 10000 (max. 10000000)
 
