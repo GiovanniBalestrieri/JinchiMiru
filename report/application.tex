@@ -380,6 +380,8 @@ private static boolean handleUpdateEntityRequest(OntModel abox,OntClass ontClass
 
 The update routine starts by looking for an instance with the provided uri. If the there is no match, false is returned. Then it deletes the instance itself and its related properties with the method presented in Section \ref{subsubsec:delete}. Finally the new instance is added by invoking the method discussed in Section \ref{subsec: insertion} and a consistency check is invoked. 
 
+It is also possible to update an instance by dragging it in the 3D environment of Gazebo. The coordinator node keeps track of the position of all instances and copmpare them with the coordinate properties of the Assertion Box. As soon as the position of an instance is modified and a customizable threshold is crossed, an update routine is triggered and the ABox is updated. Collisions have not been taken into account.
+
 \subsection{Exporting Ontology}
 
 
