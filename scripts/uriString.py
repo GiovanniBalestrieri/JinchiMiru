@@ -26,6 +26,7 @@ sizeYPred = "http://www.semanticweb.org/ontologies/2016/1/semantic_mapping_domai
 sizeZPred = "http://www.semanticweb.org/ontologies/2016/1/semantic_mapping_domain_model#float_size_z"
 
 
+ALL = "all"
 TERMINATOR = "T";
 HELP = "help";
 SEPARATOR = "\t";
@@ -34,6 +35,8 @@ INIT_HEADER = "i";
 UPDATE_HEADER = "u";
 EXPORT_HEADER = "e";
 EXPORT_EXT_HEADER = "export";
+LOAD_ACK_HEADER = "loadack"
+LOAD_HEADER = "load"
 ADD_HEADER = "a";
 DEL_HEADER = "del";
 LIST_HEADER = "g";
@@ -59,4 +62,6 @@ pose_to_add_y = "4"
 pose_to_add_z = "0.10"
 pose_to_add =  pose_to_add_x + ","+pose_to_add_y +","+pose_to_add_z
 lex_ref_to_add = "sediola"
+
+
 
