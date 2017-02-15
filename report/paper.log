@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.2.9)  13 FEB 2017 15:35
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.2.9)  15 FEB 2017 19:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -817,37 +817,37 @@ Overfull \hbox (8.58763pt too wide) in paragraph at lines 210--225
 File: imgs/ontology.png Graphic file (type png)
 
 <use imgs/ontology.png>
-Package pdftex.def Info: imgs/ontology.png used on input line 11.
+Package pdftex.def Info: imgs/ontology.png used on input line 9.
 (pdftex.def)             Requested size: 130.50133pt x 269.48364pt.
  <imgs/ontology1.png, id=235, 823.075pt x 572.1375pt>
 File: imgs/ontology1.png Graphic file (type png)
 
 <use imgs/ontology1.png>
-Package pdftex.def Info: imgs/ontology1.png used on input line 20.
+Package pdftex.def Info: imgs/ontology1.png used on input line 18.
 (pdftex.def)             Requested size: 348.00133pt x 241.90245pt.
  [6
 
 
  <./imgs/ontology.png>]
-Overfull \hbox (2.45107pt too wide) in paragraph at lines 33--34
+Overfull \hbox (2.45107pt too wide) in paragraph at lines 31--32
 []\T1/cmr/m/n/10.95 An ob-ject prop-erty is de-fined as an in-stance of the bui
 lt-in OWL class owl:ObjectProperty.
  []
 
 
-Overfull \hbox (3.42212pt too wide) in paragraph at lines 33--34
+Overfull \hbox (3.42212pt too wide) in paragraph at lines 31--32
 \T1/cmr/m/n/10.95 A datatype prop-erty is de-fined as an in-stance of the built
 -in OWL class owl:DatatypeProperty.
  []
 
 
-Overfull \hbox (21.7711pt too wide) in paragraph at lines 33--34
+Overfull \hbox (21.7711pt too wide) in paragraph at lines 31--32
 \T1/cmr/m/n/10.95 Both owl:ObjectProperty and owl:DatatypeProperty are sub-clas
 ses of the RDF class rdf:Property. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 33--34
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
 
  []
 
@@ -855,76 +855,75 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--34
 File: imgs/datatypeProtege.png Graphic file (type png)
 
 <use imgs/datatypeProtege.png>
-Package pdftex.def Info: imgs/datatypeProtege.png used on input line 40.
+Package pdftex.def Info: imgs/datatypeProtege.png used on input line 38.
 (pdftex.def)             Requested size: 261.00266pt x 296.82224pt.
  [7 <./imgs/ontology1.png>]
 <imgs/Datatype.png, id=252, 702.625pt x 568.1225pt>
 File: imgs/Datatype.png Graphic file (type png)
  <use imgs/Datatype.png>
-Package pdftex.def Info: imgs/Datatype.png used on input line 47.
+Package pdftex.def Info: imgs/Datatype.png used on input line 45.
 (pdftex.def)             Requested size: 261.00266pt x 211.04291pt.
 
 <imgs/propClassTree.png, id=254, 290.08376pt x 204.765pt>
 File: imgs/propClassTree.png Graphic file (type png)
 
 <use imgs/propClassTree.png>
-Package pdftex.def Info: imgs/propClassTree.png used on input line 57.
+Package pdftex.def Info: imgs/propClassTree.png used on input line 55.
 (pdftex.def)             Requested size: 261.00266pt x 184.24928pt.
- [8 <./imgs/datatypeProtege.png> <./imgs/Datatype.png>]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 64.
- (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+ [8 <./imgs/datatypeProtege.png> <./imgs/Datatype.png>] (/usr/share/texlive/tex
+mf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2013/08/26 1.5b listings language file
 )
-Overfull \hbox (4.87689pt too wide) in paragraph at lines 85--86
-[][][][][][][][][][][][][][][][][]  
- []
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 62.
 
-
-Overfull \hbox (4.87689pt too wide) in paragraph at lines 93--94
-[][][][][][][][][][][][][][][][][]  
- []
-
-[9 <./imgs/propClassTree.png>]
-Overfull \hbox (51.37802pt too wide) in paragraph at lines 101--104
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+) [9 <./imgs/propClassTree.png>]
+Overfull \hbox (51.37802pt too wide) in paragraph at lines 102--105
 \T1/cmr/m/n/10.95 The first re-stric-tion is a Value con-traint linked (us-ing 
 owl:onProperty) the Prop-erty float_coordinates_z
  []
 
 
-Overfull \hbox (47.29475pt too wide) in paragraph at lines 101--104
+Overfull \hbox (47.29475pt too wide) in paragraph at lines 102--105
 \T1/cmr/m/n/10.95 The sec-ond and third re-stric-tions are Car-di-nal-ity con-t
 raints linked to the Prop-erty float_coordinates_x
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--109
+Underfull \hbox (badness 10000) in paragraph at lines 109--110
 
  []
 
-[10] <imgs/chair1.png, id=317, 747.79375pt x 420.57124pt>
+[10] <imgs/chair1.png, id=322, 747.79375pt x 420.57124pt>
 File: imgs/chair1.png Graphic file (type png)
 
 <use imgs/chair1.png>
-Package pdftex.def Info: imgs/chair1.png used on input line 131.
+Package pdftex.def Info: imgs/chair1.png used on input line 134.
 (pdftex.def)             Requested size: 261.00266pt x 146.79143pt.
- <imgs/refChair1.png, id=318, 635.37375pt x 304.13625pt>
+
+Overfull \hbox (16.87859pt too wide) in paragraph at lines 144--145
+[][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+<imgs/refChair1.png, id=323, 635.37375pt x 304.13625pt>
 File: imgs/refChair1.png Graphic file (type png)
 
 <use imgs/refChair1.png>
-Package pdftex.def Info: imgs/refChair1.png used on input line 150.
+Package pdftex.def Info: imgs/refChair1.png used on input line 152.
 (pdftex.def)             Requested size: 261.00266pt x 124.93797pt.
  [11 <./imgs/chair1.png> <./imgs/refChair1.png>]
-<imgs/coordchair1.png, id=334, 770.88pt x 292.09125pt>
+<imgs/coordchair1.png, id=337, 770.88pt x 292.09125pt>
 File: imgs/coordchair1.png Graphic file (type png)
 
 <use imgs/coordchair1.png>
-Package pdftex.def Info: imgs/coordchair1.png used on input line 172.
+Package pdftex.def Info: imgs/coordchair1.png used on input line 177.
 (pdftex.def)             Requested size: 261.00266pt x 98.8952pt.
 ) [12 <./imgs/coordchair1.png>]
 \openout2 = `technologies.aux'.
 
  (./technologies.tex
-<imgs/gazebo1.png, id=346, 1539.7525pt x 932.48375pt>
+<imgs/gazebo1.png, id=353, 1539.7525pt x 932.48375pt>
 File: imgs/gazebo1.png Graphic file (type png)
  <use imgs/gazebo1.png>
 Package pdftex.def Info: imgs/gazebo1.png used on input line 21.
@@ -943,7 +942,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--31
  []
 
 [14 <./imgs/gazebo1.png>]
-<imgs/gazebo2.png, id=360, 1165.35374pt x 704.6325pt>
+<imgs/gazebo2.png, id=367, 1165.35374pt x 704.6325pt>
 File: imgs/gazebo2.png Graphic file (type png)
  <use imgs/gazebo2.png>
 Package pdftex.def Info: imgs/gazebo2.png used on input line 45.
@@ -953,13 +952,13 @@ Package pdftex.def Info: imgs/gazebo2.png used on input line 45.
 \openout2 = `arch.aux'.
 
  (./arch.tex
-<imgs/architecture.jpg, id=367, 975.645pt x 950.55125pt>
+<imgs/architecture.jpg, id=374, 975.645pt x 950.55125pt>
 File: imgs/architecture.jpg Graphic file (type jpg)
 
 <use imgs/architecture.jpg>
 Package pdftex.def Info: imgs/architecture.jpg used on input line 11.
 (pdftex.def)             Requested size: 348.00133pt x 339.05077pt.
- <imgs/semantic.jpg, id=368, 552.0625pt x 281.05pt>
+ <imgs/semantic.jpg, id=375, 552.0625pt x 281.05pt>
 File: imgs/semantic.jpg Graphic file (type jpg)
 
 <use imgs/semantic.jpg>
@@ -969,7 +968,7 @@ Package pdftex.def Info: imgs/semantic.jpg used on input line 21.
 
 
  <./imgs/architecture.jpg>]
-<imgs/coordinator.jpg, id=375, 775.89874pt x 415.5525pt>
+<imgs/coordinator.jpg, id=382, 775.89874pt x 415.5525pt>
 File: imgs/coordinator.jpg Graphic file (type jpg)
 
 <use imgs/coordinator.jpg>
@@ -983,19 +982,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--13
 
  []
 
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2013/08/26 1.5b listings language file
-) [20
+[20
 
 
-]
-<imgs/topics1.jpg, id=420, 554.07pt x 280.04625pt>
+] <imgs/topics1.jpg, id=428, 554.07pt x 280.04625pt>
 File: imgs/topics1.jpg Graphic file (type jpg)
  <use imgs/topics1.jpg>
 Package pdftex.def Info: imgs/topics1.jpg used on input line 76.
 (pdftex.def)             Requested size: 348.00133pt x 175.89163pt.
 
-[21 <./imgs/topics1.jpg>] <imgs/topics2.jpg, id=451, 1025.8325pt x 266.9975pt>
+[21 <./imgs/topics1.jpg>] <imgs/topics2.jpg, id=459, 1025.8325pt x 266.9975pt>
 File: imgs/topics2.jpg Graphic file (type jpg)
 
 <use imgs/topics2.jpg>
@@ -1023,7 +1019,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 214.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 214.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 214.
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 65374887446AA824207F9B6267C11F7F;1754.
+(rerunfilecheck)             Checksum: 3E7EFEFBDDDAE2B68E43EE5FEE18FBB5;1783.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1031,37 +1027,38 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 214.
  ) 
 Here is how much of TeX's memory you used:
- 11407 strings out of 494985
- 157619 string characters out of 6180357
+ 10849 strings out of 494985
+ 151208 string characters out of 6180357
  441542 words of memory out of 5000000
- 13935 multiletter control sequences out of 15000+600000
- 24782 words of font info for 73 fonts, out of 8000000 for 9000
+ 13368 multiletter control sequences out of 15000+600000
+ 25860 words of font info for 75 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 36i,12n,43p,563b,1925s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,12n,43p,563b,1963s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/tctt0800.600pk> </hom
 e/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/heavyl
 ab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk> </home/heavylab/.texm
-f-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk>{/usr/share/texlive/texmf-dist
-/fonts/enc/dvips/base/8r.enc} </home/heavylab/.texmf-var/fonts/pk/ljfour/jknapp
-en/ec/ectt0800.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ec
-rm0600.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.6
-00pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </
-home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/hea
-vylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </home/heavylab/.t
-exmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/heavylab/.texmf-var
-/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/heavylab/.texmf-var/fonts/p
-k/ljfour/jknappen/ec/ecrm1200.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfour
-/jknappen/ec/ecbx1440.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappe
-n/ec/ecrm1440.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecr
-m1728.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.60
-0pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on paper.pdf (33 pages, 1605188 bytes).
+f-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/heavylab/.texmf-var/fo
+nts/pk/ljfour/jknappen/ec/ectt0800.600pk>{/usr/share/texlive/texmf-dist/fonts/e
+nc/dvips/base/8r.enc} </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ec
+tt0900.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.6
+00pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk> </
+home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/hea
+vylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/heavylab/.t
+exmf-var/fonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </home/heavylab/.texmf-var
+/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/heavylab/.texmf-var/fonts/p
+k/ljfour/jknappen/ec/ecbx1200.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfour
+/jknappen/ec/ecrm1200.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappe
+n/ec/ecbx1440.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecr
+m1440.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.60
+0pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on paper.pdf (33 pages, 1618667 bytes).
 PDF statistics:
- 1439 PDF objects out of 1440 (max. 8388607)
- 860 compressed objects within 9 object streams
- 454 named destinations out of 1000 (max. 500000)
+ 1502 PDF objects out of 1728 (max. 8388607)
+ 872 compressed objects within 9 object streams
+ 461 named destinations out of 1000 (max. 500000)
  297 words of extra memory for PDF output out of 10000 (max. 10000000)
 
