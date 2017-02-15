@@ -10,7 +10,7 @@ A common feature of Jena reasoners is that they create a new RDF model which app
 
 \subsection{ROS Famework}
 The Robot Operating System (ROS) is a framework  for writing robot software. It is a collection of tools, libraries and conventions that aims to simplify the task of creating complex and robust robot behavior across a wide variety of robotics platforms. 
-ROS was built from the ground up to encourage collaborative robotics software development. A ROS system consists of a large number of modules that pass data to one another using a inter-process communication.
+ROS was built from the ground up to encourage collaborative robotics software development. A ROS system consists of a large number of modules that pass data to one another using a inter-process communication. Each node sends and receives information to and from other nodes of the system using \textit{Topics}.
 \\
 \begin{figure}[H]
 \centering
@@ -27,14 +27,11 @@ The core of ROS is released under the BSD license which allows commercial and no
 
 \subsection{Gazebo Simulation Environment}
 
-Robotics implies robots. Most part of these platforms are used for research purposes and are custom built to investigate a particular aspect. However, there are a growing number of standard products that can be purchased and used out of the box for development and operations in many domains of robotics.
+Robotics implies robots. Most part of these platforms are used for research purposes and are custom built to investigate a particular aspect of interest. However, there are a growing number of standard products that can be purchased and used out of the box for development and operations in many domains of robotics.\\
+Although several robotics platforms are considered to be low cost they are still significant investments. Even the best robots can break periodically due to various combinations of operator error, environmental conditions, manufacturing and design defects. All of these drawbacks can be avoided, or at least minimized, by using simulated robotic structures and a simulation environment. Gazebo is a $3D$ dynamic simulator with the ability to accurately and efficiently simulate populations of robots in complex indoor and outdoor environments. It offers physics engine with high degree of fidelity and a variety of sensors.
 
-Although several robotics platforms are considered to be low cost they are still significant investments. Even the best robots can break periodically due to various combinations of operator error, environmental conditions, manufacturing and design defects.
-
-All of these drawbacks can be avoided by using simulated robotic structures and a simulation environment. Gazebo is a $3D$ dynamic simulator with the ability to accurately and efficiently simulate populations of robots in complex indoor and outdoor environments. It offers physics engine with high degree of fidelity and a variety of sensors.
-
-Many robots are provided including $PR2$, $Pioneer2$ DX, iRobot Create, and TurtleBot. Thanks to URDF format, robotics platforms can be created from scratch and deployed into the simulator.
-With this environment it is possible to run simulation on remote servers, and interface to Gazebo through socket-based message.
+Many robots are provided including $PR2$, $Pioneer2$ DX, iRobot Create, TurtleBot and even champions of DARPA robotics challenge are available. Thanks to URDF format, robotics platforms can be created from scratch and deployed into the simulator.
+With this environment it is possible to run simulation on remote servers, and interface to Gazebo through socket-based messages.
 
 \begin{figure}[H]
 \centering
@@ -43,4 +40,4 @@ With this environment it is possible to run simulation on remote servers, and in
 \caption{Gazebo Environment}
 \end{figure}
 
-Ros integrates closely with Gazebo through the $gazebo\_ros$ package. The latter provides a Gazebo plugin module that allows bidirectional communication between ROS and the simulator. Sensors, physics data, video input can stream from Gazebo to ROS and actuators commands can be forwarded to the simulation environment. By choosing consistent names and data types for these data streams it is possible to run the low level device-driver software on both the real robot and in the simulator.
+Ros integrates closely with Gazebo through the $gazebo\_ros$ package. The latter provides a Gazebo plugin module that allows bidirectional communication between ROS and the simulator. Sensors, physics data, video input can stream from Gazebo to ROS and actuators commands can be forwarded to the simulation environment. By choosing consistent names and data types for these data streams it is possible to run the low level device-driver software on both the real robot and in the simulator. In this project Gazebo 8.0 and ROS Indigo have been used. This combination ensures the compatibility required to flawlessly run the application.

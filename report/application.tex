@@ -1,8 +1,6 @@
 \section{The Application}
 
-The application consists of a number of indipendent nodes that comprise a graph. Each node sends and receives information to and from other nodes of the graph using \textit{Topics}.
-The communication between nodes strongly relies on a publish/subscribe mechanism useful to  exchange data in a distributed system. 
-
+The application consists of a number of indipendent nodes that comprise a graph. The communication between nodes strongly relies on a publish/subscribe mechanism useful to  exchange data in a distributed system. 
 
 \subsection{Use cases}
 
@@ -44,7 +42,7 @@ specialized on the ABox.
 infModel = ModelFactory.createOntologyModel( OntModelSpec.OWL_MEM_MICRO_RULE_INF, abox);
 \end{lstlisting}
 
-Typically the ontology languages used with the semantic web allow constraints to be expressed, the validation interface is used to detect when such constraints are violated by some data set. To test for inconsistencies with a data set using a reasoner the InfModel.validate() interface. This performs a global check across the schema and instance data looking for inconsistencies. 
+Typically the ontology languages used with the semantic web allow constraints to be expressed, the validation interface is used to detect when such constraints are violated by some data set. The InfModel.validate() interface performs a global check across the schema and instance data looking for inconsistencies. 
 
 
 \begin{lstlisting}[language=Java]
@@ -68,8 +66,7 @@ Typically the ontology languages used with the semantic web allow constraints to
 }
 \end{lstlisting}
 
-When the Coordinator is initialized it sends on topic called Bridge an init request. The request is captured by the SemanticMap and the $getAllInstances(OntModel)$ method is called. 
-
+When the Coordinator is initialized it sends on a topic called Bridge an init request. The request is captured by the SemanticMap and the $getAllInstances(OntModel)$ method is called. 
 
 \begin{figure}[H]
 \centering
@@ -79,7 +76,7 @@ When the Coordinator is initialized it sends on topic called Bridge an init requ
 \end{figure}
 
 
-A collection of instances is retrieved and saved in a HashMap. This method performs the following SPARQL query which returns all Furniture and Drink\footnote{Furniture and Drink are classes defined in the Terminology Box} entities.
+A collection of instances is retrieved and saved in a HashMap. This method performs the following SPARQL query which returns all Furniture and Drink\footnote{Furniture and Drink are classes defined in the Terminology Box} entities. 
 
 \begin{lstlisting}[language=Java]
 String queryString = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>" +
@@ -117,9 +114,20 @@ String queryString = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
 		    		"?pos coordz: ?z " +  "}"+
 "}" ;
 \end{lstlisting}
-The resulting information are embedded in a message and sent on a topic called \textit{Huric\_jena}.
+The resulting information are embedded in a message and sent on a topic called \textit{Huric\_jena}. The Coordinator Node receives and parses the message. 
 
-The Coordinator Node receives and parses the message. It then calls a special service that allows to create or deleted models dynamically in the simulation environment of Gazebo.
+The communication between Gazebo and the Coordinator uses services which are defined as pair of messages: one for the request and one for the reply. A providing ROS node offers a service under a string name, and a client calls the service by sending the request message and awaiting the reply.
+
+Once the reponse from the SemanticMapInterface has been received, the Coordinator calls a special service that allows to create and render 3D models dynamically in the simulation environment of Gazebo.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{imgs/gazebocoord.jpg}
+\label{fig:actions}
+\caption{Data exchange between the Coordinator and Gazebo}
+\end{figure}
+
 
 
 \subsubsection{Insertion of entities}
@@ -136,7 +144,7 @@ One node can create an instance by specifying its super class, its spacial posit
 \end{figure}
 
 
-The Java Node provides two methods to insert an instance of given type to the ontology model loaded in memory:
+The Java Node provides two methods to insert an instance of given type into the ontology model loaded in memory:
 \begin{itemize}
 \item Triple manipulation based
 \item SPARQL based

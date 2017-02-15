@@ -7,13 +7,13 @@
 \BOOKMARK [1][-]{section.3}{Involved Technologies}{}% 7
 \BOOKMARK [2][-]{subsection.3.1}{JENA Ontology API}{section.3}% 8
 \BOOKMARK [2][-]{subsection.3.2}{ROS Famework}{section.3}% 9
-\BOOKMARK [2][-]{subsection.3.3}{Simulation Environment with Gazebo}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.3}{Gazebo Simulation Environment}{section.3}% 10
 \BOOKMARK [1][-]{section.4}{The Architecture}{}% 11
 \BOOKMARK [2][-]{subsection.4.1}{System description}{section.4}% 12
 \BOOKMARK [3][-]{subsubsection.4.1.1}{SemanticMapInterface Node}{subsection.4.1}% 13
-\BOOKMARK [3][-]{subsubsection.4.1.2}{Coordinator Node}{subsection.4.1}% 14
-\BOOKMARK [3][-]{subsubsection.4.1.3}{Gazebo Nodes}{subsection.4.1}% 15
-\BOOKMARK [3][-]{subsubsection.4.1.4}{Extern Interface Node}{subsection.4.1}% 16
+\BOOKMARK [3][-]{subsubsection.4.1.2}{Gazebo Nodes}{subsection.4.1}% 14
+\BOOKMARK [3][-]{subsubsection.4.1.3}{Extern Interface Node}{subsection.4.1}% 15
+\BOOKMARK [3][-]{subsubsection.4.1.4}{Coordinator Node}{subsection.4.1}% 16
 \BOOKMARK [2][-]{subsection.4.2}{Test cases}{section.4}% 17
 \BOOKMARK [1][-]{section.5}{The Application}{}% 18
 \BOOKMARK [2][-]{subsection.5.1}{Use cases}{section.5}% 19

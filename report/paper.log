@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.2.9)  15 FEB 2017 19:07
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.2.9)  15 FEB 2017 20:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -484,10 +484,10 @@ LaTeX Warning: Label `fig:datatypes' multiply defined.
 
 LaTeX Warning: Label `fig:actions' multiply defined.
 
+) (./application.aux
 
 LaTeX Warning: Label `fig:actions' multiply defined.
 
-) (./application.aux
 
 LaTeX Warning: Label `fig:actions' multiply defined.
 
@@ -613,111 +613,112 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.35 \item G
-            raphical representation of the objects in the scene, [1
+l.35 \item I
+            nsert new instance of object in the scene and check for consiste...
+[1
 
 ]
-Underfull \hbox (badness 1371) in paragraph at lines 53--55
+Underfull \hbox (badness 1371) in paragraph at lines 52--54
 []\T1/cmr/m/n/10.95 Perform a lit-er-a-ture
  []
 
 
-Underfull \hbox (badness 1348) in paragraph at lines 53--55
+Underfull \hbox (badness 1348) in paragraph at lines 52--54
 \T1/cmr/m/n/10.95 ous HuRIC pub-li-ca-
  []
 
 
-Underfull \hbox (badness 2717) in paragraph at lines 57--58
+Underfull \hbox (badness 2717) in paragraph at lines 56--57
 []\T1/cmr/m/n/10.95 Knowledge rep-re-sen-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--60
+Underfull \hbox (badness 10000) in paragraph at lines 57--59
 []\T1/cmr/m/n/10.95 Huric pa-pers
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
+Underfull \hbox (badness 10000) in paragraph at lines 61--62
 []\T1/cmr/m/n/10.95 Literature re-view
  []
 
 
-Underfull \hbox (badness 5189) in paragraph at lines 62--63
+Underfull \hbox (badness 5189) in paragraph at lines 61--62
 \T1/cmr/m/n/10.95 of ROS com-pat-i-ble
  []
 
 
-Underfull \hbox (badness 1997) in paragraph at lines 66--67
+Underfull \hbox (badness 1997) in paragraph at lines 65--66
 []\T1/cmr/m/n/10.95 ROS Doc-u-men-ta-tion
  []
 
 
-Underfull \hbox (badness 1675) in paragraph at lines 74--75
+Underfull \hbox (badness 1675) in paragraph at lines 73--74
 []\T1/cmr/m/n/10.95 Literature re-view of
  []
 
 
-Underfull \hbox (badness 2035) in paragraph at lines 79--80
+Underfull \hbox (badness 2035) in paragraph at lines 78--79
 []\T1/cmr/m/n/10.95 Python li-brary RD-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--88
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
 []\T1/cmr/m/n/10.95 Object recog-ni-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--91
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
 []\T1/cmr/m/n/10.95 PointCloudLibrary
  []
 
 
-Underfull \hbox (badness 1502) in paragraph at lines 91--92
+Underfull \hbox (badness 1502) in paragraph at lines 90--91
 \T1/cmr/m/n/10.95 clas-si-fier doc-u-men-ta-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--96
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
 []\T1/cmr/m/n/10.95 Clear scene script in
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--100
+Underfull \hbox (badness 10000) in paragraph at lines 98--99
 []\T1/cmr/m/n/10.95 Integrate clas-si-fi-ca-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--101
+Underfull \hbox (badness 10000) in paragraph at lines 99--100
 []\T1/cmr/m/n/10.95 Optimize python
  []
 
 
-Underfull \hbox (badness 6526) in paragraph at lines 107--108
+Underfull \hbox (badness 6526) in paragraph at lines 106--107
 []\T1/cmr/m/n/10.95 Analyze point-cloud from
  []
 
 
-Underfull \hbox (badness 7256) in paragraph at lines 109--110
+Underfull \hbox (badness 7256) in paragraph at lines 108--109
 []\T1/cmr/m/n/10.95 Object recog-ni-tion, vote
  []
 
 
-Underfull \hbox (badness 4144) in paragraph at lines 113--114
+Underfull \hbox (badness 4144) in paragraph at lines 112--113
 []\T1/cmr/m/n/10.95 Owl Rea-soner in-te-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--115
+Underfull \hbox (badness 10000) in paragraph at lines 113--114
 []\T1/cmr/m/n/10.95 Test RD-Flib and
  []
 
 
-Underfull \hbox (badness 1735) in paragraph at lines 118--119
+Underfull \hbox (badness 1735) in paragraph at lines 117--118
 []\T1/cmr/m/n/10.95 Apache Jena Fuseki
  []
 
 
-Overfull \hbox (8.58763pt too wide) in paragraph at lines 49--128
+Overfull \hbox (8.58763pt too wide) in paragraph at lines 48--127
  [] 
  []
 
@@ -726,100 +727,100 @@ Overfull \vbox (10.649pt too high) has occurred while \output is active []
 
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 142--143
+Underfull \hbox (badness 10000) in paragraph at lines 141--142
 []\T1/cmr/m/n/10.95 RosJava guide-lines
  []
 
 
-Underfull \hbox (badness 1521) in paragraph at lines 143--144
+Underfull \hbox (badness 1521) in paragraph at lines 142--143
 []\T1/cmr/m/n/10.95 Apache Jena On-tol-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 154--155
+Underfull \hbox (badness 10000) in paragraph at lines 153--154
 []\T1/cmr/m/n/10.95 RosJava guide-lines
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--159
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
 []\T1/cmr/m/n/10.95 Implement con-sis-tency
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--161
+Underfull \hbox (badness 10000) in paragraph at lines 159--160
 []\T1/cmr/m/n/10.95 Reasoner in-vo-ca-tion in
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--166
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
 []\T1/cmr/m/n/10.95 Specialize Rea-soner
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 178--179
+Underfull \hbox (badness 10000) in paragraph at lines 177--178
 []\T1/cmr/m/n/10.95 Specialize Rea-soner
  []
 
 
-Underfull \hbox (badness 5288) in paragraph at lines 182--183
+Underfull \hbox (badness 5288) in paragraph at lines 181--182
 []\T1/cmr/m/n/10.95 Gazebo Doc-u-men-ta-
  []
 
 
-Underfull \hbox (badness 1087) in paragraph at lines 186--187
+Underfull \hbox (badness 1087) in paragraph at lines 185--186
 []\T1/cmr/m/n/10.95 Call spawn model ser-vice
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 190--191
+Underfull \hbox (badness 10000) in paragraph at lines 189--190
 []\T1/cmr/m/n/10.95 SPARQL queries
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 191--192
+Underfull \hbox (badness 10000) in paragraph at lines 190--191
 []\T1/cmr/m/n/10.95 Coordinator Node
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 192--193
+Underfull \hbox (badness 10000) in paragraph at lines 191--192
 []\T1/cmr/m/n/10.95 Interface be-tween
  []
 
 
-Underfull \hbox (badness 6110) in paragraph at lines 192--193
+Underfull \hbox (badness 6110) in paragraph at lines 191--192
 \T1/cmr/m/n/10.95 Se-man-tic Map and
  []
 
 
-Underfull \hbox (badness 5548) in paragraph at lines 195--196
+Underfull \hbox (badness 5548) in paragraph at lines 194--195
 []\T1/cmr/m/n/10.95 Jena On-tol-ogy Api
  []
 
 
-Underfull \hbox (badness 5288) in paragraph at lines 196--197
+Underfull \hbox (badness 5288) in paragraph at lines 195--196
 []\T1/cmr/m/n/10.95 Gazebo Doc-u-men-ta-
  []
 
 
-Overfull \hbox (8.58763pt too wide) in paragraph at lines 133--206
+Overfull \hbox (8.58763pt too wide) in paragraph at lines 132--205
  [] 
  []
 
 
-Overfull \hbox (8.58763pt too wide) in paragraph at lines 210--225
+Overfull \hbox (8.58763pt too wide) in paragraph at lines 209--224
  [] 
  []
 
 [4]) [5]
 \openout2 = `ontology.aux'.
 
- (./ontology.tex <imgs/ontology.png, id=234, 262.9825pt x 543.02875pt>
+ (./ontology.tex <imgs/ontology.png, id=241, 262.9825pt x 543.02875pt>
 File: imgs/ontology.png Graphic file (type png)
 
 <use imgs/ontology.png>
 Package pdftex.def Info: imgs/ontology.png used on input line 9.
 (pdftex.def)             Requested size: 130.50133pt x 269.48364pt.
- <imgs/ontology1.png, id=235, 823.075pt x 572.1375pt>
+ <imgs/ontology1.png, id=242, 823.075pt x 572.1375pt>
 File: imgs/ontology1.png Graphic file (type png)
 
 <use imgs/ontology1.png>
@@ -851,20 +852,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 31--32
 
  []
 
-<imgs/datatypeProtege.png, id=243, 380.42125pt x 432.61626pt>
+<imgs/datatypeProtege.png, id=250, 380.42125pt x 432.61626pt>
 File: imgs/datatypeProtege.png Graphic file (type png)
 
 <use imgs/datatypeProtege.png>
 Package pdftex.def Info: imgs/datatypeProtege.png used on input line 38.
 (pdftex.def)             Requested size: 261.00266pt x 296.82224pt.
  [7 <./imgs/ontology1.png>]
-<imgs/Datatype.png, id=252, 702.625pt x 568.1225pt>
+<imgs/Datatype.png, id=259, 702.625pt x 568.1225pt>
 File: imgs/Datatype.png Graphic file (type png)
  <use imgs/Datatype.png>
 Package pdftex.def Info: imgs/Datatype.png used on input line 45.
 (pdftex.def)             Requested size: 261.00266pt x 211.04291pt.
 
-<imgs/propClassTree.png, id=254, 290.08376pt x 204.765pt>
+<imgs/propClassTree.png, id=261, 290.08376pt x 204.765pt>
 File: imgs/propClassTree.png Graphic file (type png)
 
 <use imgs/propClassTree.png>
@@ -895,7 +896,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 109--110
 
  []
 
-[10] <imgs/chair1.png, id=322, 747.79375pt x 420.57124pt>
+[10] <imgs/chair1.png, id=329, 747.79375pt x 420.57124pt>
 File: imgs/chair1.png Graphic file (type png)
 
 <use imgs/chair1.png>
@@ -906,14 +907,14 @@ Overfull \hbox (16.87859pt too wide) in paragraph at lines 144--145
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-<imgs/refChair1.png, id=323, 635.37375pt x 304.13625pt>
+<imgs/refChair1.png, id=330, 635.37375pt x 304.13625pt>
 File: imgs/refChair1.png Graphic file (type png)
 
 <use imgs/refChair1.png>
 Package pdftex.def Info: imgs/refChair1.png used on input line 152.
 (pdftex.def)             Requested size: 261.00266pt x 124.93797pt.
  [11 <./imgs/chair1.png> <./imgs/refChair1.png>]
-<imgs/coordchair1.png, id=337, 770.88pt x 292.09125pt>
+<imgs/coordchair1.png, id=344, 770.88pt x 292.09125pt>
 File: imgs/coordchair1.png Graphic file (type png)
 
 <use imgs/coordchair1.png>
@@ -923,13 +924,17 @@ Package pdftex.def Info: imgs/coordchair1.png used on input line 177.
 \openout2 = `technologies.aux'.
 
  (./technologies.tex
-<imgs/gazebo1.png, id=353, 1539.7525pt x 932.48375pt>
+Underfull \hbox (badness 10000) in paragraph at lines 5--10
+
+ []
+
+<imgs/gazebo1.png, id=360, 1539.7525pt x 932.48375pt>
 File: imgs/gazebo1.png Graphic file (type png)
  <use imgs/gazebo1.png>
-Package pdftex.def Info: imgs/gazebo1.png used on input line 21.
+Package pdftex.def Info: imgs/gazebo1.png used on input line 17.
 (pdftex.def)             Requested size: 348.00133pt x 210.7531pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--24
+Underfull \hbox (badness 10000) in paragraph at lines 12--20
 
  []
 
@@ -937,89 +942,90 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--24
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 26--31
+Underfull \hbox (badness 10000) in paragraph at lines 22--27
 
  []
 
 [14 <./imgs/gazebo1.png>]
-<imgs/gazebo2.png, id=367, 1165.35374pt x 704.6325pt>
+<imgs/gazebo2.png, id=374, 1165.35374pt x 704.6325pt>
 File: imgs/gazebo2.png Graphic file (type png)
  <use imgs/gazebo2.png>
-Package pdftex.def Info: imgs/gazebo2.png used on input line 45.
+Package pdftex.def Info: imgs/gazebo2.png used on input line 38.
 (pdftex.def)             Requested size: 217.5pt x 131.50542pt.
 )
 [15 <./imgs/gazebo2.png>]
 \openout2 = `arch.aux'.
 
  (./arch.tex
-<imgs/architecture.jpg, id=374, 975.645pt x 950.55125pt>
-File: imgs/architecture.jpg Graphic file (type jpg)
+<imgs/arch1.jpg, id=381, 1025.8325pt x 476.78125pt>
+File: imgs/arch1.jpg Graphic file (type jpg)
+ <use imgs/arch1.jpg>
+Package pdftex.def Info: imgs/arch1.jpg used on input line 10.
+(pdftex.def)             Requested size: 348.00133pt x 161.73972pt.
 
-<use imgs/architecture.jpg>
-Package pdftex.def Info: imgs/architecture.jpg used on input line 11.
-(pdftex.def)             Requested size: 348.00133pt x 339.05077pt.
- <imgs/semantic.jpg, id=375, 552.0625pt x 281.05pt>
+<imgs/semantic.jpg, id=382, 552.0625pt x 281.05pt>
 File: imgs/semantic.jpg Graphic file (type jpg)
-
-<use imgs/semantic.jpg>
-Package pdftex.def Info: imgs/semantic.jpg used on input line 21.
+ <use imgs/semantic.jpg>
+Package pdftex.def Info: imgs/semantic.jpg used on input line 20.
 (pdftex.def)             Requested size: 348.00133pt x 177.16963pt.
- [16
+
+[16
 
 
- <./imgs/architecture.jpg>]
-<imgs/coordinator.jpg, id=382, 775.89874pt x 415.5525pt>
-File: imgs/coordinator.jpg Graphic file (type jpg)
-
-<use imgs/coordinator.jpg>
-Package pdftex.def Info: imgs/coordinator.jpg used on input line 47.
-(pdftex.def)             Requested size: 348.00133pt x 186.38184pt.
- [17 <./imgs/semantic.jpg>] [18 <./imgs/coordinator.jpg>]) [19]
+ <./imgs/arch1.jpg>] [17 <./imgs/semantic.jpg>]) [18]
 \openout2 = `application.aux'.
 
  (./application.tex
-Underfull \hbox (badness 10000) in paragraph at lines 10--13
+Underfull \hbox (badness 10000) in paragraph at lines 8--11
 
  []
 
-[20
+[19
 
 
-] <imgs/topics1.jpg, id=428, 554.07pt x 280.04625pt>
+] <imgs/topics1.jpg, id=429, 1025.8325pt x 476.78125pt>
 File: imgs/topics1.jpg Graphic file (type jpg)
- <use imgs/topics1.jpg>
-Package pdftex.def Info: imgs/topics1.jpg used on input line 76.
-(pdftex.def)             Requested size: 348.00133pt x 175.89163pt.
 
-[21 <./imgs/topics1.jpg>] <imgs/topics2.jpg, id=459, 1025.8325pt x 266.9975pt>
+<use imgs/topics1.jpg>
+Package pdftex.def Info: imgs/topics1.jpg used on input line 73.
+(pdftex.def)             Requested size: 348.00133pt x 161.73972pt.
+ [20 <./imgs/topics1.jpg>]
+<imgs/gazebocoord.jpg, id=462, 528.97626pt x 224.84pt>
+File: imgs/gazebocoord.jpg Graphic file (type jpg)
+
+<use imgs/gazebocoord.jpg>
+Package pdftex.def Info: imgs/gazebocoord.jpg used on input line 126.
+(pdftex.def)             Requested size: 217.5pt x 92.44572pt.
+ [21 <./imgs/gazebocoord.jpg>]
+<imgs/topics2.jpg, id=497, 1025.8325pt x 266.9975pt>
 File: imgs/topics2.jpg Graphic file (type jpg)
-
-<use imgs/topics2.jpg>
-Package pdftex.def Info: imgs/topics2.jpg used on input line 133.
+ <use imgs/topics2.jpg>
+Package pdftex.def Info: imgs/topics2.jpg used on input line 141.
 (pdftex.def)             Requested size: 348.00133pt x 90.57423pt.
- [22] [23 <./imgs/topics2.jpg>] [24] [25]
-LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 297
+
+[22 <./imgs/topics2.jpg>] [23] [24]
+LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 305
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-) [26] [27]) [28]
+) [25] [26]) [27]
 (./paper.lof)
 \tf@lof=\write5
 \openout5 = `paper.lof'.
 
- [29
+ [28
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 214.
- [30]
+ [29]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 214.
  (./paper.aux (./cover.aux) (./ontology.aux)
 (./technologies.aux) (./arch.aux) (./application.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 214.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 214.
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 3E7EFEFBDDDAE2B68E43EE5FEE18FBB5;1783.
+(rerunfilecheck)             Checksum: B4A983C40091D62E39012376275663FD;1778.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1027,21 +1033,21 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 214.
  ) 
 Here is how much of TeX's memory you used:
- 10849 strings out of 494985
- 151208 string characters out of 6180357
- 441542 words of memory out of 5000000
- 13368 multiletter control sequences out of 15000+600000
+ 10852 strings out of 494985
+ 151212 string characters out of 6180357
+ 460542 words of memory out of 5000000
+ 13370 multiletter control sequences out of 15000+600000
  25860 words of font info for 75 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 36i,12n,43p,563b,1963s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,12n,43p,688b,1969s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/tctt0800.600pk> </hom
-e/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/heavyl
-ab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk> </home/heavylab/.texm
-f-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/heavylab/.texmf-var/fo
-nts/pk/ljfour/jknappen/ec/ectt0800.600pk>{/usr/share/texlive/texmf-dist/fonts/e
-nc/dvips/base/8r.enc} </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ec
-tt0900.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.6
-00pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk> </
+e/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0800.600pk>{/usr/share/te
+xlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/heavylab/.texmf-var/fonts/
+pk/ljfour/jknappen/ec/ectt0900.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfou
+r/jknappen/ec/ecrm0600.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknapp
+en/ec/tcrm1095.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ec
+rm1000.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0700.6
+00pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </
 home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/hea
 vylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/heavylab/.t
 exmf-var/fonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </home/heavylab/.texmf-var
@@ -1055,10 +1061,10 @@ r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on paper.pdf (33 pages, 1618667 bytes).
+Output written on paper.pdf (32 pages, 1608570 bytes).
 PDF statistics:
- 1502 PDF objects out of 1728 (max. 8388607)
- 872 compressed objects within 9 object streams
- 461 named destinations out of 1000 (max. 500000)
+ 1519 PDF objects out of 1728 (max. 8388607)
+ 873 compressed objects within 9 object streams
+ 462 named destinations out of 1000 (max. 500000)
  297 words of extra memory for PDF output out of 10000 (max. 10000000)
 

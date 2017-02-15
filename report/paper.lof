@@ -11,6 +11,6 @@
 \contentsline {figure}{\numberline {10}{\ignorespaces Gazebo Environment}}{15}{figure.10}
 \contentsline {figure}{\numberline {11}{\ignorespaces System Architecture}}{16}{figure.11}
 \contentsline {figure}{\numberline {12}{\ignorespaces SemanticMapInterface Node}}{17}{figure.12}
-\contentsline {figure}{\numberline {13}{\ignorespaces Coordinator Node}}{18}{figure.13}
-\contentsline {figure}{\numberline {14}{\ignorespaces Data exchange between Coordinator and SemanticMapInterface}}{21}{figure.14}
-\contentsline {figure}{\numberline {15}{\ignorespaces Data exchange between ExternInterface, Coordinator and SemanticMapInterface}}{23}{figure.15}
+\contentsline {figure}{\numberline {13}{\ignorespaces Data exchange between Coordinator and SemanticMapInterface}}{20}{figure.13}
+\contentsline {figure}{\numberline {14}{\ignorespaces Data exchange between the Coordinator and Gazebo}}{21}{figure.14}
+\contentsline {figure}{\numberline {15}{\ignorespaces Data exchange between ExternInterface, Coordinator and SemanticMapInterface}}{22}{figure.15}
