@@ -1,12 +1,9 @@
-semananticMapVerbosity = True
-semananticMapVerbosityMax = True
-verboseNormComputation = True
-updateCheckVerbosityMax = False
-
-
-''' Verbosity '''
+''' Verbosity Settings '''
 
 topicVerbosity = False;
-topicVerbosityMax = True;
-
-finalVerbosity = True
+topicVerbosityMax = False;
+semananticMapVerbosity = False
+semananticMapVerbosityMax = False
+verboseNormComputation = False
+updateCheckVerbosityMax = False
+finalVerbosity = False

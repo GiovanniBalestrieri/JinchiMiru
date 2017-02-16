@@ -14,7 +14,8 @@
  * the License.
  */
 
-package com.github.rosjava.huric.my_pub_sub_tutorial;
+package com.github.rosjava.jinchimiru.jinchimiru_sub_project;
+
 
 
 
@@ -83,7 +84,7 @@ import java.util.Set;
  * A simple {@link Publisher} {@link NodeMain}.
  */
 public class SemanticMapInterface extends AbstractNodeMain {
-	OntModel abox, tbox, infModel;
+	static OntModel abox, tbox, infModel;
 	OntClass class1, class2,class3;
 	boolean isFurniture;
 	boolean isClothes;
@@ -91,9 +92,9 @@ public class SemanticMapInterface extends AbstractNodeMain {
 	boolean isDrink;
 	int sequenceNumber = 0;
 	boolean debugInstancesHashMaps = false; 
-	boolean topicVerbosity = true;
-	boolean instanceVerbosity = true;
-	static boolean sparqlVerbosity = true;
+	boolean topicVerbosity = false;
+	boolean instanceVerbosity = false;
+	static boolean sparqlVerbosity = false;
 
 	int INSTANCE_ALREADY_PRESENT = 2;
 	int INSTANCE_ADDED = 1;
@@ -113,12 +114,15 @@ public class SemanticMapInterface extends AbstractNodeMain {
 	String ADD_HEADER = "add";
 	String ADD_ACK_HEADER = "addack";
 	String DELETE_HEADER = "del";
+	String LOAD_HEADER = "load";
+	String LOAD_ACK_HEADER = "loadack";
 	String DELETE_ACK_HEADER = "delack";
+	String ALL = "all";
 	
 	static int NUM_PROPS = 4; //Class, URI, Pose, LexicalReference
 
 
-	static String JENA_PATH = "/home/userk/catkin_ws/rosjava/src/huric/my_pub_sub_tutorial/src/main/java/com/github/huric/my_pub_sub_tutorial/";
+	static String JENA_PATH = "/home/heavylab/Development/Ros/catkin_ws/rosjava/src/jinchimiru/jinchimiru_sub_project/src/main/java/com/github/jinchimiru/jinchimiru_sub_project/ontologies/";
 	final static String SOURCE = "http://www.semanticweb.org/ontologies/2016/1/";
 	final static String test_file = "ontology.owl";
 	final static String fileName = "a_box_mod.owl";
@@ -164,6 +168,7 @@ public class SemanticMapInterface extends AbstractNodeMain {
 	HashMap<String, String[]> drinks = new HashMap<>();
 	HashMap<String, String[]> clothes = new HashMap<>();
 	HashMap<String, String[]> books = new HashMap<>();
+
 
 	@Override
 	public GraphName getDefaultNodeName() {
@@ -251,7 +256,6 @@ public class SemanticMapInterface extends AbstractNodeMain {
 		boolean debug = false;
 		boolean debugInner = false;
 
-
 	    /**
 	      * Importing Tbox
 	      */
@@ -281,12 +285,7 @@ public class SemanticMapInterface extends AbstractNodeMain {
 
 	    infModel = ModelFactory.createOntologyModel( OntModelSpec.OWL_MEM_MICRO_RULE_INF, abox);
 
-	    affordance = infModel.getOntProperty(NS+AFFORDANCE);
-	    position = infModel.getOntProperty(NS+POSITION);
-	    alternativeReference = infModel.getOntProperty(NS+ALTERNATIVE_REF);
-	    prefReference = infModel.getOntProperty(NS+PREF_REF);
-
-	    System.out.println("\n\n"+ NODE_NAME + "\t---- [ Creating a Subscriber to bridge ] ----\n\n");
+	    System.out.println("\n\n"+ NODE_NAME + "\t---- [ Creating a Subscriber to \bridge ] ----\n\n");
 
 	    Subscriber<std_msgs.String> subscriber = connectedNode.newSubscriber("bridge", std_msgs.String._TYPE);
 	    subscriber.addMessageListener(new MessageListener<std_msgs.String>() {
@@ -299,7 +298,6 @@ public class SemanticMapInterface extends AbstractNodeMain {
 	    			
 	    		System.out.println("\n\n"+ NODE_NAME + "\t---- " + message.getData()+" ----\n\n");
 	    		String[] mess = message.getData().split("\t");
-	     		System.out.println("\n\n"+ NODE_NAME + "\t---- 2 ----\n\n");
 	
 	    		String error = "0";
 	    		// init response strings
@@ -570,8 +568,11 @@ public class SemanticMapInterface extends AbstractNodeMain {
 
 	    		} else if (mess[0].equals(DELETE_HEADER)) {
 	    			uri_i = mess[1];
-					handleRemoveEntityRelatedRequest(abox,uri_i);
-
+	    			if (uri_i.equals(ALL)){
+	    				handleRemoveAllRequest(abox);
+	    			} else {
+						handleRemoveEntityRelatedRequest(abox,uri_i);
+					}
 					error = "0";
 					// Publish data
 					std_msgs.String stri = publisher.newMessage();
@@ -583,9 +584,25 @@ public class SemanticMapInterface extends AbstractNodeMain {
 
 					stri.setData(ackToSend2);
 	    			publisher.publish(stri);
+				} else if (mess[0].equals(LOAD_HEADER)) {
+	    			String filename_i = mess[1];
+					error = "0";
+	    			if (filename_i.equals("")){
+	    				error = "1";
+	    			} else {
+						loadNewAssertionBox(filename_i);
+					}
+					// Publish data
+					std_msgs.String stri = publisher.newMessage();					
+					String ackToSend2 = LOAD_ACK_HEADER+SEPARATOR+ERROR+","+error+SEPARATOR+CLASS_INSTANCE+","+class_i+SEPARATOR+URI+","+filename_i+SEPARATOR+COORDINATES_CLASS+","+pose_i+SEPARATOR+PREF_REF+","+ref_i+SEPARATOR+TERMINATOR;
+					
+					if (topicVerbosity)
+						System.out.print("\n" + NODE_NAME + SEPARATOR + LOAD_ACK_HEADER +"Preparing to send: \n" + ackToSend2+"\n\n");
 
-				}
-				
+					stri.setData(ackToSend2);
+	    			publisher.publish(stri);
+				}			
+
 
 	    		std_msgs.String str = publisher.newMessage();
 	    		str.setData("publishing " + sequenceNumber);
@@ -604,8 +621,6 @@ public class SemanticMapInterface extends AbstractNodeMain {
      * Exports Ontology to a file with provided name and path.
 	  */
 	private static boolean exportOntologyOnt(OntModel inf, String absoluteFileName, String fileName){
-		
-		/* Consistency Check */
 		boolean res = false;
 	    System.out.println("\n\n"+ NODE_NAME + "\t---- Export Requested : preliminary consistency Check ----\n\n");
 
@@ -618,8 +633,7 @@ public class SemanticMapInterface extends AbstractNodeMain {
 	    	System.out.println(""+ NODE_NAME + "\tConsistency check passed. Writing to file:\t"+fileName);
     	}
     	catch (IOException a){
-    		System.out.println(""+ NODE_NAME + "\tOcchio");
-
+    		System.out.println(""+ NODE_NAME + "\tExport Problem");
             a.printStackTrace();
     	}
     	finally{
@@ -722,82 +736,67 @@ public class SemanticMapInterface extends AbstractNodeMain {
 	}
 
 	/**
-	 * Performs SPARQL Queries on ontology
-	 * 
-	 * @ RETURNS: HashMap Class ,  Hashmap< Position_coord, coord.toString()>
-	 * 										LexicalRef, reference
-	 * 										URI, uri
-	 */ 
-	/*
-	private static int addInstanceByRefAndPos(OntModel abox, String uriInstance, String posx, String posy, String posz, String lexicalRef,){
-		
-		int res = 0;
+	  * Handles removeAllEntityRequests from orchestrator:
+	  *	Looks for all instances and deletes them
+	  * 
+	  * Attention : What happens if an instance of a master concept relating two entities is deleted?
+	  * 			No one should be able to alter its knowledge directly.
+	  *	
+	  * 			Maybe, add a negative weight to the instance or a tag
+	  */
+	private static boolean handleRemoveAllRequest(OntModel abox) {
+		boolean res = true;
 
-		//List<HashMap<String, HashMap<String, String>>> res = new ArrayList<HashMap<String, HashMap<String, String>>>();
-		//String uriClass = classOnt.getURI();
-		
-		System.out.println("\n\nSPARQL looking for instance with a given lexical reference and retrieving parent class");
-		
-	     
-	    String queryString = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>" +
+		//  Removing IS A statement
+		String queryStringDelete = "" + 
 				"prefix rdfs: <"+RDFS.getURI()+">\n" +
-	    		"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> " +
-	    		"PREFIX hasPosition: <" + NS + POSITION +"> " +
-	    		"PREFIX hasRef: <" + NS + PREF_REF +"> " +
-				"prefix semantic_mapping_domain_model: <" + DOMAIN_MODEL_NS + "#> \n"+
-				"prefix semantic_mapping_1: <" + SEMANTIC_MAP_NS + "#> \n"+
-	    		
-	    		"PREFIX coordx: <" + NS + COORD_X +"> " +
-	    		"PREFIX coordy: <" + NS + COORD_Y +"> " +
-	    		"PREFIX coordz: <" + NS + COORD_Z +"> " +
-	    		"PREFIX prefRef: <" + NS + LEXICAL +"> " +
-	    		"PREFIX prefRef: <" + NS + LEXICAL +"> " +
-	    		
-	    		
-	    		"SELECT DISTINCT ?class "+
-	    		"WHERE {" + 
-	    			"{"+
-		    		"?uri hasRef: ?ref ." + 
-		    		"?ref prefRef: " + lexicalRef + " ." + 
-		    		"?uri a ?class ." + 
-		    		"?class rdfs:subClassOf semantic_mapping_domain_model:Furniture"+  "}"+
-	    		"} LIMIT 1" ;
-	    
-	    Query query = QueryFactory.create(queryString);
-		String classFound = "";
-	    
-	    QueryExecution qexec = QueryExecutionFactory.create(query, abox) ;
-	    try {
-	      ResultSet results = qexec.execSelect();
-	      while (results.hasNext())
-	      {
-	        QuerySolution soln = results.nextSolution() ;
-	        Resource classInstance = (Resource) soln.get("class");
-			classFound = classInstance.toString();
-	        System.out.print("Found clas: " + classFound);
-	        
-	        res = INSTANCE_ADDED; 
-
-	      }
-	    } finally { 
-	    	qexec.close(); 
-	    }
-
-
-	    OntClass classetta = abox.getOntClass(classFound);
-	    if (classetta == null){
-	    	res = NO_CLASS_FOUND;
-	    } else {
-	    	if (AddEntityRequest(abox, classetta, uriInstance, posx, posy,  posz, lexicalRef)){
-	    		System.out.print("\n\nOk\n\n");
-	    	}
-
-		}
-
-
+				"prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n"+
+				"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> "				
+				+ "prefix semantic_mapping_domain_model: <" + DOMAIN_MODEL_NS + "#> \n"
+				+ "prefix semantic_mapping: <" + SEMANTIC_MAP_NS + "#> \n"
+				+ "delete { ?x ?pred ?obj }  "
+               + "where { ?x ?pred ?obj }";
+				
+				UpdateAction.parseExecute(queryStringDelete, abox);
+		
+				
 		return res;
 	}
-	*/
+
+
+	/**
+	  * Handles loadNewOntology from orchestrator:
+	  *	Load a new Assertion Box from the JENA_PATH folder
+	  */
+	private static boolean loadNewAssertionBox(String filename) {
+		boolean res = true;
+
+
+		if (sparqlVerbosity)
+			System.out.println("\n\n" + NODE_NAME + "\tLoading new abox: ");
+		
+
+		// Importing Abox 
+	    abox = ModelFactory.createOntologyModel( OntModelSpec.OWL_MEM);
+	    OntDocumentManager dma = abox.getDocumentManager();
+	    dma.addAltEntry( SOURCE + filename , "file:" + JENA_PATH + filename + OWL_EXTENION );
+	    abox.read(SOURCE + filename,"RDF/XML");
+
+		if (sparqlVerbosity)
+	    	System.out.println("\n\n" + NODE_NAME + "Importing Abox ... OK " +"\n\n");
+
+
+	    /**
+	      * Invoke Resoner and Infer statements
+	      */
+	    infModel = ModelFactory.createOntologyModel( OntModelSpec.OWL_MEM_MICRO_RULE_INF, abox);
+
+		if (sparqlVerbosity)
+	    	System.out.println("\n\n" + NODE_NAME + "Invoking specialized Reasoner on Abox ... OK " +"\n\n");
+				
+		return res;
+	}	
+
 
 
 	/**
@@ -1239,12 +1238,12 @@ public class SemanticMapInterface extends AbstractNodeMain {
 	/** 
      * Exports Ontology if consistency check passed
 	  */
-	private static boolean exportTo(InfModel inf, OntModel abox, String absoluteFileName, String fileName){
+	private static boolean exportTo(InfModel inf, OntModel abox, String absolutePath, String fileName){
 	
 		boolean res = false;
 		if (performConsistencyCheckWith(inf)) {
 			//System.out.print("Passed");
-			exportOntologyOnt(abox,absoluteFileName,fileName);
+			exportOntologyOnt(abox,absolutePath,fileName);
 			res = true;
 		}
 		else {
