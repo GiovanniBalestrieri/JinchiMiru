@@ -23,6 +23,6 @@
 \contentsline {subsubsection}{\numberline {5.1.3}Deletion of an entity}{25}{subsubsection.5.1.3}
 \contentsline {subsubsection}{\numberline {5.1.4}Update entity's properties}{26}{subsubsection.5.1.4}
 \contentsline {subsection}{\numberline {5.2}Exporting Ontology}{27}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Future works}{27}{subsection.5.3}
-\contentsline {chapter}{Elenco delle figure}{28}{subsection.5.3}
-\contentsline {chapter}{References}{28}{section*.5}
+\contentsline {subsection}{\numberline {5.3}Future works}{28}{subsection.5.3}
+\contentsline {chapter}{Elenco delle figure}{29}{subsection.5.3}
+\contentsline {chapter}{References}{29}{section*.5}

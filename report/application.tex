@@ -298,7 +298,7 @@ Once the instance has been inserted into the ontology model, the collection of n
 In a real world scenario, objects can move or be manipulated by humans. A delete function is needed in order to handle cases in which the object moves out of the field of perception of the robot. To delete a model a special routine is invoked.\\
 The request is published on the external\_commands topic and captured by the Coordinator. This node forwards the request to SemanticMapInterface node and waits for the response. If the abox has been correctly updated, it invokes the delete\_model service exposed by the Gazebo node. The resulting 3D environment is consistent with the instance data loaded in memory.
 
-The SemanticMapInterface provides a method the handle this request. In Section \ref{subsec:abox} we have seen that for each furniture object there is an linear position and lexical reference instance associated with it. In order to completely delete an furniture object these instances have to be cancelled as well. The query that handles this operation is in Code Listing below.
+The SemanticMapInterface provides a method the handle this request. In Section \ref{subsec:abox} we have seen that for each furniture object there is an linear position and lexical reference instance associated with it. In order to completely delete a furniture object, these instances have to be cancelled as well. The query that handles this operation is in the Listing below.
 \begin{lstlisting}[language=Java]
 /**
   * Handles removeEntityRequests from orchestrator:
@@ -388,12 +388,72 @@ private static boolean handleUpdateEntityRequest(OntModel abox,OntClass ontClass
 
 The update routine starts by looking for an instance with the provided uri. If the there is no match, false is returned. Then it deletes the instance itself and its related properties with the method presented in Section \ref{subsubsec:delete}. Finally the new instance is added by invoking the method discussed in Section \ref{subsec: insertion} and a consistency check is invoked. 
 
-It is also possible to update an instance by dragging it in the 3D environment of Gazebo. The coordinator node keeps track of the position of all instances and copmpare them with the coordinate properties of the Assertion Box. As soon as the position of an instance is modified and a customizable threshold is crossed, an update routine is triggered and the ABox is updated. Collisions have not been taken into account.
+It is also possible to update an instance by dragging it in the 3D environment of Gazebo. The coordinator node keeps track of the position of all instances and compare them with the correponding coordinate properties in the Assertion Box. As soon as the position of an instance is modified and a customizable threshold is crossed, an update routine is triggered and the ABox is updated. Collisions have not been taken into account.
 
 \subsection{Exporting Ontology}
+Human machine interfaces require a context-aware interaction. In this process, since both parts make references to real world objects, an ontological model of the environment and a description of the involved entities may help in improving the accuracy of the interpretation of an user utterance.\\
+The first step towards this direction is to provide an export feature that allows the robotic platform to be aware of the surrounding environment and nearby objects.\\
+\\
 
+\begin{lstlisting}[language=Java]
+/** 
+  * Exports Ontology if consistency check passed
+  */
+private static boolean exportTo(InfModel inf, OntModel abox, String absolutePath, String fileName){
+	boolean res = false;
+	if (performConsistencyCheckWith(inf)) {
+		exportOntologyOnt(abox,absolutePath,fileName);
+		res = true;
+	}
+	else {
+		res = false;
+	}
+	return res;
+}
+
+/** 
+  * Exports Ontology to a file with provided name and path.
+  */
+private static boolean exportOntologyOnt(OntModel inf, String absoluteFileName, String fileName){
+	boolean res = false;
+    FileWriter out = null;
+
+    	try{
+    		out = new FileWriter(absoluteFileName+fileName);
+    		inf.write(out,"RDF/XML-ABBREV");
+    		res = true;
+	    	System.out.println(""+ NODE_NAME + "\tConsistency check passed. Writing to file:\t"+fileName);
+    	}
+    	catch (IOException a){
+    		System.out.println(""+ NODE_NAME + "\tExport Problem");
+            a.printStackTrace();
+    	}
+    	finally{
+    		if (out!=null){
+    			try {out.close();} catch(IOException ex) {}
+    		}
+    	}
+
+    	return res;
+}
+\end{lstlisting}
+
+The SemanticMapInterface export the ontology to OWL file in the file system and sends the list of entities to the Coordinator Node.
 
 \subsection{Future works}
+%In order to react to a user command a number of implicit assumptions should be made. 
+
+%The correct interpretation of the spoken sentences depends on the physical, cognitive and linguistic aspects triggered by the operational environment.
+
+%``take the book on the table ''
+
+%First, at least two entities, a book and a table, must exist in the environment and the speaker must be aware
+%of such entities. Accordingly, the robot must have access to
+%an inner representation of the objects, e.g. an explicit map of
+%the environment.
+%The perception of the environment that explicitly affects linguistic reasoning.
+%In the ontology based approach, OWL is used to model a Reference Ontology, while RDFS  is used  to  model schemas  to  be mapped. 
+
 
 The following points assume that the robot is equipped with a spoken command recognition
 
