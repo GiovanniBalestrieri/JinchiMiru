@@ -7,7 +7,7 @@
 \contentsline {subsection}{\numberline {2.2}Abox}{10}{subsection.2.2}
 \contentsline {section}{\numberline {3}Involved Technologies}{13}{section.3}
 \contentsline {subsection}{\numberline {3.1}JENA Ontology API}{13}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}ROS Famework}{13}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.2}ROS Framework}{13}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Gazebo Simulation Environment}{14}{subsection.3.3}
 \contentsline {section}{\numberline {4}The Architecture}{16}{section.4}
 \contentsline {subsection}{\numberline {4.1}System description}{16}{subsection.4.1}
@@ -24,6 +24,5 @@
 \contentsline {subsubsection}{\numberline {5.1.4}Update entity's properties}{26}{subsubsection.5.1.4}
 \contentsline {subsection}{\numberline {5.2}Exporting Ontology}{27}{subsection.5.2}
 \contentsline {subsection}{\numberline {5.3}Future works}{29}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {5.3.1}LU4R - Adaptive spoken Language Understanding For Robots}{29}{subsubsection.5.3.1}
-\contentsline {chapter}{Elenco delle figure}{30}{subsubsection.5.3.1}
-\contentsline {chapter}{References}{30}{section*.6}
+\contentsline {chapter}{Elenco delle figure}{30}{section*.7}
+\contentsline {chapter}{References}{30}{section*.8}

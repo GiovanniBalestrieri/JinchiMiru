@@ -66,7 +66,7 @@ Typically the ontology languages used with the semantic web allow constraints to
 }
 \end{lstlisting}
 
-When the Coordinator is initialized it sends on a topic called Bridge an init request. The request is captured by the SemanticMap and the $getAllInstances(OntModel)$ method is called. 
+When the Coordinator is initialized it sends on a topic called Bridge an init request. The request is captured by the SemanticMapInterface and the $getAllInstances(OntModel)$ method is called. 
 
 \begin{figure}[H]
 \centering
@@ -298,11 +298,11 @@ Once the instance has been inserted into the ontology model, the collection of n
 In a real world scenario, objects can move or be manipulated by humans. A delete function is needed in order to handle cases in which the object moves out of the field of perception of the robot. To delete a model a special routine is invoked.\\
 The request is published on the external\_commands topic and captured by the Coordinator. This node forwards the request to SemanticMapInterface node and waits for the response. If the abox has been correctly updated, it invokes the delete\_model service exposed by the Gazebo node. The resulting 3D environment is consistent with the instance data loaded in memory.
 
-The SemanticMapInterface provides a method the handle this request. In Section \ref{subsec:abox} we have seen that for each furniture object there is an linear position and lexical reference instance associated with it. In order to completely delete a furniture object, these instances have to be cancelled as well. The query that handles this operation is in the Listing below.
+The SemanticMapInterface provides a method the handle this request. In Section \ref{subsec:abox} we have seen that for each furniture object there is an linear position and lexical reference instance associated with it. In order to completely delete a furniture object, these instances have to be canceled as well. The query that handles this operation is in the Listing below.
 \begin{lstlisting}[language=Java]
 /**
   * Handles removeEntityRequests from orchestrator:
-  *	Looks for an instance with uri 'uriInstance', if the instance does not exist returns flase.
+  *	Looks for an instance with uri 'uriInstance', if the instance does not exist returns false.
   * If there is match, it deletes it and returns true. 
   * 
   * Attention : What happens if an instance of a master concept relating two entities is deleted?
@@ -388,7 +388,7 @@ private static boolean handleUpdateEntityRequest(OntModel abox,OntClass ontClass
 
 The update routine starts by looking for an instance with the provided uri. If the there is no match, false is returned. Then it deletes the instance itself and its related properties with the method presented in Section \ref{subsubsec:delete}. Finally the new instance is added by invoking the method discussed in Section \ref{subsec: insertion} and a consistency check is invoked. 
 
-It is also possible to update an instance by dragging it in the 3D environment of Gazebo. The coordinator node keeps track of the position of all instances and compare them with the correponding coordinate properties in the Assertion Box. As soon as the position of an instance is modified and a customizable threshold is crossed, an update routine is triggered and the ABox is updated. Collisions have not been taken into account.
+It is also possible to update an instance by dragging it in the 3D environment of Gazebo. The coordinator node keeps track of the position of all instances and compare them with the corresponding coordinate properties in the Assertion Box. As soon as the position of an instance is modified and a predefined threshold is crossed, an update routine is triggered and the ABox is updated. Collisions have not been taken into account.
 
 \subsection{Exporting Ontology}
 Human machine interfaces require a context-aware interaction. In this process, since both parts make references to real world objects, an ontological model of the environment and a description of the involved entities may help in improving the accuracy of the interpretation of an user utterance.\\
@@ -447,7 +447,8 @@ In order to retrieve the list of entities perceived by the robot, another featur
 \begin{lstlisting}[language=Java]
 {
    "http://www.semanticweb.org/ontologies/2016/1/semantic_mapping_1#table1":{
-      "type_full":"http://www.semanticweb.org/ontologies/2016/1/semantic_mapping_domain_model#Table",
+      "type_full":"http://www.semanticweb.org/ontologies/2016/1/
+      semantic_mapping_domain_model#Table",
       "coordinates":"2.0,2.0,0.0",
       "preferredLexicalReference":"table",
       "atom":"table1",
@@ -461,7 +462,8 @@ In order to retrieve the list of entities perceived by the robot, another featur
    ...
    },
    "http://www.semanticweb.org/ontologies/2016/1/semantic_mapping_1#beer_can_1":{
-      "type_full":"http://www.semanticweb.org/ontologies/2016/1/semantic_mapping_domain_model#Beer",
+      "type_full":"http://www.semanticweb.org/ontologies/2016/1
+      /semantic_mapping_domain_model#Beer",
       "coordinates":"1.8,2.2,1.0",
       "preferredLexicalReference":"Beer",
       "atom":"beer_can_1",
@@ -483,17 +485,17 @@ and human readable output for debug purposes.
 
 \subsection{Future works}
 
-The application described supports a limited number of entity's types. Each instance has to be associated with its corresponding 3D model with correct inertia matrix. In this project four types of objects are supported: tables, chairs, beer and coke cans.
+The application supports a limited number of entity types. Each instance has to be associated with its corresponding 3D model and inertia matrix. In this project four types of objects are supported: tables, chairs, beer and coke cans.
 
-From a robotic perspective, the applications of this ROS package are related to Human Centered Robotics and Machine to Machine Interaction.
+From a robotic perspective, the applications of this ROS package are related to Human Centered Robotics.
 
-\subsubsection{LU4R - Adaptive spoken Language Understanding For Robots}
-The adaptive spoken Language Understanding chain For Robots tool is the result of the collaboration between the SAG group at Tor Vergata University of Rome and the Laboratory of Cognitive Cooperating Robots (Lab.Ro.Co.Co.) at Sapienza, University of Rome. LU4R\footnote{For further information visit the official webpage at http://sag.art.uniroma2.it/lu4r.html} receives as input one or more transcriptions of a spoken command and produces an interpretation that is consistent with a linguistically-justified semantic representation, coherent with the perceived environment. Lu4r is based on a spoken language understanding (SLU) process that integrates perceptual and linguistic informationin order to produce command interpretations that coherently express constraints about the world and the hosting robotic platform.\\
+\subsubsection*{LU4R - Adaptive spoken Language Understanding For Robots}
+The adaptive spoken Language Understanding chain For Robots tool is the result of the collaboration between the SAG group at Tor Vergata University of Rome and the Laboratory of Cognitive Cooperating Robots (Lab.Ro.Co.Co.) at Sapienza, University of Rome. LU4R\footnote{For further information visit the official web page at http://sag.art.uniroma2.it/lu4r.html} receives as input one or more transcriptions of a spoken command and produces an interpretation that is consistent with a linguistically-justified semantic representation, coherent with the perceived environment. LU4R is based on a spoken language understanding (SLU) process that integrates perceptual and linguistic information in order to produce command interpretations that coherently express constraints about the world and the hosting robotic platform.\\
 \\
 It is a ROS compatible Java application in which the client runs on the robotic platform and the server on a remote machine.\\
 Actions expressed in user utterances can be modeled as semantic frames, sentences expressing commands are automatically analyzed by the chain by applying data driven methods trained over the Human Robot Interaction Corpus (HuRIC)\cite{bib3}.
 \\
-In its default mode of operation, the chain requires a list of sentences paired with their transcription confidence score. Each entry corresponds to a speech recognition hypothesis. 
+In its default mode of operation, the chain requires a list of sentences paired with their transcription confidence score and the ranking position among the hypotheses list. In order to enable the environment based interpretation process, additional information are required. The json described in Section \ref{subsubsec:list} can be forwarded to the LU4R node.
 %In order to react to a user command a number of implicit assumptions should be made. 
 
 %The correct interpretation of the spoken sentences depends on the physical, cognitive and linguistic aspects triggered by the operational environment.
@@ -506,10 +508,3 @@ In its default mode of operation, the chain requires a list of sentences paired 
 %the environment.
 %The perception of the environment that explicitly affects linguistic reasoning.
 %In the ontology based approach, OWL is used to model a Reference Ontology, while RDFS  is used  to  model schemas  to  be mapped. 
-
-
-The following points assume that the robot is equipped with a spoken command recognition
-
-Lu4r
-
-PointCloud

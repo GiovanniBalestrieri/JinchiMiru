@@ -6,7 +6,7 @@
 \BOOKMARK [2][-]{subsection.2.2}{Abox}{section.2}% 6
 \BOOKMARK [1][-]{section.3}{Involved Technologies}{}% 7
 \BOOKMARK [2][-]{subsection.3.1}{JENA Ontology API}{section.3}% 8
-\BOOKMARK [2][-]{subsection.3.2}{ROS Famework}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.2}{ROS Framework}{section.3}% 9
 \BOOKMARK [2][-]{subsection.3.3}{Gazebo Simulation Environment}{section.3}% 10
 \BOOKMARK [1][-]{section.4}{The Architecture}{}% 11
 \BOOKMARK [2][-]{subsection.4.1}{System description}{section.4}% 12
@@ -23,6 +23,5 @@
 \BOOKMARK [3][-]{subsubsection.5.1.4}{Update entity's properties}{subsection.5.1}% 23
 \BOOKMARK [2][-]{subsection.5.2}{Exporting Ontology}{section.5}% 24
 \BOOKMARK [2][-]{subsection.5.3}{Future works}{section.5}% 25
-\BOOKMARK [3][-]{subsubsection.5.3.1}{LU4R - Adaptive spoken Language Understanding For Robots}{subsection.5.3}% 26
-\BOOKMARK [0][-]{subsubsection.5.3.1}{Elenco delle figure}{}% 27
-\BOOKMARK [0][-]{section*.6}{References}{}% 28
+\BOOKMARK [0][-]{section*.7}{Elenco delle figure}{}% 26
+\BOOKMARK [0][-]{section*.8}{References}{}% 27

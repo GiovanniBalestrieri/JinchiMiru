@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.2.16)  16 FEB 2017 13:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.2.16)  16 FEB 2017 16:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -582,7 +582,7 @@ LaTeX Font Info:    Try loading font information for U+lasy on input line 88.
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-<imgs/ulogo.jpg, id=115, 437.38406pt x 547.2947pt>
+<imgs/ulogo.jpg, id=112, 437.38406pt x 547.2947pt>
 File: imgs/ulogo.jpg Graphic file (type jpg)
  <use imgs/ulogo.jpg>
 Package pdftex.def Info: imgs/ulogo.jpg used on input line 88.
@@ -815,13 +815,13 @@ Overfull \hbox (8.58763pt too wide) in paragraph at lines 195--210
 [4]) [5]
 \openout2 = `ontology.aux'.
 
- (./ontology.tex <imgs/ontology.png, id=246, 262.9825pt x 543.02875pt>
+ (./ontology.tex <imgs/ontology.png, id=242, 262.9825pt x 543.02875pt>
 File: imgs/ontology.png Graphic file (type png)
 
 <use imgs/ontology.png>
 Package pdftex.def Info: imgs/ontology.png used on input line 9.
 (pdftex.def)             Requested size: 130.50133pt x 269.48364pt.
- <imgs/ontology1.png, id=247, 823.075pt x 572.1375pt>
+ <imgs/ontology1.png, id=243, 823.075pt x 572.1375pt>
 File: imgs/ontology1.png Graphic file (type png)
 
 <use imgs/ontology1.png>
@@ -831,76 +831,70 @@ Package pdftex.def Info: imgs/ontology1.png used on input line 18.
 
 
  <./imgs/ontology.png>]
-Overfull \hbox (2.45107pt too wide) in paragraph at lines 31--32
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 25.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+Overfull \hbox (47.29475pt too wide) in paragraph at lines 56--59
+\T1/cmr/m/n/10.95 The sec-ond and third re-stric-tions are Car-di-nal-ity con-t
+raints linked to the Prop-erty float_coordinates_x
+ []
+
+[7 <./imgs/ontology1.png>]
+Overfull \hbox (2.45107pt too wide) in paragraph at lines 68--69
 []\T1/cmr/m/n/10.95 An ob-ject prop-erty is de-fined as an in-stance of the bui
 lt-in OWL class owl:ObjectProperty.
  []
 
 
-Overfull \hbox (3.42212pt too wide) in paragraph at lines 31--32
+Overfull \hbox (3.42212pt too wide) in paragraph at lines 68--69
 \T1/cmr/m/n/10.95 A datatype prop-erty is de-fined as an in-stance of the built
 -in OWL class owl:DatatypeProperty.
  []
 
 
-Overfull \hbox (21.7711pt too wide) in paragraph at lines 31--32
+Overfull \hbox (21.7711pt too wide) in paragraph at lines 68--69
 \T1/cmr/m/n/10.95 Both owl:ObjectProperty and owl:DatatypeProperty are sub-clas
 ses of the RDF class rdf:Property. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--32
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
 
  []
 
-<imgs/datatypeProtege.png, id=255, 380.42125pt x 432.61626pt>
+<imgs/datatypeProtege.png, id=288, 380.42125pt x 432.61626pt>
 File: imgs/datatypeProtege.png Graphic file (type png)
 
 <use imgs/datatypeProtege.png>
-Package pdftex.def Info: imgs/datatypeProtege.png used on input line 38.
+Package pdftex.def Info: imgs/datatypeProtege.png used on input line 75.
 (pdftex.def)             Requested size: 261.00266pt x 296.82224pt.
- [7 <./imgs/ontology1.png>]
-<imgs/Datatype.png, id=264, 702.625pt x 568.1225pt>
+ [8]
+<imgs/Datatype.png, id=296, 702.625pt x 568.1225pt>
 File: imgs/Datatype.png Graphic file (type png)
  <use imgs/Datatype.png>
-Package pdftex.def Info: imgs/Datatype.png used on input line 45.
+Package pdftex.def Info: imgs/Datatype.png used on input line 82.
 (pdftex.def)             Requested size: 261.00266pt x 211.04291pt.
 
-<imgs/propClassTree.png, id=266, 290.08376pt x 204.765pt>
+<imgs/propClassTree.png, id=298, 290.08376pt x 204.765pt>
 File: imgs/propClassTree.png Graphic file (type png)
 
 <use imgs/propClassTree.png>
-Package pdftex.def Info: imgs/propClassTree.png used on input line 55.
+Package pdftex.def Info: imgs/propClassTree.png used on input line 92.
 (pdftex.def)             Requested size: 261.00266pt x 184.24928pt.
- [8 <./imgs/datatypeProtege.png> <./imgs/Datatype.png>] (/usr/share/texlive/tex
-mf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 62.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-) [9 <./imgs/propClassTree.png>]
-Overfull \hbox (51.37802pt too wide) in paragraph at lines 102--105
-\T1/cmr/m/n/10.95 The first re-stric-tion is a Value con-traint linked (us-ing 
-owl:onProperty) the Prop-erty float_coordinates_z
- []
-
-
-Overfull \hbox (47.29475pt too wide) in paragraph at lines 102--105
-\T1/cmr/m/n/10.95 The sec-ond and third re-stric-tions are Car-di-nal-ity con-t
-raints linked to the Prop-erty float_coordinates_x
- []
-
-
+ [9 <./imgs/datatypeProtege.png> <./imgs/Datatype.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 109--110
 
  []
 
-[10] <imgs/chair1.png, id=334, 747.79375pt x 420.57124pt>
+[10 <./imgs/propClassTree.png>]
+<imgs/chair1.png, id=320, 747.79375pt x 420.57124pt>
 File: imgs/chair1.png Graphic file (type png)
-
-<use imgs/chair1.png>
+ <use imgs/chair1.png>
 Package pdftex.def Info: imgs/chair1.png used on input line 134.
 (pdftex.def)             Requested size: 261.00266pt x 146.79143pt.
 
@@ -908,20 +902,20 @@ Overfull \hbox (16.87859pt too wide) in paragraph at lines 144--145
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-<imgs/refChair1.png, id=335, 635.37375pt x 304.13625pt>
+<imgs/refChair1.png, id=321, 635.37375pt x 304.13625pt>
 File: imgs/refChair1.png Graphic file (type png)
 
 <use imgs/refChair1.png>
 Package pdftex.def Info: imgs/refChair1.png used on input line 152.
 (pdftex.def)             Requested size: 261.00266pt x 124.93797pt.
- [11 <./imgs/chair1.png> <./imgs/refChair1.png>]
-<imgs/coordchair1.png, id=349, 770.88pt x 292.09125pt>
+ [11 <./imgs/chair1.png>]
+<imgs/coordchair1.png, id=343, 770.88pt x 292.09125pt>
 File: imgs/coordchair1.png Graphic file (type png)
 
 <use imgs/coordchair1.png>
 Package pdftex.def Info: imgs/coordchair1.png used on input line 177.
 (pdftex.def)             Requested size: 261.00266pt x 98.8952pt.
-) [12 <./imgs/coordchair1.png>]
+) [12 <./imgs/refChair1.png> <./imgs/coordchair1.png>]
 \openout2 = `technologies.aux'.
 
  (./technologies.tex
@@ -929,7 +923,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--10
 
  []
 
-<imgs/gazebo1.png, id=365, 1539.7525pt x 932.48375pt>
+<imgs/gazebo1.png, id=362, 1539.7525pt x 932.48375pt>
 File: imgs/gazebo1.png Graphic file (type png)
  <use imgs/gazebo1.png>
 Package pdftex.def Info: imgs/gazebo1.png used on input line 17.
@@ -948,7 +942,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--27
  []
 
 [14 <./imgs/gazebo1.png>]
-<imgs/gazebo2.png, id=379, 1165.35374pt x 704.6325pt>
+<imgs/gazebo2.png, id=376, 1165.35374pt x 704.6325pt>
 File: imgs/gazebo2.png Graphic file (type png)
  <use imgs/gazebo2.png>
 Package pdftex.def Info: imgs/gazebo2.png used on input line 38.
@@ -958,13 +952,13 @@ Package pdftex.def Info: imgs/gazebo2.png used on input line 38.
 \openout2 = `arch.aux'.
 
  (./arch.tex
-<imgs/arch1.jpg, id=386, 1025.8325pt x 476.78125pt>
+<imgs/arch1.jpg, id=383, 1025.8325pt x 476.78125pt>
 File: imgs/arch1.jpg Graphic file (type jpg)
  <use imgs/arch1.jpg>
 Package pdftex.def Info: imgs/arch1.jpg used on input line 10.
 (pdftex.def)             Requested size: 348.00133pt x 161.73972pt.
 
-<imgs/semantic.jpg, id=387, 552.0625pt x 281.05pt>
+<imgs/semantic.jpg, id=384, 552.0625pt x 281.05pt>
 File: imgs/semantic.jpg Graphic file (type jpg)
  <use imgs/semantic.jpg>
 Package pdftex.def Info: imgs/semantic.jpg used on input line 20.
@@ -984,21 +978,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--11
 [19
 
 
-] <imgs/topics1.jpg, id=434, 1025.8325pt x 476.78125pt>
+] <imgs/topics1.jpg, id=431, 1025.8325pt x 476.78125pt>
 File: imgs/topics1.jpg Graphic file (type jpg)
 
 <use imgs/topics1.jpg>
 Package pdftex.def Info: imgs/topics1.jpg used on input line 73.
 (pdftex.def)             Requested size: 348.00133pt x 161.73972pt.
  [20 <./imgs/topics1.jpg>]
-<imgs/gazebocoord.jpg, id=467, 528.97626pt x 224.84pt>
+<imgs/gazebocoord.jpg, id=464, 528.97626pt x 224.84pt>
 File: imgs/gazebocoord.jpg Graphic file (type jpg)
 
 <use imgs/gazebocoord.jpg>
 Package pdftex.def Info: imgs/gazebocoord.jpg used on input line 126.
 (pdftex.def)             Requested size: 217.5pt x 92.44572pt.
  [21 <./imgs/gazebocoord.jpg>]
-<imgs/topics2.jpg, id=502, 1025.8325pt x 266.9975pt>
+<imgs/topics2.jpg, id=499, 1025.8325pt x 266.9975pt>
 File: imgs/topics2.jpg Graphic file (type jpg)
  <use imgs/topics2.jpg>
 Package pdftex.def Info: imgs/topics2.jpg used on input line 141.
@@ -1020,20 +1014,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 394--397
 
  []
 
-[27]
-Overfull \hbox (97.0505pt too wide) in paragraph at lines 450--451
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][]  
- []
-
-
-Overfull \hbox (91.9517pt too wide) in paragraph at lines 464--465
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][]  
- []
-
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 491--496
+[27] [28]
+Underfull \hbox (badness 10000) in paragraph at lines 493--500
 
  []
 
@@ -1051,22 +1033,28 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 214.
 (./technologies.aux) (./arch.aux) (./application.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 214.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 214.
-Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 31A2729A925A40CEB7344D0CDDCDF022;1899.
 
+
+Package rerunfilecheck Warning: File `paper.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `paper.out':
+(rerunfilecheck)             Before: C76833A7B9C8B86F2E7EBFB7BC31BB18;1774
+(rerunfilecheck)             After:  E013A17AA45AFF366559425BA4529F7D;1775.
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 214.
  ) 
 Here is how much of TeX's memory you used:
- 10983 strings out of 494901
- 153152 string characters out of 6179486
+ 10986 strings out of 494901
+ 153176 string characters out of 6179486
  471439 words of memory out of 5000000
  13504 multiletter control sequences out of 15000+600000
  25860 words of font info for 75 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 36i,12n,43p,688b,1969s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,12n,43p,877b,1969s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/sashimono/.texmf-var/fonts/pk/ljfour/jknappen/ec/tctt0800.600pk> </ho
 me/sashimono/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0800.600pk>{/usr/share/
 texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/sashimono/.texmf-var/fon
@@ -1088,10 +1076,10 @@ cbx1728.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
 i10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on paper.pdf (34 pages, 1621916 bytes).
+Output written on paper.pdf (34 pages, 1621859 bytes).
 PDF statistics:
- 1634 PDF objects out of 1728 (max. 8388607)
+ 1635 PDF objects out of 1728 (max. 8388607)
  973 compressed objects within 10 object streams
- 537 named destinations out of 1000 (max. 500000)
- 305 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 540 named destinations out of 1000 (max. 500000)
+ 297 words of extra memory for PDF output out of 10000 (max. 10000000)
 

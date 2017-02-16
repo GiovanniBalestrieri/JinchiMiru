@@ -3,7 +3,7 @@
 This project has been implemented using ROS framework. It is a modular application that enables other nodes to query and interact with the knowledge base. An external interface node allows several operations including the export of the Assertion Box. Four nodes are involved in this application and the communication between them relies on an inter-process protocol handled by ROS.
 
 \subsection{System description}
-In the following subsection, the implememted nodes and their interaction with the system will be discussed. 
+In the following subsection, the implemented nodes and their interaction with the system will be discussed. 
 
 \begin{figure}[H]
 \centering
@@ -46,7 +46,7 @@ This node has been implemented to test the required specifications. It simulates
 
 
 \subsubsection{Coordinator Node}
-The Coordinator node is a python script that performs several actions and communicates with other nodes in the system. One responsability of the coordinator is to keep track of instances and trigger update requests when a 3D model is manually grabbed and moved in the simulation. This node provides a dynamic rooting of requests from the External Interface node to the ontology handler or Gazebo. 
+The Coordinator node is a python script that performs several actions and communicates with other nodes in the system. One responsibility of the coordinator is to keep track of instances and trigger update requests when a 3D model is manually grabbed and moved in the simulation. This node provides a dynamic rooting of requests from the External Interface node to the ontology handler or Gazebo. 
 
 Basic operations include:
 
@@ -55,7 +55,7 @@ Basic operations include:
 \item Tracks 3D absolute positions of objects in the simulation,
 \item Notifies the ontology manager that an instance's property has changed,
 \item Forwards 3D spawn and delete task to Gazebo,
-\item Ensures consistency bewteen the Assertion Box and the simulated world.
+\item Ensures consistency between the Assertion Box and the simulated world.
 \end{itemize}
 
 \subsection{Test cases}
@@ -64,7 +64,7 @@ The following test cases have been performed:
 
 \begin{itemize}
 \item Initialization from non empty ontology (TBox and ABox),
-\item Retrieve collection of intances and render 3D models in Gazebo,
+\item Retrieve collection of instances and render 3D models in Gazebo,
 \item Request a detailed list of properties about active entities,
 \item Manually drag objects in scene and sync new properties with the ABox,
 \item Request Instances enumeration from ExternalInterface,

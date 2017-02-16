@@ -20,53 +20,7 @@ The furniture class describes several objects of a domestic environment a robot 
 \caption{Furniture subclasses graph}
 \end{figure}
 
-\subsection*{Properties}
-OWL distinguishes between two main categories of properties that an ontology builder may want to define:
-
-\begin{itemize}
-	\item Object properties link individuals to individuals.
-	\item Datatype properties link individuals to data values.
-\end{itemize}
-
-An object property is defined as an instance of the built-in OWL class owl:ObjectProperty. A datatype property is defined as an instance of the built-in OWL class owl:DatatypeProperty. Both owl:ObjectProperty and owl:DatatypeProperty are subclasses of the RDF class rdf:Property.\\
-
-\subsubsection*{Properties}
-The datatypes involved are shown in the Figure ~\ref{fig:datatypes} and ~\ref{fig:datatypesProtege}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.6\textwidth]{imgs/datatypeProtege.png}
-\label{fig:datatypesProtege}
-\caption{Datatypes Visualization in Prot\'eg\'e}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.6\textwidth]{imgs/Datatype.png}
-\label{fig:datatypes}
-\caption{Datatypes}
-\end{figure}
-
-\textit{Object Properties}
-
-The following Figure \ref{fig:propClassTree} shows the class tree diagram of the ObjectProperties involved in the project.
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.6\textwidth]{imgs/propClassTree.png}
-\label{fig:propClassTree}
-\caption{Object Properties Class Tree}
-\end{figure}
-
-As an example, consider the following set of owl statements about the ObjectProperty hasPosition. This property is of the type IrreflexivePropery and is a subProperty of SpacialProperty.
-
-\begin{lstlisting}[language=Java,basicstyle=\fontsize{9}{9}\selectfont\ttfamily]
-<owl:ObjectProperty rdf:about="sm#hasPosition">
-    <rdfs:subPropertyOf rdf:resource="sm#hasSpatialProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
-</owl:ObjectProperty>
-\end{lstlisting}    
-
-Let us consider another Property involved in this project.
+As an example, consider the Coordinates class below.
 
 \begin{lstlisting}[language=Java,basicstyle=\fontsize{9}{9}\selectfont\ttfamily]
 <owl:Class rdf:about="sm#Coordinates">
@@ -100,13 +54,59 @@ Let us consider another Property involved in this project.
 \end{lstlisting}
 
 The class Coordinates is a subclass of the class Position and of three anonymous classes. A property restriction describes an anonymous class, namely a class of all individuals that satisfy the restriction. \\\
-The first restriction is a Value contraint linked (using owl:onProperty) the Property float\_coordinates\_z  to a class of all individuals for which at least one value of the property concerned is an instance of a data value in the data range.\\
+The first restriction is a Value contraint that links (using owl:onProperty) the Property float\_coordinates\_z  to a class of all individuals for which at least one value of the property concerned is an instance of a data value in the data range.\\
 The second and third restrictions are Cardinality contraints linked to the Property float\_coordinates\_x and float\_coordinates\_y.
+
+\subsection*{Properties}
+OWL distinguishes between two main categories of properties that an ontology builder may want to define:
+
+\begin{itemize}
+	\item Object properties link individuals to individuals.
+	\item Datatype properties link individuals to data values.
+\end{itemize}
+
+An object property is defined as an instance of the built-in OWL class owl:ObjectProperty. A datatype property is defined as an instance of the built-in OWL class owl:DatatypeProperty. Both owl:ObjectProperty and owl:DatatypeProperty are subclasses of the RDF class rdf:Property.\\
+
+\subsubsection*{Datatype Properties}
+The datatypes involved are shown in the Figure ~\ref{fig:datatypes} and ~\ref{fig:datatypesProtege}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{imgs/datatypeProtege.png}
+\label{fig:datatypesProtege}
+\caption{Datatypes Visualization in Prot\'eg\'e}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{imgs/Datatype.png}
+\label{fig:datatypes}
+\caption{Datatypes}
+\end{figure}
+
+\subsubsection*{Object Properties}
+
+The following Figure \ref{fig:propClassTree} shows the class tree diagram of the ObjectProperties involved in the project.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{imgs/propClassTree.png}
+\label{fig:propClassTree}
+\caption{Object Properties Class Tree}
+\end{figure}
+
+As an example, consider the following set of owl statements about the ObjectProperty hasPosition. This property is of the type IrreflexiveProperty and is a subProperty of SpacialProperty.
+
+\begin{lstlisting}[language=Java,basicstyle=\fontsize{9}{9}\selectfont\ttfamily]
+<owl:ObjectProperty rdf:about="sm#hasPosition">
+    <rdfs:subPropertyOf rdf:resource="sm#hasSpatialProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+</owl:ObjectProperty>
+\end{lstlisting}    
 
 
 \subsection{Abox}
 \label{subsec:abox}
-The collection of individual are stored in a separate file called semantic\_mapping, the Abox. The demo supports operations on four classes of instances since the 3D environment requires tridimentional models of the object to be represented. This constrain could be relaxed by adding an exhaustive collection of 3D models and by associating them to the corresponding classes.\\
+The collection of individual are stored in a separate file called semantic\_mapping, the Abox. The demo supports operations on four classes of instances since the 3D environment requires 3D models of the object to be represented. This constrain could be relaxed by adding an exhaustive collection of 3D models and by associating them to the corresponding classes.\\
 
 \subsubsection*{An instance of the class Chair}
 Individuals are defined with individual axioms called ``facts''. These facts are statements indicating class membership of individuals and property values of individuals. As an example, consider the following set of statements about an instance of the class Chair:
