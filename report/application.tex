@@ -440,7 +440,60 @@ private static boolean exportOntologyOnt(OntModel inf, String absoluteFileName, 
 
 The SemanticMapInterface export the ontology to OWL file in the file system and sends the list of entities to the Coordinator Node.
 
+\subsubsection*{Listing Entities}
+\label{subsubsec:list}
+In order to retrieve the list of entities perceived by the robot, another feature has been taken into account. This action involves the Coordinator, the SemanticMapHandler and the ExternInterface nodes. The Coordinator prepares the response in two formats, a json encoded list of entities and corresponding properties
+
+\begin{lstlisting}[language=Java]
+{
+   "http://www.semanticweb.org/ontologies/2016/1/semantic_mapping_1#table1":{
+      "type_full":"http://www.semanticweb.org/ontologies/2016/1/semantic_mapping_domain_model#Table",
+      "coordinates":"2.0,2.0,0.0",
+      "preferredLexicalReference":"table",
+      "atom":"table1",
+      "coordinate":{
+         "y":"2.0",
+         "x":"2.0",
+         "z":"0.0"
+      },
+      "type":"Table"
+   },{
+   ...
+   },
+   "http://www.semanticweb.org/ontologies/2016/1/semantic_mapping_1#beer_can_1":{
+      "type_full":"http://www.semanticweb.org/ontologies/2016/1/semantic_mapping_domain_model#Beer",
+      "coordinates":"1.8,2.2,1.0",
+      "preferredLexicalReference":"Beer",
+      "atom":"beer_can_1",
+      "coordinate":{
+         "y":"2.2",
+         "x":"1.8",
+         "z":"1.0"
+      },
+      "type":"Beer"
+   }
+}
+\end{lstlisting}
+
+
+and human readable output for debug purposes.  
+
+
+
+
 \subsection{Future works}
+
+The application described supports a limited number of entity's types. Each instance has to be associated with its corresponding 3D model with correct inertia matrix. In this project four types of objects are supported: tables, chairs, beer and coke cans.
+
+From a robotic perspective, the applications of this ROS package are related to Human Centered Robotics and Machine to Machine Interaction.
+
+\subsubsection{LU4R - Adaptive spoken Language Understanding For Robots}
+The adaptive spoken Language Understanding chain For Robots tool is the result of the collaboration between the SAG group at Tor Vergata University of Rome and the Laboratory of Cognitive Cooperating Robots (Lab.Ro.Co.Co.) at Sapienza, University of Rome. LU4R\footnote{For further information visit the official webpage at http://sag.art.uniroma2.it/lu4r.html} receives as input one or more transcriptions of a spoken command and produces an interpretation that is consistent with a linguistically-justified semantic representation, coherent with the perceived environment. Lu4r is based on a spoken language understanding (SLU) process that integrates perceptual and linguistic informationin order to produce command interpretations that coherently express constraints about the world and the hosting robotic platform.\\
+\\
+It is a ROS compatible Java application in which the client runs on the robotic platform and the server on a remote machine.\\
+Actions expressed in user utterances can be modeled as semantic frames, sentences expressing commands are automatically analyzed by the chain by applying data driven methods trained over the Human Robot Interaction Corpus (HuRIC)\cite{bib3}.
+\\
+In its default mode of operation, the chain requires a list of sentences paired with their transcription confidence score. Each entry corresponds to a speech recognition hypothesis. 
 %In order to react to a user command a number of implicit assumptions should be made. 
 
 %The correct interpretation of the spoken sentences depends on the physical, cognitive and linguistic aspects triggered by the operational environment.

@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.2.9)  16 FEB 2017 03:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.2.16)  16 FEB 2017 13:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **paper.tex
 (./paper.tex
-LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 4 languages loaded.
+LaTeX2e <2016/02/01>
+Babel <3.9q> and hyphenation patterns for 6 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
-File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@section=\count80
@@ -24,21 +24,21 @@ File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \bibindent=\dimen102
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2008/03/30 v1.1d Input encoding file
+Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2008/03/30 v1.1d Input encoding file
+File: latin1.def 2015/03/17 v1.2c Input encoding file
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2013/12/03 3.9h The Babel package
+Package: babel 2016/02/24 3.9q The Babel package
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2012/08/20 v3.3p English support from the babel system
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2013/12/03 3.9h Babel common definitions
+File: babel.def 2016/02/24 3.9q Babel common definitions
 \babel@savecnt=\count87
 \U@D=\dimen103
 )
@@ -51,25 +51,25 @@ Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
-LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks16
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 91.
+Package graphics Info: Driver file: pdftex.def on input line 95.
 
 (/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
@@ -94,40 +94,40 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@floatcapt=\box27
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2013/01/14 v2.14 AMS math features
+Package: amsmath 2016/03/03 v2.15a AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2000/06/29 v2.01
+Package: amstext 2000/06/29 v2.01 AMS text
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
-File: amsgen.sty 1999/11/30 v2.0
+File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks19
 \ex@=\dimen106
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
-Package: amsbsy 1999/11/29 v1.2d
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen107
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count90
-LaTeX Info: Redefining \frac on input line 210.
+LaTeX Info: Redefining \frac on input line 199.
 \uproot@=\count91
 \leftroot@=\count92
-LaTeX Info: Redefining \overline on input line 306.
+LaTeX Info: Redefining \overline on input line 297.
 \classnum@=\count93
 \DOTSCASE@=\count94
-LaTeX Info: Redefining \ldots on input line 378.
-LaTeX Info: Redefining \dots on input line 381.
-LaTeX Info: Redefining \cdots on input line 466.
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
 \Mathstrutbox@=\box28
 \strutbox@=\box29
 \big@size=\dimen108
-LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
 \macc@depth=\count95
 \c@MaxMatrixCols=\count96
 \dotsspace@=\muskip10
@@ -148,8 +148,8 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \multlinegap=\skip44
 \multlinetaggap=\skip45
 \mathdisplay@stack=\toks23
-LaTeX Info: Redefining \[ on input line 2665.
-LaTeX Info: Redefining \] on input line 2666.
+LaTeX Info: Redefining \[ on input line 2735.
+LaTeX Info: Redefining \] on input line 2736.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
@@ -159,7 +159,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
-Package: amsthm 2004/08/06 v2.20
+Package: amsthm 2015/03/04 v2.20.2
 \thm@style=\toks24
 \thm@bodyfont=\toks25
 \thm@headfont=\toks26
@@ -172,13 +172,13 @@ Package: amsthm 2004/08/06 v2.20
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/newlfont.sty
 Package: newlfont 1998/08/17 v2.2m Standard LaTeX package
-LaTeX Info: Redefining \em on input line 67.
+LaTeX Info: Redefining \em on input line 72.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/latexsym.sty
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
-(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/mdwtools/footnote.sty
 Package: footnote 1997/01/28 1.13 Save footnotes around boxes
@@ -222,15 +222,15 @@ Package: amssymb 2013/01/14 v3.01 AMS font symbols
 \lst@maxwidth=\dimen120
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 \c@lstnumber=\count109
 \lst@skipnumbers=\count110
 \lst@framebox=\box33
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2013/08/26 1.5b listings configuration
+File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
-Package: listings 2013/08/26 1.5b (Carsten Heinz)
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
@@ -348,7 +348,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \Hy@SectionHShift=\skip59
 )
 (/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.sty
-Package: lipsum 2011/04/14 v1.2 150 paragraphs of Lorem Ipsum dummy text
+Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
 \c@lips@count=\count121
 ) (./mcode.sty
 -- Package: `mcode' 2.3 <2012/08/31> --
@@ -358,7 +358,7 @@ Package: mcode 2012/08/31 2.3
  - literate programming (character replacements) enabled
  - automatic line breaking enabled (careful, buggy!)
  - framed listings
-(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
@@ -388,73 +388,74 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             only a restricted character set as indicated.
 (textcomp)             Family '?' is the default used for unknown fonts.
 (textcomp)             See the documentation for details.
-Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 )
-LaTeX Info: Redefining \oldstylenums on input line 266.
-Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
-Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
-Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 283.
-Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 284.
-Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 285.
-Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 286.
-Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 287.
-Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 288.
-Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 289.
-Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 290.
-Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 291.
-Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 292.
-Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 293.
-Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 294.
-Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 295.
-Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 296.
-Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 297.
-Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 298.
-Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 299.
-Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 300.
-Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 301.
-Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 302.
-Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 303.
-Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 304.
+LaTeX Info: Redefining \oldstylenums on input line 334.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
 
-Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 305.
-Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 306.
-Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
-Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
-Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
-Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
-Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 311.
-Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 312.
-Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 313.
-Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 314.
-Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 315.
-Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 316.
-Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 317.
-Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 318.
-Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 319.
-Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 320.
-Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 321.
-Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 322.
-Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 323.
-Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 324.
-Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 325.
-Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 326.
-Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 327.
-Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 328.
-Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 329.
-Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 330.
-Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 331.
-Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 332.
-Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 333.
-Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 334.
-Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 335.
-Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 336.
-Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 337.
-Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
-Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
-Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
+Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
 \lbreakdots=\box34
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 220.
@@ -463,7 +464,7 @@ LaTeX Font Info:    Try loading font information for T1+pcr on input line 220.
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2013/08/26 1.5b listings language file
+File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 \c@obs=\count122
 \c@pro=\count123
@@ -514,7 +515,7 @@ LaTeX Font Info:    ... okay on input line 83.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 83.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 83.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
-File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 83.
 
@@ -581,7 +582,7 @@ LaTeX Font Info:    Try loading font information for U+lasy on input line 88.
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-<imgs/ulogo.jpg, id=111, 437.38406pt x 547.2947pt>
+<imgs/ulogo.jpg, id=115, 437.38406pt x 547.2947pt>
 File: imgs/ulogo.jpg Graphic file (type jpg)
  <use imgs/ulogo.jpg>
 Package pdftex.def Info: imgs/ulogo.jpg used on input line 88.
@@ -613,112 +614,112 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.35 \item I
+l.21 \item I
             nsert new instance of object in the scene and check for consiste...
 [1
 
 ]
-Underfull \hbox (badness 1371) in paragraph at lines 52--54
+Underfull \hbox (badness 1371) in paragraph at lines 38--40
 []\T1/cmr/m/n/10.95 Perform a lit-er-a-ture
  []
 
 
-Underfull \hbox (badness 1348) in paragraph at lines 52--54
+Underfull \hbox (badness 1348) in paragraph at lines 38--40
 \T1/cmr/m/n/10.95 ous HuRIC pub-li-ca-
  []
 
 
-Underfull \hbox (badness 2717) in paragraph at lines 56--57
+Underfull \hbox (badness 2717) in paragraph at lines 42--43
 []\T1/cmr/m/n/10.95 Knowledge rep-re-sen-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--59
+Underfull \hbox (badness 10000) in paragraph at lines 43--45
 []\T1/cmr/m/n/10.95 Huric pa-pers
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 61--62
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
 []\T1/cmr/m/n/10.95 Literature re-view
  []
 
 
-Underfull \hbox (badness 5189) in paragraph at lines 61--62
+Underfull \hbox (badness 5189) in paragraph at lines 47--48
 \T1/cmr/m/n/10.95 of ROS com-pat-i-ble
  []
 
 
-Underfull \hbox (badness 1997) in paragraph at lines 65--66
+Underfull \hbox (badness 1997) in paragraph at lines 51--52
 []\T1/cmr/m/n/10.95 ROS Doc-u-men-ta-tion
  []
 
 
-Underfull \hbox (badness 1675) in paragraph at lines 73--74
+Underfull \hbox (badness 1675) in paragraph at lines 59--60
 []\T1/cmr/m/n/10.95 Literature re-view of
  []
 
 
-Underfull \hbox (badness 2035) in paragraph at lines 78--79
+Underfull \hbox (badness 2035) in paragraph at lines 64--65
 []\T1/cmr/m/n/10.95 Python li-brary RD-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--87
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
 []\T1/cmr/m/n/10.95 Object recog-ni-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 89--90
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
 []\T1/cmr/m/n/10.95 PointCloudLibrary
  []
 
 
-Underfull \hbox (badness 1502) in paragraph at lines 90--91
+Underfull \hbox (badness 1502) in paragraph at lines 76--77
 \T1/cmr/m/n/10.95 clas-si-fier doc-u-men-ta-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
 []\T1/cmr/m/n/10.95 Clear scene script in
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--99
+Underfull \hbox (badness 10000) in paragraph at lines 84--85
 []\T1/cmr/m/n/10.95 Integrate clas-si-fi-ca-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--100
+Underfull \hbox (badness 10000) in paragraph at lines 85--86
 []\T1/cmr/m/n/10.95 Optimize python
  []
 
 
-Underfull \hbox (badness 6526) in paragraph at lines 106--107
+Underfull \hbox (badness 6526) in paragraph at lines 92--93
 []\T1/cmr/m/n/10.95 Analyze point-cloud from
  []
 
 
-Underfull \hbox (badness 7256) in paragraph at lines 108--109
+Underfull \hbox (badness 7256) in paragraph at lines 94--95
 []\T1/cmr/m/n/10.95 Object recog-ni-tion, vote
  []
 
 
-Underfull \hbox (badness 4144) in paragraph at lines 112--113
+Underfull \hbox (badness 4144) in paragraph at lines 98--99
 []\T1/cmr/m/n/10.95 Owl Rea-soner in-te-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--114
+Underfull \hbox (badness 10000) in paragraph at lines 99--100
 []\T1/cmr/m/n/10.95 Test RD-Flib and
  []
 
 
-Underfull \hbox (badness 1735) in paragraph at lines 117--118
+Underfull \hbox (badness 1735) in paragraph at lines 103--104
 []\T1/cmr/m/n/10.95 Apache Jena Fuseki
  []
 
 
-Overfull \hbox (8.58763pt too wide) in paragraph at lines 48--127
+Overfull \hbox (8.58763pt too wide) in paragraph at lines 34--113
  [] 
  []
 
@@ -727,38 +728,73 @@ Overfull \vbox (10.649pt too high) has occurred while \output is active []
 
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 141--142
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
 []\T1/cmr/m/n/10.95 RosJava guide-lines
  []
 
 
-Underfull \hbox (badness 1521) in paragraph at lines 142--143
+Underfull \hbox (badness 1521) in paragraph at lines 128--129
 []\T1/cmr/m/n/10.95 Apache Jena On-tol-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 153--154
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
 []\T1/cmr/m/n/10.95 RosJava guide-lines
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--158
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
 []\T1/cmr/m/n/10.95 Implement con-sis-tency
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--160
+Underfull \hbox (badness 10000) in paragraph at lines 145--146
 []\T1/cmr/m/n/10.95 Reasoner in-vo-ca-tion in
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 164--165
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
 []\T1/cmr/m/n/10.95 Specialize Rea-soner
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 177--178
+Underfull \hbox (badness 10000) in paragraph at lines 163--164
 []\T1/cmr/m/n/10.95 Specialize Rea-soner
+ []
+
+
+Underfull \hbox (badness 5288) in paragraph at lines 167--168
+[]\T1/cmr/m/n/10.95 Gazebo Doc-u-men-ta-
+ []
+
+
+Underfull \hbox (badness 1087) in paragraph at lines 171--172
+[]\T1/cmr/m/n/10.95 Call spawn model ser-vice
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
+[]\T1/cmr/m/n/10.95 SPARQL queries
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
+[]\T1/cmr/m/n/10.95 Coordinator Node
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 177--178
+[]\T1/cmr/m/n/10.95 Interface be-tween
+ []
+
+
+Underfull \hbox (badness 6110) in paragraph at lines 177--178
+\T1/cmr/m/n/10.95 Se-man-tic Map and
+ []
+
+
+Underfull \hbox (badness 5548) in paragraph at lines 180--181
+[]\T1/cmr/m/n/10.95 Jena On-tol-ogy Api
  []
 
 
@@ -767,60 +803,25 @@ Underfull \hbox (badness 5288) in paragraph at lines 181--182
  []
 
 
-Underfull \hbox (badness 1087) in paragraph at lines 185--186
-[]\T1/cmr/m/n/10.95 Call spawn model ser-vice
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 189--190
-[]\T1/cmr/m/n/10.95 SPARQL queries
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 190--191
-[]\T1/cmr/m/n/10.95 Coordinator Node
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 191--192
-[]\T1/cmr/m/n/10.95 Interface be-tween
- []
-
-
-Underfull \hbox (badness 6110) in paragraph at lines 191--192
-\T1/cmr/m/n/10.95 Se-man-tic Map and
- []
-
-
-Underfull \hbox (badness 5548) in paragraph at lines 194--195
-[]\T1/cmr/m/n/10.95 Jena On-tol-ogy Api
- []
-
-
-Underfull \hbox (badness 5288) in paragraph at lines 195--196
-[]\T1/cmr/m/n/10.95 Gazebo Doc-u-men-ta-
- []
-
-
-Overfull \hbox (8.58763pt too wide) in paragraph at lines 132--205
+Overfull \hbox (8.58763pt too wide) in paragraph at lines 118--191
  [] 
  []
 
 
-Overfull \hbox (8.58763pt too wide) in paragraph at lines 209--224
+Overfull \hbox (8.58763pt too wide) in paragraph at lines 195--210
  [] 
  []
 
 [4]) [5]
 \openout2 = `ontology.aux'.
 
- (./ontology.tex <imgs/ontology.png, id=241, 262.9825pt x 543.02875pt>
+ (./ontology.tex <imgs/ontology.png, id=246, 262.9825pt x 543.02875pt>
 File: imgs/ontology.png Graphic file (type png)
 
 <use imgs/ontology.png>
 Package pdftex.def Info: imgs/ontology.png used on input line 9.
 (pdftex.def)             Requested size: 130.50133pt x 269.48364pt.
- <imgs/ontology1.png, id=242, 823.075pt x 572.1375pt>
+ <imgs/ontology1.png, id=247, 823.075pt x 572.1375pt>
 File: imgs/ontology1.png Graphic file (type png)
 
 <use imgs/ontology1.png>
@@ -852,20 +853,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 31--32
 
  []
 
-<imgs/datatypeProtege.png, id=250, 380.42125pt x 432.61626pt>
+<imgs/datatypeProtege.png, id=255, 380.42125pt x 432.61626pt>
 File: imgs/datatypeProtege.png Graphic file (type png)
 
 <use imgs/datatypeProtege.png>
 Package pdftex.def Info: imgs/datatypeProtege.png used on input line 38.
 (pdftex.def)             Requested size: 261.00266pt x 296.82224pt.
  [7 <./imgs/ontology1.png>]
-<imgs/Datatype.png, id=259, 702.625pt x 568.1225pt>
+<imgs/Datatype.png, id=264, 702.625pt x 568.1225pt>
 File: imgs/Datatype.png Graphic file (type png)
  <use imgs/Datatype.png>
 Package pdftex.def Info: imgs/Datatype.png used on input line 45.
 (pdftex.def)             Requested size: 261.00266pt x 211.04291pt.
 
-<imgs/propClassTree.png, id=261, 290.08376pt x 204.765pt>
+<imgs/propClassTree.png, id=266, 290.08376pt x 204.765pt>
 File: imgs/propClassTree.png Graphic file (type png)
 
 <use imgs/propClassTree.png>
@@ -873,12 +874,12 @@ Package pdftex.def Info: imgs/propClassTree.png used on input line 55.
 (pdftex.def)             Requested size: 261.00266pt x 184.24928pt.
  [8 <./imgs/datatypeProtege.png> <./imgs/Datatype.png>] (/usr/share/texlive/tex
 mf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2013/08/26 1.5b listings language file
+File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 62.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 ) [9 <./imgs/propClassTree.png>]
 Overfull \hbox (51.37802pt too wide) in paragraph at lines 102--105
 \T1/cmr/m/n/10.95 The first re-stric-tion is a Value con-traint linked (us-ing 
@@ -896,7 +897,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 109--110
 
  []
 
-[10] <imgs/chair1.png, id=329, 747.79375pt x 420.57124pt>
+[10] <imgs/chair1.png, id=334, 747.79375pt x 420.57124pt>
 File: imgs/chair1.png Graphic file (type png)
 
 <use imgs/chair1.png>
@@ -907,14 +908,14 @@ Overfull \hbox (16.87859pt too wide) in paragraph at lines 144--145
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-<imgs/refChair1.png, id=330, 635.37375pt x 304.13625pt>
+<imgs/refChair1.png, id=335, 635.37375pt x 304.13625pt>
 File: imgs/refChair1.png Graphic file (type png)
 
 <use imgs/refChair1.png>
 Package pdftex.def Info: imgs/refChair1.png used on input line 152.
 (pdftex.def)             Requested size: 261.00266pt x 124.93797pt.
  [11 <./imgs/chair1.png> <./imgs/refChair1.png>]
-<imgs/coordchair1.png, id=344, 770.88pt x 292.09125pt>
+<imgs/coordchair1.png, id=349, 770.88pt x 292.09125pt>
 File: imgs/coordchair1.png Graphic file (type png)
 
 <use imgs/coordchair1.png>
@@ -928,7 +929,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--10
 
  []
 
-<imgs/gazebo1.png, id=360, 1539.7525pt x 932.48375pt>
+<imgs/gazebo1.png, id=365, 1539.7525pt x 932.48375pt>
 File: imgs/gazebo1.png Graphic file (type png)
  <use imgs/gazebo1.png>
 Package pdftex.def Info: imgs/gazebo1.png used on input line 17.
@@ -947,7 +948,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--27
  []
 
 [14 <./imgs/gazebo1.png>]
-<imgs/gazebo2.png, id=374, 1165.35374pt x 704.6325pt>
+<imgs/gazebo2.png, id=379, 1165.35374pt x 704.6325pt>
 File: imgs/gazebo2.png Graphic file (type png)
  <use imgs/gazebo2.png>
 Package pdftex.def Info: imgs/gazebo2.png used on input line 38.
@@ -957,13 +958,13 @@ Package pdftex.def Info: imgs/gazebo2.png used on input line 38.
 \openout2 = `arch.aux'.
 
  (./arch.tex
-<imgs/arch1.jpg, id=381, 1025.8325pt x 476.78125pt>
+<imgs/arch1.jpg, id=386, 1025.8325pt x 476.78125pt>
 File: imgs/arch1.jpg Graphic file (type jpg)
  <use imgs/arch1.jpg>
 Package pdftex.def Info: imgs/arch1.jpg used on input line 10.
 (pdftex.def)             Requested size: 348.00133pt x 161.73972pt.
 
-<imgs/semantic.jpg, id=382, 552.0625pt x 281.05pt>
+<imgs/semantic.jpg, id=387, 552.0625pt x 281.05pt>
 File: imgs/semantic.jpg Graphic file (type jpg)
  <use imgs/semantic.jpg>
 Package pdftex.def Info: imgs/semantic.jpg used on input line 20.
@@ -983,21 +984,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--11
 [19
 
 
-] <imgs/topics1.jpg, id=429, 1025.8325pt x 476.78125pt>
+] <imgs/topics1.jpg, id=434, 1025.8325pt x 476.78125pt>
 File: imgs/topics1.jpg Graphic file (type jpg)
 
 <use imgs/topics1.jpg>
 Package pdftex.def Info: imgs/topics1.jpg used on input line 73.
 (pdftex.def)             Requested size: 348.00133pt x 161.73972pt.
  [20 <./imgs/topics1.jpg>]
-<imgs/gazebocoord.jpg, id=462, 528.97626pt x 224.84pt>
+<imgs/gazebocoord.jpg, id=467, 528.97626pt x 224.84pt>
 File: imgs/gazebocoord.jpg Graphic file (type jpg)
 
 <use imgs/gazebocoord.jpg>
 Package pdftex.def Info: imgs/gazebocoord.jpg used on input line 126.
 (pdftex.def)             Requested size: 217.5pt x 92.44572pt.
  [21 <./imgs/gazebocoord.jpg>]
-<imgs/topics2.jpg, id=497, 1025.8325pt x 266.9975pt>
+<imgs/topics2.jpg, id=502, 1025.8325pt x 266.9975pt>
 File: imgs/topics2.jpg Graphic file (type jpg)
  <use imgs/topics2.jpg>
 Package pdftex.def Info: imgs/topics2.jpg used on input line 141.
@@ -1008,7 +1009,7 @@ LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 305
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
-File: ts1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+File: ts1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 ) [25] [26]
 Underfull \hbox (badness 10000) in paragraph at lines 394--397
 
@@ -1019,22 +1020,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 394--397
 
  []
 
-[27]) [28] (./paper.lof)
+[27]
+Overfull \hbox (97.0505pt too wide) in paragraph at lines 450--451
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][]  
+ []
+
+
+Overfull \hbox (91.9517pt too wide) in paragraph at lines 464--465
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][]  
+ []
+
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 491--496
+
+ []
+
+) [29] (./paper.lof)
 \tf@lof=\write5
 \openout5 = `paper.lof'.
 
- [29
+ [30
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 214.
- [30]
+ [31]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 214.
  (./paper.aux (./cover.aux) (./ontology.aux)
 (./technologies.aux) (./arch.aux) (./application.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 214.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 214.
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: B4A983C40091D62E39012376275663FD;1778.
+(rerunfilecheck)             Checksum: 31A2729A925A40CEB7344D0CDDCDF022;1899.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1042,38 +1060,38 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 214.
  ) 
 Here is how much of TeX's memory you used:
- 10906 strings out of 494985
- 152034 string characters out of 6180357
- 460542 words of memory out of 5000000
- 13382 multiletter control sequences out of 15000+600000
+ 10983 strings out of 494901
+ 153152 string characters out of 6179486
+ 471439 words of memory out of 5000000
+ 13504 multiletter control sequences out of 15000+600000
  25860 words of font info for 75 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  36i,12n,43p,688b,1969s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/tctt0800.600pk> </hom
-e/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0800.600pk>{/usr/share/te
-xlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/heavylab/.texmf-var/fonts/
-pk/ljfour/jknappen/ec/ectt0900.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfou
-r/jknappen/ec/ecrm0600.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknapp
-en/ec/tcrm1095.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ec
-rm1000.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0700.6
-00pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </
-home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/hea
-vylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/heavylab/.t
-exmf-var/fonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </home/heavylab/.texmf-var
-/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/heavylab/.texmf-var/fonts/p
-k/ljfour/jknappen/ec/ecbx1200.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfour
-/jknappen/ec/ecrm1200.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappe
-n/ec/ecbx1440.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecr
-m1440.600pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.60
-0pk> </home/heavylab/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on paper.pdf (33 pages, 1613312 bytes).
+ </home/sashimono/.texmf-var/fonts/pk/ljfour/jknappen/ec/tctt0800.600pk> </ho
+me/sashimono/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0800.600pk>{/usr/share/
+texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/sashimono/.texmf-var/fon
+ts/pk/ljfour/jknappen/ec/ectt0900.600pk> </home/sashimono/.texmf-var/fonts/pk/l
+jfour/jknappen/ec/ecrm0600.600pk> </home/sashimono/.texmf-var/fonts/pk/ljfour/j
+knappen/ec/tcrm1095.600pk> </home/sashimono/.texmf-var/fonts/pk/ljfour/jknappen
+/ec/ecrm1000.600pk> </home/sashimono/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecr
+m0700.600pk> </home/sashimono/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.6
+00pk> </home/sashimono/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> <
+/home/sashimono/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/s
+ashimono/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </home/sashimon
+o/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/sashimono/.texm
+f-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/sashimono/.texmf-var/f
+onts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/sashimono/.texmf-var/fonts/pk
+/ljfour/jknappen/ec/ecbx1440.600pk> </home/sashimono/.texmf-var/fonts/pk/ljfour
+/jknappen/ec/ecrm1440.600pk> </home/sashimono/.texmf-var/fonts/pk/ljfour/jknapp
+en/ec/ecrm1728.600pk> </home/sashimono/.texmf-var/fonts/pk/ljfour/jknappen/ec/e
+cbx1728.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on paper.pdf (34 pages, 1621916 bytes).
 PDF statistics:
- 1574 PDF objects out of 1728 (max. 8388607)
- 925 compressed objects within 10 object streams
- 504 named destinations out of 1000 (max. 500000)
- 297 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1634 PDF objects out of 1728 (max. 8388607)
+ 973 compressed objects within 10 object streams
+ 537 named destinations out of 1000 (max. 500000)
+ 305 words of extra memory for PDF output out of 10000 (max. 10000000)
 
