@@ -85,7 +85,7 @@ def talker():
             # Test for manual Changes:
             for x in instances:
 
-                if x in instancesDict: coords = instancesDict[x][coordInfoTag]
+                if x in instancesDict: coords = instancesDict[x][uriString.TAG_COORD_FULL]
 
                 if (settings.updateCheckVerbosityMax):
                     print("\n\n\n\n"+uriString.COORDINATOR+"DICTIONARY:")
@@ -103,7 +103,7 @@ def talker():
                 poseToUpdate = str(pos.x)+","+str(pos.y)+","+str(pos.z)
 
                 if isGreaterThatNorm(pos,coords,threshold,x):
-                    update_rqt = uriString.UPDATE_HEADER+uriString.SEPARATOR+x+uriString.SEPARATOR+instancesDict[x][classInfoTag]+uriString.SEPARATOR+poseToUpdate+uriString.SEPARATOR+instancesDict[x][lexInfoTag] + uriString.SEPARATOR+uriString.TERMINATOR;
+                    update_rqt = uriString.UPDATE_HEADER+uriString.SEPARATOR+x+uriString.SEPARATOR+instancesDict[x][uriString.TAG_TYPE_FULL]+uriString.SEPARATOR+poseToUpdate+uriString.SEPARATOR+instancesDict[x][uriString.TAG_LEX] + uriString.SEPARATOR+uriString.TERMINATOR;
                     #print("UPDATE requested semantic Map");
                     #rospy.loginfo(update_rqt);
                     bridge.publish(update_rqt);   
@@ -177,7 +177,6 @@ def spawn(name,coords,xml):
             orient = Quaternion(*tf.transformations.quaternion_from_euler(float(roll),float(pitch),float(yaw)))
             pose = Pose(Point(float(coordsInfo[0]),float(coordsInfo[1]),float(coordsInfo[2])), orient)
             print spawn_model(name.split("#")[1], xml, "", pose, "world")
-            #update_rqt = uriString.UPDATE_HEADER+uriString.SEPARATOR+x+uriString.SEPARATOR+instancesDict[x][classInfoTag]+uriString.SEPARATOR+poseToUpdate+uriString.SEPARATOR+instancesDict[x][lexInfoTag] + uriString.SEPARATOR+uriString.TERMINATOR;
             #print("UPDATE requested semantic Map");
             #rospy.loginfo(update_rqt);
             #bridge.publish(update_rqt);  
@@ -376,15 +375,19 @@ def callback(data):
 
                 # Add class, position and lexical ref info to Dict    
                 instancesDict[uriInstance] = {}
-                instancesDict[uriInstance][lexInfoTag] = lexInstance
-                instancesDict[uriInstance][coordInfoTag] = coordsInstance
-                instancesDict[uriInstance][classInfoTag] = classInstance
+                instancesDict[uriInstance][uriString.TAG_LEX] = lexInstance
+                instancesDict[uriInstance][uriString.TAG_COORD_FULL] = coordsInstance
+                instancesDict[uriInstance][uriString.TAG_COORD] = {}
+                instancesDict[uriInstance][uriString.TAG_COORD][uriString.TAG_COORD_X] = coordxInstance
+                instancesDict[uriInstance][uriString.TAG_COORD][uriString.TAG_COORD_Y] = coordyInstance
+                instancesDict[uriInstance][uriString.TAG_COORD][uriString.TAG_COORD_Z] = coordzInstance
+                instancesDict[uriInstance][uriString.TAG_ATOM] = str(uriInstance.split("#")[1])
+                instancesDict[uriInstance][uriString.TAG_TYPE_FULL] = str(classInstance)
+                instancesDict[uriInstance][uriString.TAG_TYPE] = str(classInstance.split("#")[1])
 
 
                 if (settings.semananticMapVerbosityMax):
-                    print("\n"+uriString.COORDINATOR+"DEBUG\n")
-                    print(instancesDict)
-                    print("\n"+uriString.COORDINATOR+"END DEBUG\n")
+                    print("\n"+instancesDict+"\n")
 
                 # Set flag after first instance's info received
                 if (prop[0]=="i"):

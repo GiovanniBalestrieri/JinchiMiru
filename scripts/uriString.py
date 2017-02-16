@@ -64,4 +64,17 @@ pose_to_add =  pose_to_add_x + ","+pose_to_add_y +","+pose_to_add_z
 lex_ref_to_add = "sediola"
 
 
+# Json options
+JSON_MIN = True
+TAG = "entities"
+TAG_ATOM = "atom"
+TAG_ATOM_FULL = "atom_full"
+TAG_TYPE = "type"
+TAG_TYPE_FULL = "type_full"
+TAG_COORD = "coordinate"
+TAG_COORD_FULL = "coordinates"
+TAG_LEX = "preferredLexicalReference"
+TAG_COORD_X = "x"
+TAG_COORD_Y = "y"
+TAG_COORD_Z = "z"
 
