@@ -9,6 +9,7 @@ from gazebo_msgs.srv import *
 from geometry_msgs.msg import *
 import uriString
 import settings, json
+import models
 
 
 # KnowledgeBase - bridge syncronization
@@ -39,21 +40,22 @@ spawn_model = rospy.ServiceProxy("gazebo/spawn_sdf_model", SpawnModel)
 
 unit = 0.05
 
-with open("/home/heavylab/.gazebo/models/coke_can/model.sdf", "r") as f:
+with open(models.coke, "r") as f:
     coke_xml = f.read();
-with open("/home/heavylab/.gazebo/models/beer/model.sdf", "r") as f:
+with open(models.beer, "r") as f:
     beer_xml = f.read();
-with open("/home/heavylab/.gazebo/models/table/model.sdf", "r") as f:
+with open(models.table, "r") as f:
     table_xml = f.read();
-with open("/home/heavylab/.gazebo/models/chair/model.sdf","r") as f:
+with open(models.chair,"r") as f:
     chair_xml = f.read();
 
 
 bridge = rospy.Publisher('bridge', String, queue_size=10)
 extern = rospy.Publisher('extern_commands', String, queue_size=10)
 
-def talker():
+def coordinator():
     global workingOnRequest
+    print("Starting Coordintor")
     # Subscribe to mapHandler Topic
     rospy.Subscriber("huric_jena", String, callback)
     # Subscribe to Externel Commands Topic
@@ -68,9 +70,9 @@ def talker():
             hello_str = "i\tgetInstances\tT"
             print(uriString.COORDINATOR + "Initialization: Sending request to Semantic Map");
             #rospy.loginfo(hello_str);
-            bridge.publish(hello_str);            
-            
-        elif (not workingOnRequest):        
+            bridge.publish(hello_str);
+
+        elif (not workingOnRequest):
             if settings.finalVerbosity:
                 print("\n"+uriString.COORDINATOR+ "Sync ...\n")
             # Looking for manual position updates using Gazebo
@@ -106,7 +108,7 @@ def talker():
                     update_rqt = uriString.UPDATE_HEADER+uriString.SEPARATOR+x+uriString.SEPARATOR+instancesDict[x][uriString.TAG_TYPE_FULL]+uriString.SEPARATOR+poseToUpdate+uriString.SEPARATOR+instancesDict[x][uriString.TAG_LEX] + uriString.SEPARATOR+uriString.TERMINATOR;
                     #print("UPDATE requested semantic Map");
                     #rospy.loginfo(update_rqt);
-                    bridge.publish(update_rqt);   
+                    bridge.publish(update_rqt);
 
         rate.sleep()
 
@@ -140,33 +142,25 @@ def isGreaterThatNorm(positionGazebo,positionReal,normThreshold,uriInstance):
         return True
 
 def spawn(name,coords,xml):
-    ## TODO check whether instance already present in gazebo
-    # get name from second property
-    # retrieve coords
-
     # init orientation steady
     roll = 0
     pitch = 0
-    yaw = 0 
+    yaw = 0
 
-    coordsInfo = coords.split(",")  
+    coordsInfo = coords.split(",")
     # Check if 3D info
     if (len(coordsInfo)==3):
-
-        
         if name in instances:
         #if (model_req.success):
             # Object is present. Check position and respawn
 
              # Check if Model has already been spawned
-            print("\n\n\t"+uriString.COORDINATOR+"Checking model in gazebo\n");
             model_req = gms(str(name.split("#")[1]),"world")
-            print("\n\n\t"+uriString.COORDINATOR+"\tTada\t"+str(model_req.success)+"\n");
+            print("\n\n\t"+uriString.COORDINATOR+"Checking model in gazebo. Present: "+ str(model_req.success) +"\n");
+
             pos = model_req.pose.position
             if isGreaterThatNorm(pos,coords,threshold,name):
-                # Position is different. Delete and respawn
-                #delete_model(name)
-
+                # Position is different.
                 orient = Quaternion(*tf.transformations.quaternion_from_euler(float(roll),float(pitch),float(yaw)))
                 pose = Pose(Point(float(coordsInfo[0]),float(coordsInfo[1]),float(coordsInfo[2])), orient)
                 print spawn_model(name.split("#")[1], xml, "", pose, "world")
@@ -179,14 +173,14 @@ def spawn(name,coords,xml):
             print spawn_model(name.split("#")[1], xml, "", pose, "world")
             #print("UPDATE requested semantic Map");
             #rospy.loginfo(update_rqt);
-            #bridge.publish(update_rqt);  
+            #bridge.publish(update_rqt);
     else:
         print("\n\n\t"+uriString.COORDINATOR+"WARNING. Requested to spawn a model with an invalid pose information\n\n");
 
 '''
     Callback function for /huric_jena topic
-    
-    Commands supported: 
+
+    Commands supported:
         -> initial Sync  :   "i\tclass\turi\t"x,y,z"\tref\tz"
             -> spawn 3d models
             -> save into instancesDict all known instances
@@ -209,7 +203,7 @@ def callback(data):
     prop = data.data.split("\t")
     if (len(prop)>3):
 
-        # Received response from SemanticMap Node 
+        # Received response from SemanticMap Node
         # Initial sync with knowledge base
         if (prop[0]==uriString.INIT_HEADER or prop[0]==uriString.DEL_ACK_HEADER or prop[0] == "u" or prop[0] == "addack" or prop[0] == "getack" or prop[0] == uriString.LIST_ACK_HEADER or prop[0] == uriString.EXPORT_ACK_HEADER or prop[0]==uriString.LOAD_ACK_HEADER):
             workingOnRequest = True
@@ -221,35 +215,30 @@ def callback(data):
             elif (prop[0]==uriString.ADD_ACK_HEADER):
                 print("\n"+uriString.COORDINATOR+"Received ack from SemanticMap handler \n\n")
                 print("\n"+uriString.COORDINATOR+"Sending add_ack to External topic \n\n")
-
                 ack_rqt = uriString.ADD_ACK_HEADER + "\t" + "T"
                 extern.publish(ack_rqt);
+
             elif (prop[0]==uriString.LOAD_ACK_HEADER):
                 print("\n"+uriString.COORDINATOR+"Received ack from SemanticMap handler \n\n")
                 print("\n"+uriString.COORDINATOR+"Sending load_ack to External topic. Requesting Sync \n\n")
                 sync = False;
                 ack_rqt = uriString.LOAD_ACK_HEADER + "\t" + "T"
                 extern.publish(ack_rqt);
+
             elif (prop[0]==uriString.GET_ACK_HEADER):
                 print("\n"+uriString.COORDINATOR+"Received ack from SemanticMap handler \n\n")
                 print("\n"+uriString.COORDINATOR+"Sending get_ack to External topic \n\n")
-
-
-
                 ack_rqt = uriString.GET_ACK_HEADER + "\t" + "T"
                 extern.publish(ack_rqt);
+
             elif (prop[0]==uriString.LIST_ACK_HEADER):
                 print("\n"+uriString.COORDINATOR+"Received ack from SemanticMap handler \n\n")
                 print("\n"+uriString.COORDINATOR+"Sending INSTANCES to External topic \n\n")
-
-
                 print("\nJson\n")
                 json.dump(instancesDict,sys.stdout)
-
                 ack_rqt = uriString.LIST_ACK_HEADER + "\t" + "T"
                 extern.publish(ack_rqt);
 
-            
             if (settings.topicVerbosityMax):
                 print(""+uriString.COORDINATOR+"Received:\t" +data.data+"\n\n")
 
@@ -282,7 +271,7 @@ def callback(data):
 
                 if (settings.topicVerbosityMax):
                     print("\n"+uriString.COORDINATOR+"Received ack from SemanticMap handler.\n"+ uriInstance + "\tDeleted \n\n")
-                
+
                 if uriInstance == uriString.ALL:
                     print("\n"+uriString.COORDINATOR+" Removing ALL instances from list of instances.")
 
@@ -294,7 +283,7 @@ def callback(data):
 
                     if (settings.topicVerbosityMax):
                         print("\nremoved dictionary\n\n")
-                    for x in instances: 
+                    for x in instances:
                         delete_model(str(x.split("#")[1]))
                         time.sleep(1)
 
@@ -319,7 +308,7 @@ def callback(data):
                     print("\n"+str(model_req.success))
 
                     delete_model(str(uriInstance.split("#")[1]))
-                    if uriInstance in instancesDict: 
+                    if uriInstance in instancesDict:
                         del instancesDict[uriInstance]
 
                     if (settings.topicVerbosityMax):
@@ -346,17 +335,17 @@ def callback(data):
 
 
                 # Gazebo doesn't contain the instance. Spawn it
-                if (classInstance == uriString.chair):  
+                if (classInstance == uriString.chair):
                     spawn(uriInstance,coordsInstance,chair_xml)
 
-                if (classInstance == uriString.beer): 
-                    spawn(uriInstance,coordsInstance,beer_xml) 
+                if (classInstance == uriString.beer):
+                    spawn(uriInstance,coordsInstance,beer_xml)
 
-                if (classInstance == uriString.coke): 
-                    spawn(uriInstance,coordsInstance,coke_xml) 
+                if (classInstance == uriString.coke):
+                    spawn(uriInstance,coordsInstance,coke_xml)
 
-                if (classInstance == uriString.table): 
-                    spawn(uriInstance,coordsInstance,table_xml) 
+                if (classInstance == uriString.table):
+                    spawn(uriInstance,coordsInstance,table_xml)
 
                 if uriInstance not in instances:
                     print(""+uriString.COORDINATOR+"There is a new instance: \n" + uriInstance)
@@ -370,10 +359,13 @@ def callback(data):
 
                 if (prop[0]==uriString.LIST_ACK_HEADER):
 
+
+                    print(""+uriString.COORDINATOR+" Instances:\n" + str(instances))
+
                     ack_rqt = uriString.LIST_OBJ_ACK_HEADER+uriString.SEPARATOR + uriInstance +uriString.SEPARATOR + classInstance +uriString.SEPARATOR + coordsInstance +uriString.SEPARATOR + lexInstance +uriString.SEPARATOR + uriString.TERMINATOR
                     extern.publish(ack_rqt);
 
-                # Add class, position and lexical ref info to Dict    
+                # Add class, position and lexical ref info to Dict
                 instancesDict[uriInstance] = {}
                 instancesDict[uriInstance][uriString.TAG_LEX] = lexInstance
                 instancesDict[uriInstance][uriString.TAG_COORD_FULL] = coordsInstance
@@ -381,9 +373,16 @@ def callback(data):
                 instancesDict[uriInstance][uriString.TAG_COORD][uriString.TAG_COORD_X] = coordxInstance
                 instancesDict[uriInstance][uriString.TAG_COORD][uriString.TAG_COORD_Y] = coordyInstance
                 instancesDict[uriInstance][uriString.TAG_COORD][uriString.TAG_COORD_Z] = coordzInstance
-                instancesDict[uriInstance][uriString.TAG_ATOM] = str(uriInstance.split("#")[1])
+                if len(uriInstance.split("#")) >= 2:
+                    instancesDict[uriInstance][uriString.TAG_ATOM] = str(uriInstance.split("#")[1])
+                else:
+                    instancesDict[uriInstance][uriString.TAG_ATOM] = str(uriInstance)
                 instancesDict[uriInstance][uriString.TAG_TYPE_FULL] = str(classInstance)
-                instancesDict[uriInstance][uriString.TAG_TYPE] = str(classInstance.split("#")[1])
+                if len(classInstance.split("#"))>=2:
+                    instancesDict[uriInstance][uriString.TAG_TYPE] = str(classInstance.split("#")[1])
+                else:
+                    instancesDict[uriInstance][uriString.TAG_TYPE] = str(classInstance)
+
 
 
                 if (settings.semananticMapVerbosityMax):
@@ -391,21 +390,21 @@ def callback(data):
 
                 # Set flag after first instance's info received
                 if (prop[0]=="i"):
-                    sync = True;  
-            workingOnRequest = False;  
+                    sync = True;
+            workingOnRequest = False;
 
         elif (prop[0] == uriString.DEL_ACK_HEADER):
 
             ack_rqt = uriString.DEL_OBJ_ACK_HEADER+uriString.SEPARATOR + "" +uriString.SEPARATOR +"" +uriString.SEPARATOR + "" +uriString.SEPARATOR + "" +uriString.SEPARATOR + uriString.TERMINATOR
             extern.publish(ack_rqt);
-        
+
 
 
 
 '''
     Callback function for /extern_commands topic
-    
-    Commands supported: 
+
+    Commands supported:
         -> getEntities  :   "o\tg\tz"
         -> AddEntities  :   "o\ta\ttype\tcoordz\tcoordy\tcoordz\tlabel\tz"
         -> updateEntities : "o\tu\ttype\turi\tcoordz\tcoordy\tcoordz\tlabel\tz"
@@ -425,7 +424,7 @@ def callbackCommands(data):
             posNewInstance = mess[3];
             classInstance = mess[1];
             uriInstance = mess[2];
-            
+
             add_rqt = uriString.ADD_BY_REF_HEADER+uriString.SEPARATOR+classInstance+uriString.SEPARATOR+uriInstance+uriString.SEPARATOR+posNewInstance+uriString.SEPARATOR+lexReferenceInstance+ uriString.SEPARATOR+uriString.TERMINATOR;
 
             if (settings.topicVerbosityMax):
@@ -440,8 +439,8 @@ def callbackCommands(data):
             if (settings.topicVerbosityMax):
                 print(""+uriString.COORDINATOR+"LIST requested received from external node. Forwarding to Semantic Map");
             #rospy.loginfo(list_rqt);
-            bridge.publish(list_rqt);   
-        
+            bridge.publish(list_rqt);
+
         # DEL
         if (mess[0]==uriString.DEL_HEADER):
 			x = mess[1];
@@ -459,7 +458,7 @@ def callbackCommands(data):
 						print("\n"+uriString.COORDINATOR+"\t Sending delete request to SemanticMapInterface\n")
 					ack_rqt = uriString.DEL_HEADER + uriString.SEPARATOR+ x+ uriString.SEPARATOR+uriString.TERMINATOR
 					bridge.publish(ack_rqt);
-				else:            	
+				else:
 					if (settings.topicVerbosityMax):
 						print("\n"+uriString.COORDINATOR+"Instance not present in scene\n")
 					ack_rqt = uriString.DEL_OBJ_ACK_HEADER + uriString.SEPARATOR + uriString.ERROR + uriString.SEPARATOR + uriString.TERMINATOR
@@ -473,26 +472,26 @@ def callbackCommands(data):
 
         # EXPORT
         if (mess[0]==uriString.EXPORT_HEADER):
-            filename = mess[1] 
+            filename = mess[1]
             list_rqt = uriString.EXPORT_HEADER+uriString.SEPARATOR+filename+ uriString.SEPARATOR+uriString.TERMINATOR
             if (settings.topicVerbosityMax):
                 print(""+uriString.COORDINATOR+"EXPORT requested received from external node. Forwarding to Semantic Map");
             #rospy.loginfo(list_rqt);
-            bridge.publish(list_rqt);  
+            bridge.publish(list_rqt);
 
 
         # LOAD ONTOLOGY @ runtime
         if (mess[0]==uriString.LOAD_HEADER):
-            filename = mess[1] 
+            filename = mess[1]
             list_rqt = uriString.LOAD_HEADER+uriString.SEPARATOR+filename+ uriString.SEPARATOR+uriString.TERMINATOR
             if (settings.topicVerbosityMax):
                 print(""+uriString.COORDINATOR+"LOAD ONTOLOGY requested. Forwarding to Semantic Map");
             #rospy.loginfo(list_rqt);
-            bridge.publish(list_rqt);   
+            bridge.publish(list_rqt);
 
-                
+
 if __name__ == '__main__':
     try:
-        talker()
+        coordinator()
     except rospy.ROSInterruptException:
         pass

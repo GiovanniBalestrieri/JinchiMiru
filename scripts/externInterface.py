@@ -38,51 +38,51 @@ def query_coordinator(mode,option):
 	rospy.Subscriber("extern_commands", String, callback)
 	time.sleep(1)
 
-	rate = rospy.Rate(0.2) 
+	rate = rospy.Rate(0.05) 
 	while not rospy.is_shutdown():
 		if mode == uriString.HELP:
 			showHelp()
-			rospy.signal_shutdown("")	
+			rospy.signal_shutdown("")
 		if mode == uriString.LIST_REF_HEADER:
 			if not ackList:
 				print("Sendind list request");
-				hello_str = uriString.LIST_HEADER+uriString.SEPARATOR+"T" 
+				hello_str = uriString.LIST_HEADER+uriString.SEPARATOR+"T"
 				rospy.loginfo(hello_str);
-				commands.publish(hello_str);   
+				commands.publish(hello_str);
 				#count+=1
 				#if count == 2:
 				#	ackList = True
 		elif mode == uriString.DEL_HEADER:
 			if not ackDel:
-				if option == uriString.ALL:					
+				if option == uriString.ALL:
 					print("Sendind Delete ALL request");
 				else:
 					print("Sendind Delete Instance request");
-				hello_str = uriString.DEL_HEADER+uriString.SEPARATOR+option+uriString.SEPARATOR+"T" 
+				hello_str = uriString.DEL_HEADER+uriString.SEPARATOR+option+uriString.SEPARATOR+"T"
 				rospy.loginfo(hello_str);
-				commands.publish(hello_str);   
+				commands.publish(hello_str);
 		elif mode == uriString.EXPORT_EXT_HEADER:
 			if not ackExport:
 				print("Sendind Export request");
-				hello_str = uriString.EXPORT_HEADER+uriString.SEPARATOR+option+uriString.SEPARATOR+"T" 
+				hello_str = uriString.EXPORT_HEADER+uriString.SEPARATOR+option+uriString.SEPARATOR+"T"
 				rospy.loginfo(hello_str);
-				commands.publish(hello_str);  
+				commands.publish(hello_str);
 		elif mode == uriString.LOAD_HEADER:
 			if not ackLoad:
 				print("Sendind Load request");
-				hello_str = uriString.LOAD_HEADER+uriString.SEPARATOR+option+uriString.SEPARATOR+"T" 
+				hello_str = uriString.LOAD_HEADER+uriString.SEPARATOR+option+uriString.SEPARATOR+"T"
 				rospy.loginfo(hello_str);
-				commands.publish(hello_str);   
-		elif mode == uriString.ADD_RQ_HEADER:		
+				commands.publish(hello_str);
+		elif mode == uriString.ADD_RQ_HEADER:
 			if not ackAdd:
-				
+
 				info = option.split(",")
-				
+
 				if info[0] == uriString.class_to_add:
 					if (len(info)<3):
 						if info[1] == uriString.defaultConfig:
 							print("\nrequested default config")
-							add_str = "add\t"+uriString.class_to_add+"\t"+uriString.uri_to_add+"\t"+uriString.pose_to_add + "\t"+ uriString.lex_ref_to_add +"\tT" 
+							add_str = "add\t"+uriString.class_to_add+"\t"+uriString.uri_to_add+"\t"+uriString.pose_to_add + "\t"+ uriString.lex_ref_to_add +"\tT"
 
 							print("Sent add request");
 							#rospy.loginfo(add_str);
@@ -97,12 +97,12 @@ def query_coordinator(mode,option):
 						poseZ = info[4]
 						lexX = info[5]
 						poseToAdd = poseX+","+poseY+","+poseZ
-						add_str = "add\t"+uriString.class_to_add+"\t"+uriX+"\t"+poseToAdd + "\t"+ lexX +"\tT" 
+						add_str = "add\t"+uriString.class_to_add+"\t"+uriX+"\t"+poseToAdd + "\t"+ lexX +"\tT"
 
 						print("Sent add request");
 						#rospy.loginfo(add_str);
 						print(add_str)
-						commands.publish(add_str); 
+						commands.publish(add_str);
 				else:
 					print("\nClass not implemented. Try \"add Chair,default\"")
 
@@ -122,12 +122,12 @@ def callback(data):
     prop = data.data.split("\t")
     if (len(prop)>1):
 
-        # Received response from SemanticMap Node 
+        # Received response from SemanticMap Node
         # Initial sync with knowledge base
         if (prop[0] == uriString.LIST_ACK_HEADER):
         	ackList = True;
-        	print("\nAcknowledgement received")   
-        if (prop[0] == uriString.LIST_OBJ_ACK_HEADER):        	
+        	print("\nAcknowledgement received")
+        if (prop[0] == uriString.LIST_OBJ_ACK_HEADER):
         	print("uri:\t" + prop[1]);
         	print("\nclass:\t" + prop[2]);
         	print("\npose:\t" + prop[3]);
@@ -137,7 +137,7 @@ def callback(data):
         	ackDel = True
         	if prop[1] == uriString.TERMINATOR:
         		print("\nInstance Deleted successfully")
-        	elif prop[1] == uriString.ERROR:        		
+        	elif prop[1] == uriString.ERROR:
         		print("\nIntance Not Found")
         if (prop[0] == uriString.ADD_ACK_HEADER):
     		ackAdd = True	;
@@ -147,7 +147,7 @@ def callback(data):
     		print("\nAbox loaded successfully")
         if (prop[0] == uriString.EXPORT_ACK_HEADER):
         	ackExport = True
-        	errorExport = prop[1] 
+        	errorExport = prop[1]
         	if errorExport == "1":
         		print("\nExport PROBLEM")
         	else:
@@ -167,5 +167,3 @@ if __name__=="__main__":
     else:
     	print("Welcome\nv " + str(version))
         my_node(sys.argv[1], sys.argv[2])
-
-	
